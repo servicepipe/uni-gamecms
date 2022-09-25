@@ -11,11 +11,11 @@
 			<h4>Необходимое окружение для работы движка</h4>
 
 			<ul class="mt-10">
-				<li>• PHP 7.4-8.1</li>
+				<li>• PHP 7.4</li>
 				<li>• MySQL 5.6 - 5.7</li>
 				<li>• Права записи на файлы движка для PHP</li>
 				<li>• Включенный AllowOverride для Apache</li>
-				<li>• Наличие модулей GD, mbstring для PHP</li>
+				<li>• Наличие модулей cURL, GD, mbstring для PHP</li>
 			</ul>
 		</div>
 		<br>
@@ -42,7 +42,7 @@
 		<br>
 
 		<div class="copyright t-c">
-			Разработано при поддержке <a href="https://unigamecms.ru" target="_blank">unigamecms.ru</a>
+			Разработано при поддержке <a href="https://unigamecms.ru" target="_blank">UNI GameCMS</a>
 		</div>
 	</div>
 </div>
