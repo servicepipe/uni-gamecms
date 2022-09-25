@@ -12,13 +12,13 @@
 					<img class="d-block w-100" src="{{$slider[$i]['image']}}">
 					<div class="carousel-caption">
 						<h1>
-							{if(!empty($slider[$i]['link']))}<a href="{{$slider[$i]['link']}}" target="_blank">{/if}
+							{if(!empty($slider[$i]['link']))}<a href="{{$slider[$i]['link']}}">{/if}
 							{{$slider[$i]['title']}}
 							{if(!empty($slider[$i]['link']))}</a>{/if}
 						</h1>
 						<p class="d-none d-lg-block">{{$slider[$i]['content']}}</p>
 						{if(!empty($slider[$i]['link']))}
-							<a href="{{$slider[$i]['link']}}" class="px-4 btn btn-primary d-none d-lg-inline-block" target="_blank">Подробнее</a>
+							<a href="{{$slider[$i]['link']}}" class="px-4 btn btn-primary d-none d-lg-inline-block" target="_blank">Перейти</a>
 						{/if}
 					</div>
 				</div>
