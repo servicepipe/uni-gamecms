@@ -1,6 +1,7 @@
 <div class="block">
 	<div class="block_head">
-		Сейчас онлайн <span id="users_online_number"></span>
+	На сайте <div id="green_circle_online"></div><span id="users_online_number"></span> <small>чел.</small>
+
 	</div>
 	<div id="online_users">
 		{func Widgets:online_users()}
@@ -46,14 +47,3 @@
 		{func Widgets:last_forum_activity('5')}
 	</div>
 </div>
-
-{if($conf->disp_last_online == '1')}
-<div class="block">
-	<div class="block_head">
-		Сегодня были <span id="count_of_last_onl_us"></span>
-	</div> 
-	<div id="load_last_online">
-		{func Widgets:were_online()}
-	</div>
-</div>
-{/if}
