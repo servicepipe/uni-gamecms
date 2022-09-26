@@ -3,9 +3,9 @@
 		Подключение элементных значений
 		///////////////////////////////
 	*/
-	$levels = new Levels($pdo);												// Система уровней профиля
+	$levels = new Levels($pdo);										// Система уровней профиля
 	$playground = new Playground($pdo, $conf);								// Система торговой площадки
-	$very = new Verification($pdo);											// Система верификации
+	$very = new Verification($pdo);										// Система верификации
 	
 	$frame = trading()->get_resource_active(3, '{profile_id}');
 ?>
@@ -188,7 +188,7 @@
 				<button type="button" class="close" OnClick="close_event(1);">
 					<span aria-hidden="true">&times;</span> 
 				</button>
-				<h4 class="alert-heading">Для чего нужна Верификация?</h4>
+				<h4 class="alert-heading">Для чего нужна верификация?</h4>
 				<img src="/templates/{template}/img/verification/preview.png" width="40%" align="left">
 				<p>Верификация - это подтверждение подлинности страницы сообщества и ее владельца. Если сообщество прошло верификацию, то это означает, что его ведут реальные представители или владельцы компании/бренда. </p>
 				<hr>
@@ -207,7 +207,7 @@
 					{/if}
 					
 					{if(isset($levels))}
-						<img width="10%" src="{site_host}files/addons/levels/csgo/<?=$levels->get_user_level('{profile_id}');?>.png" alt="Уровень профиля <?=$levels->get_user_level('{profile_id}');?>" data-placement="bottom" tooltip="yes" data-original-title="<?=$levels->get_info_level($levels->get_user_level('{profile_id}'))->name;?>">
+						<img width="7%" src="{site_host}files/addons/levels/csgo/<?=$levels->get_user_level('{profile_id}');?>.png" alt="Уровень профиля <?=$levels->get_user_level('{profile_id}');?>" data-placement="bottom" tooltip="yes" data-original-title="<?=$levels->get_info_level($levels->get_user_level('{profile_id}'))->name;?>">
 					{/if}
 					
 					<small style="position: unset; float:right;">
@@ -229,8 +229,7 @@
 				</div>
 
 				<table class="table mb-0">
-					<tbody>
-                    {if('{dell}' != '1')}
+                   				        {if('{dell}' != '1')}
 						<tr>
 							<td colspan="4">
 								<h4>Общая информация</h4>
@@ -257,16 +256,7 @@
 						<tr>
 							<td>Ник на сервере</td>
 							<td colspan="3">{nick}</td>
-						</tr>
-						<tr>
-							<td colspan="4">
-								<button class="btn full_info" type="button" data-toggle="collapse" data-target="#full_info">
-									Показать подробную информацию
-								</button>
-							</td>
-						</tr>
-						</tbody>
-						<tbody class="collapse fade" id="full_info" style="border-color:transparent;">
+						</tr>					
 						<tr>
 							<td colspan="4">
 								<h4>Уровень профиля</h4>
@@ -393,9 +383,9 @@
 							</td>
 						</tr>
                     {/if}
-            <tr>
-            	<td colspan="4"><h4>Привилегии</h4></td>
-            </tr>
+            					<tr>
+            						<td colspan="4"><h4>Привилегии</h4></td>
+            					</tr>
 						<tr>
 							<td>#</td>
 							<td>Сервер</td>
@@ -403,9 +393,9 @@
 							<td>Услуги</td>
 						</tr>
 						<tr>{func Widgets:user_admins('{profile_id}')}</tr>
-            <tr>
-            	<td colspan="4"><h4>Префиксы</h4></td>
-            </tr>
+            					<tr>
+            					<td colspan="4"><h4>Префиксы</h4></td>
+            					</tr>
 						<tr>
 							<td>#</td>
 							<td>Сервер</td>
@@ -413,7 +403,6 @@
 							<td>Префикс</td>
 						</tr>
 						<tr style="overflow-x:auto;"><?=(new Prefixes(pdo()))->user_prefixes('{profile_id}');?></tr>
-					</tbody>
 				</table>
 			</div>
 
