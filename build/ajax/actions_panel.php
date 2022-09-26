@@ -28,14 +28,14 @@ if(isset($_POST['create_page'])) {
 	$content     = magic_quotes($_POST['content']);
 
 	if(check_for_php($content)) {
-		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено, используйте синтаксис шаблонизатора:  https://worksma.ru/wiki/template_syntax</p>');
+		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено, используйте синтаксис шаблонизатора:  https://unigamecms.ru/wiki/template_syntax</p>');
 	}
 
 	if(empty($class) or empty($privacy) or empty($robots) or empty($active) or empty($url) or empty($title) or empty($description) or empty($keywords) or empty($image)) {
 		exit('<p class="text-danger">Заполните все поля!</p>');
 	}
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit('<p class="text-danger">Создание страниц в тестовой версии движка запрещено!</p>');
 	}
 
