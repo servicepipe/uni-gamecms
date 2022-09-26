@@ -3,13 +3,13 @@
 	<td>{ban_reason}</td>
 	<td>
 		{if('{type}' == '0' || '{type}' == '3')}
-			Mute+Gag 
+				Чат + Микрофон 
 		{else}
-			{if('{type}' == '1')}
-				Mute
-			{else}
-				Gag
-			{/if}
+		{if('{type}' == '1')}
+				Чат
+		{else}
+				Микрофон
+		{/if}
 		{/if}
 	</td>
 	<td>
@@ -38,11 +38,11 @@
 						<div class="table-responsive mb-0">
 							<table class="table table-bordered">
 								<tr>
-									<td><b> Mute id: </b></td>
+									<td><b> Mute ID: </b></td>
 									<td>{bid}</td>
 								</tr>
 								<tr>
-									<td><b> Steam id заблокированного: </b></td>
+									<td><b> Steam ID заблокированного: </b></td>
 									<td>{player_id}</td>
 								</tr>
 								<tr>
@@ -88,7 +88,7 @@
 									<td><p class="text-{class}" id="mute_length_full{bid}">{ban_length}</p></td>
 								</tr>
 								<tr>
-									<td><b> Ip сервера: </b></td>
+									<td><b> IP сервера: </b></td>
 									<td>{address}</td>
 								</tr>
 								<tr class="{disp}" id="unmute_btns{bid}">
