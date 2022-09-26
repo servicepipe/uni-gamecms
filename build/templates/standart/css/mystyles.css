@@ -186,3 +186,23 @@ ul.pagination {
 		width: 17%;
 	}
 }
+#green_circle_online {
+    display: inline-block;
+    background-color: green;
+    width: 10px;
+    border-radius: 20px;
+    height: 10px;
+    margin-left: 10px;
+    margin-bottom: 1px;
+    box-shadow:0 0 15px rgba(255,255,255,.4);
+    -webkit-animation: mymove 3s infinite;
+    animation: mymove .4s ease-in infinite alternate;
+}
+@keyframes mymove{
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform:scale(1.3);
+  }
+}
