@@ -2275,7 +2275,7 @@ div[id^=store_info] table.table > tbody[id^=admins_services] > tr > td select {
 .profile-page .profile > img {
   width: 100%;
   margin-bottom: 15px;
-  border-radius: 1px;
+  border-radius: 10px;
 }
 .profile-page .profile .vertical-navigation span.m-icon {
   display: none;
@@ -2858,7 +2858,7 @@ blockquote:after {
 @media (min-width: 992px) {
   .order-is-last {
     -ms-flex-order: -1;
-    order: -1;
+    order: 100;
   }
 
   .order-is-first {
