@@ -51,16 +51,16 @@
 				<a href="../support/all_tickets">Открытые тикеты: +{countOfOpenTickets}</a>
 			</li>
 			{/if}
-            {if('{countOfOpenBans}' > '0')}
-				<li>
-					<a href="../bans/index">Заявки на разбан: +{countOfOpenBans}</a>
+            		{if('{countOfOpenBans}' > '0')}
+			<li>
+				<a href="../bans/index">Заявки на разбан: +{countOfOpenBans}</a>
+			</li>
+            		{/if}
+            		{if('{countOfOpenComplaints}' > '0')}
+			<li>
+				<a href="../complaints/index">Жалобы: +{countOfOpenComplaints}</a>
 				</li>
-            {/if}
-            {if('{countOfOpenComplaints}' > '0')}
-				<li>
-					<a href="../complaints/index">Жалобы: +{countOfOpenComplaints}</a>
-				</li>
-            {/if}
+            		{/if}
 			{if(is_admin_id())}
 			<li>
 				<a href="../admin" target="_blank">Админ центр</a>
