@@ -22,15 +22,15 @@
 					<div class="modal-body" id="baninfo{bid}">
 						<table class="table table-bordered">
 							<tr>
-								<td><b> Ban id: </b></td>
+								<td><b> Ban ID: </b></td>
 								<td>{bid}</td>
 							</tr>
 							<tr>
-								<td><b> Ip забаненного: </b></td>
+								<td><b> IP забаненного: </b></td>
 								<td>{player_ip}</td>
 							</tr>
 							<tr>
-								<td><b> Steam id забаненного: </b></td>
+								<td><b> Steam ID забаненного: </b></td>
 								<td>{player_id}</td>
 							</tr>
 							<tr>
