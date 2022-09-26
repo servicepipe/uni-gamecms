@@ -3,18 +3,18 @@
 		<div class="table-responsive">
 			<table class="table table-bordered br-3 mb-0 baninfo">
 				<tr>
-					<td>Ban id: </td>
+					<td>Ban ID: </td>
 					<td>
 						{bid}
 						<input type="hidden" class="form-control" id="bid_db" maxlength="11" value="{bid}">
 					</td>
 				</tr>
 				<tr>
-					<td>Ip забаненного: </td>
+					<td>IP забаненного: </td>
 					<td>{player_ip}</td>
 				</tr>
 				<tr>
-					<td>Steam id забаненного: </td>
+					<td>Steam ID забаненного: </td>
 					<td>{player_id}</td>
 				</tr>
 				<tr>
