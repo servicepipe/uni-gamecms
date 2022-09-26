@@ -7,13 +7,17 @@
 		<div class="with_code">
 			{text}
 		</div>
-
-		<p>
-			<span>Просмотров: {views}</span>
-			<span>Дата создания: {date}</span>
-			<span>Категория: <a href="../news/index?class={class_id}">{class}</a></span>
+		<br />
+		<p class="news_page">
+			<span>Просмотров: {views}</span><br>
+			<span>Дата создания: {date}</span><br>
+			<span>Категория: <a href="../news/?class={class_id}">{class}</a></span><br>
 			<span>Автор: <a href="../profile?id={author_id} ">{author_login}</a></span>
 		</p>
+		<!-- Социальные кнопки -->
+		<script src="https://yastatic.net/share2/share.js"></script>
+			<div class="ya-share2" data-curtain data-size="s" data-shape="round" data-limit="17" data-services="messenger,vkontakte,odnoklassniki,telegram,twitter,viber,whatsapp,moimir,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg"></div>
+		<!-- Социальные кнопки -->
 	</div>
 
 	<div class="block">
