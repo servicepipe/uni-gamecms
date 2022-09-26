@@ -18,7 +18,7 @@
 						</h1>
 						<p class="d-none d-lg-block">{{$slider[$i]['content']}}</p>
 						{if(!empty($slider[$i]['link']))}
-							<a href="{{$slider[$i]['link']}}" class="px-4 btn btn-primary d-none d-lg-inline-block" target="_blank">Перейти</a>
+							<a href="{{$slider[$i]['link']}}" class="px-4 btn btn-primary d-none d-lg-inline-block">Перейти</a>
 						{/if}
 					</div>
 				</div>
@@ -35,6 +35,7 @@
 	</div>
 
 	{include file="/elements/chat.tpl"}
+
 
 	{if($conf->show_news != '0')}
 	<div class="block">
@@ -59,6 +60,17 @@
 	</div>
 
 	{include file="/index/main_info.tpl"}
+
+	{if($conf->disp_last_online == '1')}
+	<div class="block">
+	<div class="block_head">
+		Сегодня были<span id="count_of_last_onl_us"></span> человек
+	</div> 
+	<div id="load_last_online">
+		{func Widgets:were_online()}
+	</div>
+	</div>
+	{/if}
 </div>
 
 <div class="disp-n" id="auth-result">{conf_mess}</div>
