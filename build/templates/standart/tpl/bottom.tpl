@@ -61,6 +61,10 @@
 						<div class="col-lg-8 copyright">
 							<p><a href="{site_host}" title="{site_name}">{site_name}</a> © Все права защищены</p>
 							{unigamecms_copyright}
+							<!-- Социальные кнопки -->
+							<script src="https://yastatic.net/share2/share.js"></script>
+							<div class="ya-share2" data-curtain data-size="s" data-shape="round" data-color-scheme="whiteblack" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir,skype"></div>
+							<!-- Социальные кнопки -->
 						</div>
 						<div class="col-lg-4 banners">
 							{for($i=0;$i < count($footer_banners);$i++)}  
