@@ -27,7 +27,7 @@
 				</span>
 			</div>
 			{else}
-			<p class="mb-0 mt-4 text-center"><a class="small" data-toggle="modal" data-target="#authorization">Авторизуйтесь</a>, чтобы отправлять сообщения</p>
+			<p class="mb-0 mt-4 text-center"><a class="small" href="/login">Авторизуйтесь</a>, чтобы отправлять сообщения</p>
 			{/if}
 		</form>
 	</div>
