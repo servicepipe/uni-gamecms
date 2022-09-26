@@ -33,7 +33,7 @@
 				<div>
 					<i class="fas fa-star"></i>
 					Скидка<br>
-                    {proc}%
+                    {proc} %
 				</div>
 			</div>
 			<div class="col-lg-3 d-none d-lg-block" onclick="scrollToBox('#last_operations');">
