@@ -23,14 +23,14 @@
 				return $servers;
 			endif;
 
-			return "<option selected disabled>Серверов нет.</option>";
+			return "<option selected disabled>Серверов нет</option>";
 		}
 
 		public function get_term($id_server = null) {
 			$sth = pdo()->query("SELECT * FROM `servers__prefixes_term` WHERE `id_server`='$id_server'");
 
 			if($sth->rowCount()):
-				$term = "<option selected disabled>Выберите тариф.</option>";
+				$term = "<option selected disabled>Выберите тариф</option>";
 
 				while($row = $sth->fetch(PDO::FETCH_OBJ)):
 					$term .= "<option value=\"$row->id\">" . (($row->time == 0) ? "Навсегда" : ($row->time . " дня(ей)")) . ' - ' . $this->get_term_price($row->id) . " руб.". (empty($row->discount) ? "" : (" (скидка {$row->discount}%)")) ."</option>";
@@ -39,7 +39,7 @@
 				return $term;
 			endif;
 
-			return "<option selected disabled>Сервер не настроен.</option>";
+			return "<option selected disabled>Сервер не настроен</option>";
 		}
 
 		public function term($id_term = null) {
@@ -216,7 +216,7 @@
 			$sth = pdo()->query("SELECT * FROM `servers__prefixes` WHERE `id_user`='$id_user'");
 
 			if(!$sth->rowCount()):
-				return "<tr class='text-center'><td colspan='4'>Префиксов нет.</td></tr>";
+				return "<tr class='text-center'><td colspan='4'>Префиксов нет</td></tr>";
 			endif;
 
 			$this->clearTemp();
