@@ -28,7 +28,7 @@ if(isset($_POST['create_page'])) {
 	$content     = magic_quotes($_POST['content']);
 
 	if(check_for_php($content)) {
-		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено, используйте синтаксис шаблонизатора:  https://unigamecms.ru/wiki/template_syntax</p>');
+		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено');
 	}
 
 	if(empty($class) or empty($privacy) or empty($robots) or empty($active) or empty($url) or empty($title) or empty($description) or empty($keywords) or empty($image)) {
@@ -122,14 +122,14 @@ if(isset($_POST['page_edit'])) {
 	$content     = magic_quotes($_POST['content']);
 
 	if(check_for_php($content)) {
-		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено, используйте синтаксис шаблонизатора:  https://worksma.ru/wiki/template_syntax</p>');
+		exit('<p class="text-danger">Использование PHP кода в режиме безопасной эксплуатации запрещено');
 	}
 
 	if(empty($class) or empty($privacy) or empty($robots) or empty($active) or empty($url) or empty($title) or empty($description) or empty($keywords)) {
 		exit('<p class="text-danger">Заполните все поля!</p>');
 	}
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit('<p class="text-danger">Создание страниц в тестовой версии движка запрещено!</p>');
 	}
 
@@ -1088,7 +1088,7 @@ if(isset($_POST['edit_site_password'])) {
 	$password     = check($_POST['password'], null);
 	$password2    = check($_POST['password2'], null);
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit('<p class="text-danger">Редактирование данных настроек в тестовой версии движка запрещено!</p>');
 	}
 
@@ -1439,7 +1439,7 @@ if(isset($_POST['onQiwiPaymentSystem'])) {
 		exit(
 			'<p class="text-danger">'
 			. 'Для использования qiwi требуется наличие '
-			. '<a target="_blank" href="https://worksma.ru/wiki/SSL-sertifikat-pokupka-ustanovka">SSL сертификата!</a>'
+			. '<a target="_blank" href="https://unigamecms.ru/docs/ssl">SSL сертификата!</a>'
 			. '</p>'
 			. '<script>'
 			. '$("#qiwiTrigger label:nth-child(1)").removeClass("active");'
@@ -1685,7 +1685,7 @@ if(isset($_POST['edit_email_settings'])) {
 	$from_email   = check($_POST['from_email'], null);
 	$verify_peers = check($_POST['verify_peers'], null);
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit('<p class="text-danger">Редактирование данных настроек в тестовой версии движка запрещено!</p>');
 	}
 
@@ -2467,7 +2467,7 @@ if(isset($_POST['get_content_tpl']) || isset($_POST['save_code'])) {
 		exit(json_encode(['status' => '2', 'message' => 'Загрузка файла невозможна']));
 	}
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'ddemo.unigamecms.ru') {
 		exit(json_encode(['status' => '2', 'message' => 'В тестовом движке редактирование шаблонов запрещено!']));
 	}
 
@@ -2489,7 +2489,7 @@ if(isset($_POST['get_content_tpl']) || isset($_POST['save_code'])) {
 			json_encode(
 				[
 					'status'  => '2',
-					'message' => 'Использование PHP кода в режиме безопасной эксплуатации запрещено, используйте синтаксис шаблонизатора:  https://worksma.ru/wiki/template_syntax'
+					'message' => 'Использование PHP кода в режиме безопасной эксплуатации запрещено'
 				]
 			)
 			);
@@ -3410,8 +3410,8 @@ if(isset($_POST['load_servers'])) {
 						<h4>Поддержка: привилегии и баны</h4>
 						<p>
 							Для чтения/записи привилегий используется база данных текущего сайта, для чтения/записи банов используется база данных от
-							AmxBans/CsBans. Данный тип интеграции требует установку плагина
-							<a href="https://worksma.ru/wiki/game-plugins" target="_blank">GameCMS API(amx)</a> на игровой сервер
+							AmxBans/CsBans. Данный тип интеграции требует установку плагина 
+							<a href="https://cdn.unigamecms.ru/files/plugins/cs/gamecms_api.zip" target="_blank">GameCMS API(amx)</a> на игровой сервер
 						</p>
 					</div>
 				</div>
@@ -3420,8 +3420,9 @@ if(isset($_POST['load_servers'])) {
 						<h4>Поддержка: привилегии и баны</h4>
 						<p>
 							Для чтения/записи привилегий используется база данных текущего сайта, для чтения/записи банов используется база данных от
-							SourceBans/<a href="https://github.com/SB-MaterialAdmin" target="_blank">MaterialAdmin</a>. Данный тип интеграции требует
-							установку плагина <a href="https://worksma.ru/wiki/game-plugins" target="_blank">GameCMS API(sm)</a> на игровой сервер
+							SourceBans/<a href="https://github.com/SB-MaterialAdmin" target="_blank">MaterialAdmin</a>. 
+							<br />
+						Данный тип интеграции требует установку плагина <a href="https://cdn.unigamecms.ru/files/plugins/cs/gamecms_api.zip" target="_blank">GameCMS API(sm)</a> на игровой сервер
 						</p>
 					</div>
 				</div>
@@ -5201,7 +5202,7 @@ if(isset($_POST['load_modules'])) {
 if(isset($_POST['replace_tpl_img'])) {
 	$folderId = clean($_POST['data'], null);
 
-	if($host == 'test.worksma.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit('<p class="text-danger">Загрузка изображений в тестовой версии движка запрещена!</p>');
 	}
 
