@@ -542,7 +542,7 @@ $config = [
 	//  If you insert an extensions blacklist array the filemanager don't check any extensions but simply block the extensions in the list
 	//  otherwise check Allowed extensions configuration
 	//*********************
-	'ext_blacklist'                  => ['php', 'js', 'svg'],
+	'ext_blacklist'                  => ['php', 'js', 'svg', 'css', 'exe', 'dem', 'tar', 'gz', 'txt', 'log', 'doc', 'docx', 'sma', 'amxx', 'zip', 'rar', 'msi', 'html', 'tpl', 'sql', 'bat', 'dat', 'inc', 'mdl', 'dll', 'ini', 'so', 'mp3', 'wav', 'mp4', 'avi', 'xls', 'xlsx', 'pdf', '7z', 'gzip', 'mkv', 'mpeg', 'iso', 'torrent'],
 	//['exe','bat','jpg'],
 
 
