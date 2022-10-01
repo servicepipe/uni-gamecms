@@ -29,7 +29,19 @@ if(is_auth()) {
 	if($row->protect == 1) {
 		$SC->ip = get_ip();
 	}
-
+	
+	if(Addons()->IsGeoIp()) {
+			$query = @unserialize(file_get_contents("http://ip-api.com/php/" . get_ip() . "?lang=ru"));
+			
+			if($query && $query['status'] == 'success') {
+				pdo()->prepare("UPDATE `users` SET `country`=:country, `city`=:city WHERE `id`=:id LIMIT 1")->execute([
+					':country' => $query['country'],
+					':city' => $query['city'],
+					':id' => $_SESSION['id']
+				]);
+			}
+		}
+	
 	$_SESSION['rights']   = $row->rights;
 	$_SESSION['stickers'] = $row->stickers;
 
