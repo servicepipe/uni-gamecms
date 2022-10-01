@@ -145,7 +145,7 @@
 					<input type="text" placeholder="Название сервера" class="form-control" id="name" maxlength="255" autocomplete="off">
 				</div>
 				<div class="form-group">
-					<small>Ip</small>
+					<small>IP</small>
 					<input type="text" placeholder="IP адрес сервера" class="form-control" id="ip" maxlength="30" autocomplete="off">
 				</div>
 				<div class="form-group">
@@ -246,7 +246,10 @@
 				<div id="tip5_" class="disp-n">
 					<div class="bs-callout bs-callout-info bs-callout-sm mt-5">
 						<h4>Поддержка: привилегии и баны</h4>
-						<p>Для чтения/записи привилегий используется база данных текущего сайта, для чтения/записи банов используется база данных от AmxBans/CsBans. Данный тип интеграции требует установку плагина GameCMS API(amx) на игровой сервер</p>
+						<p>Для чтения/записи привилегий используется база данных текущего сайта, для чтения/записи банов используется база данных от AmxBans/CsBans. Данный тип интеграции требует установку плагина GameCMS API(amx) на игровой сервер
+<br />
+<br />
+Актуальная версия плагина: <a href="https://cdn.unigamecms.ru/files/plugins/cs/gamecms_api.zip">Скачать</a></p>
 					</div>
 				</div>
 				<div id="tip6_" class="disp-n">
