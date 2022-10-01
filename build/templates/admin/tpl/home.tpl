@@ -84,7 +84,7 @@
 					</div>
 				</div>
 				<div class="bs-callout bs-callout-info mt-10">
-					<p><a href="#"><span class="glyphicon glyphicon-link"></span> Подробнее о глобальном бане</a></p>
+					<p>Данная функция активирует работу флага <b>x</b> - <i>вечный бан</i>, который позволяет банить пользователя по связке ip+cookies, в случае смены ip адреса, но при наличии cookies, он будет так же заблокирован. <br /><br />Не стоит ожидать от данного бана 100% защиты, обходится просто, но в качестве защиты от неадекватных пользователей хватает.</p>
 				</div>
 				<div class="clearfix"></div>
 				<hr>
@@ -114,9 +114,37 @@
 					<input type="password" class="form-control" id="dev_key" maxlength="32" value="{dev_key}" placeholder="Введите ключ">
 				</div>
 				<div class="bs-callout bs-callout-info mt-10">
-					<p><a target="_blank" href="https://github.com/worksma/uni-gamecms/wiki/%D0%A0%D0%B5%D0%B6%D0%B8%D0%BC-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B0"><span class="glyphicon glyphicon-link"></span> Как получить ключ и что это такое?</a></p>
+				<li>Поможет отобразить ошибки в работе php кода (требует отключения <a href style="color: #b94646;" data-target="#safe_mode" data-toggle="modal" title="Жмяк">Безопасного режима</a>)</li>
+				<li>Поможет отобразить названия используемых файлов tpl в исходном коде страницы.</li>
+				<li>устанавливать собственные модули (требует отключения <a href style="color: #b94646;" data-target="#safe_mode" data-toggle="modal" title="Жмяк">Безопасного режима</a>)</li>
+				<br />
+				Ключем является md5 хеш Вашего домена (Ваш ключ: <mark><?php $str = "{host}"; echo md5($str);?></mark>)
 				</div>
 				<input type="hidden" class="form-control" id="host" value="{host}">
+
+				<script>$('safe_mode').modal('hide');</script>
+				<div id="safe_mode" class="modal fade bd-example-modal-lg">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<font style="word-break: break-all">
+				Включение данного режима позволяет ограничить вставку php кода в редакторе страниц, редакторе шаблонов и других компонентах админ центра движка. Логика шаблонов в этом случае обеспечивается только при помощи встроенного в движок шаблонизатора.
+<br><br>
+Данный параметр регулируется в файле <strong>inc/config.php</strong>, в самом начале файла Вы найдете подобную строку:
+<br><br>
+<code>$safe_mode = 1;</code> //так безопасный режим включен
+<br>
+<code>$safe_mode = 2;</code> //так безопасный режим выключен
+				</font>
+				</div>
+				</div>
+				</div>
+				</div>
 
 				<hr>
 				<b>Капча</b><br>
@@ -140,9 +168,37 @@
 				</div>
 
 				<div class="bs-callout bs-callout-info mt-10">
-					<p><a target="_blank" href="https://worksma.ru/wiki/captcha"><span class="glyphicon glyphicon-link"></span> Инструкция по настройке</a></p>
+					<p><a href data-target="#captcha" data-toggle="modal" title="Открыть"><span class="glyphicon glyphicon-link"></span> Инструкция по настройке</a></p>
 				</div>
 				<div class="clearfix"></div>
+			</div>
+		</div>
+
+		<script>$('captcha').modal('hide');</script>
+		<div id="captcha" class="modal fade bd-example-modal-lg">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<font style="word-break: break-all">
+				<li>Капча будет отображаться при регистрации и авторизации в админ центре движка</li>
+				<br />
+				<li>Для ее настройки нужен будет аккаунт в <b>google.com</b>, после переходим на <a href="https://www.google.com/recaptcha/admin" target="_blank">страницу</a>, заполняем все в соответствии со скриншотом ниже, в поле Домены вводим домен Вашего сайта</li>
+				<br />
+				<img src="https://i.postimg.cc/z5FNvf14/recaptcha-1.jpg" class="img-fluid img-thumbnail center-block">
+				<br />
+				<li>Далее попадаем на следующую страницу, откуда копируем ключ(выделен на скриншоте ниже), после вводим его в движке в поле Ключ капчи в админ центре в разделе главных настроек</li>
+				<br />
+				<img src="https://i.postimg.cc/y6v2Pk1d/recaptcha-2.jpg" class="img-fluid img-thumbnail center-block">
+				<br />
+				<li>На этом установка капчи закончена, не забудьте нажать кнопку Включить в блоке с настройкой капчи в админ центре движка</li>
+				</font>
+				</div>
+				</div>
 			</div>
 		</div>
 
@@ -204,8 +260,37 @@
 				<div id="edit_vk_result"></div>
 				<div class="bs-callout bs-callout-info mt-10">
 					<h5>Инструкция</h5>
-					<p><a target="_blank" href="https://github.com/worksma/uni-gamecms/wiki/2.-%D0%90%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-%D0%92%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5"><span class="glyphicon glyphicon-link"></span> Нажмите для перехода к инструкции</a></p>
+					<p><a href data-target="#vk_app" data-toggle="modal" title="Открыть"><span class="glyphicon glyphicon-link"></span> Инструкция по настройке</a></p>
 				</div>
+
+		<script>$('vk_app').modal('hide');</script>
+		<div id="vk_app" class="modal fade bd-example-modal-lg">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<font style="word-break: break-all">
+				<li>Для начала, Вам потребуется <a href="https://vk.com/editapp?act=create" target="_blank">создать приложение ВКонтакте</a></li>
+				<br />
+				<img src="https://i.postimg.cc/Zn5f82DH/vk-app-1.jpg" class="img-fluid img-thumbnail center-block">
+				<br />
+				<li>В случае необходимости, ВКонтакте потребует от Вас подтверждения личности по средствам отправки Вам сообщения (звонка робота), либо подтверждением через приложение.</li>
+				<br />
+				<img src="https://i.postimg.cc/bJBn55w3/vk-app-2.jpg" class="img-fluid img-thumbnail center-block">
+				<br />
+				<li>Полученные данные в графе "Настройки" вносите на своём сайте</li>
+				<br />
+				<img src="https://i.postimg.cc/T1n4YgFM/vk-app-3.jpg" class="img-fluid img-thumbnail center-block">
+				</font>
+				</div>
+				</div>
+				</div>
+		</div>
+
 				<hr>
 
 				<div class="row">
@@ -259,8 +344,34 @@
 				<div id="edit_steam_result"></div>
 				<div class="bs-callout bs-callout-info mt-10">
 					<h5>Инструкция</h5>
-					<p><a target="_blank" href="https://github.com/worksma/uni-gamecms/wiki/7.-%D0%90%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-Steam"><span class="glyphicon glyphicon-link"></span> Нажмите для перехода к инструкции</a></p>
+					<p><p><a href data-target="#steam_app" data-toggle="modal" title="Открыть"><span class="glyphicon glyphicon-link"></span> Инструкция по настройке</a></p>
 				</div>
+
+		<script>$('steam_app').modal('hide');</script>
+		<div id="steam_app" class="modal fade bd-example-modal-lg">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<font style="word-break: break-all">
+				<li>Переходим по <a href="http://steamcommunity.com/dev/apikey" target="_blank">данной</a> ссылке для создания ключа <b>steam web api</b>: создание ключа, заходим в свой аккаунт steam </li>
+				<li>Вписываем домен Вашего сайта, ставим галочку, после нажимает "<b>Зарегистрировать</b>"</li>
+				<br />
+				<img src="https://i.postimg.cc/HxTLY9VX/steam-app-1.jpg" class="img-fluid img-thumbnail center-block">
+				<br />
+				<li>Далее Вам будет выдан секретный ключ</li>
+				<br />
+				<img src="https://i.postimg.cc/vTkMVrHP/steam-app-2.jpg" class="img-fluid img-thumbnail center-block">
+				</font>
+				</div>
+				</div>
+				</div>
+		</div>
+
 				<hr>
 				<b>Регистрация через facebook</b><br>
 				<div class="btn-group" data-toggle="buttons">
