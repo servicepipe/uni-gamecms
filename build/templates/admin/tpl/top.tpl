@@ -9,7 +9,7 @@
 				Админ Центр
 			</a>
 
-			<a target="_blank" href="https://unigamecms.ru" title="Сайт разработан на движке UNI GameCMS">
+			<a target="_blank" href="../" title="Сайт разработан на движке UNI GameCMS">
 				<img src="../templates/admin/img/logo.png" alt="UNI GameCMS" class="image-logo">
 			</a>
 		</header>
