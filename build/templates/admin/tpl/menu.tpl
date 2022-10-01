@@ -32,7 +32,7 @@
         </li>
         <li>
             <a href="{site_host}admin/prefixes">
-                <span class="glyphicon glyphicon-barcode"></span>
+                <span class="glyphicon glyphicon-text-width"></span>
                 Настройка префиксов
             </a>
         </li>
