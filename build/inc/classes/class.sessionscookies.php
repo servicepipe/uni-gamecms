@@ -1,4 +1,5 @@
 <?php
+ini_set('error_reporting', 0);
 class SessionsCookies {
 	public $browser;
 	public $ip = 0;
@@ -21,7 +22,7 @@ class SessionsCookies {
 		$this->lifetime = time()+60*60*24*30;
 
 		session_set_cookie_params(0, $this->path, $this->domain, $this->secure, $this->httponly);
-		session_start();
+        	session_start();
 	}
 
 	public function get_cache($password) {
