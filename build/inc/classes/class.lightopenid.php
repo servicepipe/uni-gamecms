@@ -1,4 +1,5 @@
 <?php
+ini_set('error_reporting', 0);
 /**
  * This class provides a simple interface for OpenID 1.1/2.0 authentication.
  * 
@@ -630,7 +631,7 @@ class LightOpenID
                     $yadis = false;
                     $url = $originalUrl;
                     $content = null;
-                    break;
+                    //break;
                 }
                 if ($next) continue;
 
@@ -902,7 +903,7 @@ class LightOpenID
                              .  'openid.claimed_id=' . $this->claimed_id;
         }
 
-        if ($this->data['openid_return_to'] != $this->returnUrl) {
+		if ($this->data['openid_return_to'] != $this->returnUrl && $this->data['openid_return_to'] != str_replace("?","index?",$this->returnUrl)) {	
             # The return_to url must match the url of current request.
             # I'm assuming that no one will set the returnUrl to something that doesn't make sense.
             return false;
@@ -918,7 +919,8 @@ class LightOpenID
             # wants to verify. stripslashes() should solve that problem, but we can't
             # use it when magic_quotes is off.
             $value = $this->data['openid_' . str_replace('.','_',$item)];
-            $params['openid.' . $item] = function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() ? stripslashes($value) : $value;
+            //$params['openid.' . $item] = function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() ? stripslashes($value) : $value;
+			$params['openid.' . $item] = $this->data['openid_' . str_replace('.','_',$item)];
 
         }
 
@@ -926,7 +928,7 @@ class LightOpenID
 
         $response = $this->request($server, 'POST', $params);
 
-        return preg_match('/is_valid\s*:\s*true/i', $response);
+        return preg_match('/is_valid\s*:\s*true/i', $response) === 1;
     }
 
     protected function getAxAttributes()
