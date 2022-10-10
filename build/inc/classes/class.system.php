@@ -146,7 +146,7 @@
 			if($remote):
 				$players = curl($host, json_encode([
 					'domain'		=> $_SERVER['SERVER_NAME'],
-					'key'			=> self::secondary()->mon_key,
+					//'key'			=> self::secondary()->mon_key,
 					'server'		=> $query
 				]));
 
@@ -184,7 +184,7 @@
 			if(isset($remote)):
 				$dServers = json_encode([
 					'domain'		=> $_SERVER['SERVER_NAME'],
-					'key'			=> self::secondary()->mon_key,
+					//'key'			=> self::secondary()->mon_key,
 					'servers'		=> $sth->fetchAll()
 				]);
 
