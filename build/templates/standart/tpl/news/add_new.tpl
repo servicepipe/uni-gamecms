@@ -46,7 +46,7 @@
 					Название
 				</h4>
 			</label>
-			<input type="text" class="form-control" id="name" maxlength="250" autocomplete="off">
+			<input type="text" class="form-control" id="name" maxlength="30" autocomplete="off">
 		</div>
 
 		<div class="form-group">
