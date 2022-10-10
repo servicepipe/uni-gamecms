@@ -2467,7 +2467,7 @@ if(isset($_POST['get_content_tpl']) || isset($_POST['save_code'])) {
 		exit(json_encode(['status' => '2', 'message' => 'Загрузка файла невозможна']));
 	}
 
-	if($host == 'ddemo.unigamecms.ru') {
+	if($host == 'demo.unigamecms.ru') {
 		exit(json_encode(['status' => '2', 'message' => 'В тестовом движке редактирование шаблонов запрещено!']));
 	}
 
@@ -4836,7 +4836,7 @@ if(isset($_POST['edit_mon_api'])) {
 		$STH = $pdo->prepare(
 			"UPDATE config__secondary SET mon_gap=:mon_gap, mon_key=:mon_key, mon_api=:mon_api LIMIT 1"
 		);
-		$STH->execute([':mon_gap' => '180', ':mon_key' => $mon_key, ':mon_api' => $type]);
+		$STH->execute([':mon_gap' => '60', ':mon_key' => $mon_key, ':mon_api' => $type]);
 
 		$STH = $pdo->prepare("UPDATE servers SET rcon=:rcon");
 		$STH->execute([':rcon' => 2]);
