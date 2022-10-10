@@ -4174,7 +4174,7 @@ table tr[data-toggle=modal] > td, table.admins tr > td {
 }
 .monitoring-table > table > tbody > tr > td:first-child p {
   text-overflow: ellipsis;
-  overflow: hidden;
+  /* overflow: hidden; */
   white-space: nowrap;
   display: inline-block;
   max-width: 230px;
@@ -4244,6 +4244,33 @@ table tr[data-toggle=modal] > td, table.admins tr > td {
 }
 .monitoring-table > table > tbody > tr > td:last-child > a:nth-child(3) > i {
   color: #c0a372;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(4) {
+    background: #359b34;
+    border: 1px solid #2c7f2b;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(4) > i {
+    color: white;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(5) {
+    background: #614db1;
+    border: 1px solid #4d3d8d;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(5) > i {
+    color: white;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(6) {
+    background: #68626d;
+    border: 1px solid #68626d;
+}
+
+.monitoring-table > table > tbody > tr > td:last-child > a:nth-child(6) > i {
+    color: white;
 }
 
 .disp-b {
