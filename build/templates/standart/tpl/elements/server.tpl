@@ -215,8 +215,11 @@
 		<td><a href="steam://connect/{address}">{address}</a></td>
 		<td>
 			<a targt="_blank" href="../admins?server={id}"><i class="fas fa-users" title="Администраторы"></i></a>
+			<a targt="_blank" href="../complaints?server={id}"><i class="fas fa-user-slash" title="Жалобы"></i></a>
 			<a targt="_blank" href="../banlist?server={id}"><i class="fas fa-ban" title="Забаненые"></i></a>
-			<a targt="_blank" href="../bans/index?server={id}"><i class="fas fa-calendar-check" title="Заявки на разбан"></i></a>
+			<a targt="_blank" href="../bans/?server={id}"><i class="fas fa-calendar-check" title="Заявки на разбан"></i></a>
+			<a targt="_blank" href="../stats?server={id}"><i class="fas fa-trophy" title="Статистика"></i></a>
+		     {* <a targt="_blank" href="../chatlog?server={id}"><i class="fas fa-comments" title="История сообщений"></i></a> *}
 		</td>
 	</tr>
 {/if}
