@@ -31,21 +31,24 @@
 							Выключить
 						</label>
 					</div>
-					<input type="text" class="form-control" id="mon_key" maxlength="15" autocomplete="off" value="{mon_key}" placeholder="Введите ключ">
+					 <input type="hidden" class="form-control" id="mon_key" maxlength="15" autocomplete="off" value="unigamecms.ru" placeholder="Введите ключ">
 				</div>
 
-					<div class="bs-callout bs-callout-info mt-10">
+					<!-- <div class="bs-callout bs-callout-info mt-10">
 						<p>
 							<a href="#">
 								<span class="glyphicon glyphicon-link"></span> Получить ключ Внешнего мониторинга
 							</a>
 						</p>
-					</div>
+					</div> -->
 
 				<div class="bs-callout bs-callout-info mt-10">
-					<h5>Важная информация</h5>
+					<h5>Информация</h5>
 					<p>
-						Данный пункт следует использовать, если на Вашем web-хостинге не работает стандартный мониторинг.
+						Данный пункт следует использовать, если на вашем веб-хостинге по тем или иным причинам не работает стандартный мониторинг.
+					<br />
+					<br />
+						Включение данной возможности так же поможет значительно сократить нагрузку на ваш веб-хостинг, а так же увеличит быстродействие вашего веб-сайта
 					</p>
 				</div>
 			</div>
