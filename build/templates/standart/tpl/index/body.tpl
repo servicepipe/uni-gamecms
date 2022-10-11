@@ -64,7 +64,7 @@
 	{if($conf->disp_last_online == '1')}
 	<div class="block">
 	<div class="block_head">
-		Сегодня нас посетили
+		Сегодня у нас были
 	</div> 
 	<div id="load_last_online">
 		{func Widgets:were_online()}

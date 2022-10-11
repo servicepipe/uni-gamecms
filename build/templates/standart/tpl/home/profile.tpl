@@ -113,6 +113,9 @@
 							</li>
                         {/if}
 
+
+<li id="money_transfer" data-user="{profile_id}"></li>
+
 						{if(isset($levels) and is_worthy("m"))}
 							<li onclick="give_exp({profile_id});">
 								<a>
@@ -180,6 +183,9 @@
                     {friends}
 				</div>
 			</div>
+
+			<div class="progression" data-index="{profile_id}"></div>
+
 		</div>
 
 		<div class="col-lg-9">

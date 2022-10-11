@@ -1,0 +1,6 @@
+[
+	"name" => "money_transfer",
+	"files" => "<script src='{site_host}modules_extra/money_transfer/performers/ajax.js?v={cache}'></script>",
+	"info" => 'Данный модуль позволит вашим пользователям переводить денежные средства между кошельками пользователей.<br>Пропишите <code>&lt;li id="money_transfer" data-user="{profile_id}"&gt;&lt;/li&gt;</code> в место, где хотите появление кнопки перевода средств пользователю.',
+	'template' => 'none'
+]

@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.0',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.1',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.0', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.1', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -518,7 +518,7 @@ INSERT INTO `menu__sub` (`id`, `name`, `link`, `menu`, `poz`, `for_all`) VALUES
 
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(500) NOT NULL,
   `tpls` varchar(500) NOT NULL,
   `active` int NOT NULL DEFAULT '1',
   `info` text NOT NULL,
@@ -526,6 +526,12 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `client_key` varchar(30) NOT NULL DEFAULT 'YDHGABATAMKESPCQMP9S',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_key`) VALUES
+(1, 'online_line [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Отображение линии общего онлайна под мониторингом серверов', '<script src=\"{site_host}modules_extra/online_line/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(2, 'snow [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Снег на Ваш сайт. <br>\r\nВы можете отредактировать параметры снега в файле <b>modules_extra/snow/templates/snow.js:</b><br>\r\n<b>sflakesMax</b> и <b>sflakesMaxActive</b> - количество снега<br>\r\n<b>svMaxY</b> - скорость падения снежинок<br>\r\n<b>ssnowStick </b>- скапливание снега внизу: включено - 1, отключено - 0<br>', '<script src=\"{site_host}modules_extra/snow/templates/snow.js?v={cache}\"></script>', 'unigamecms.ru'),
+(3, 'money_transfer [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит вашим пользователям передавать свои денежные средства любому другому пользователю.<br>Пропишите <code>&lt;li id=\"money_transfer\" data-user=\"{profile_id}\"&gt;&lt;/li&gt;</code> в место, где хотите появление кнопки перевода средств пользователю.', '<script src=\'{site_host}modules_extra/money_transfer/performers/ajax.js?v={cache}\'></script>', 'unigamecms.ru'),
+(4, 'progression [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class=\"progression\" data-index=\"{profile_id}\"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>', '<script src=\"{site_host}modules_extra/progression/performers/main.js?v={cache}\"></script><link rel=\"stylesheet\" href=\"{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,

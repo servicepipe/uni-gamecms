@@ -1,0 +1,1 @@
+["name" => "online_line", "files" => "<script src=\"{site_host}/modules_extra/online_line/ajax/ajax.js?v={cache}\"></script>", "info" => "Отображение линии общего онлайна под мониторнигом серверов."]

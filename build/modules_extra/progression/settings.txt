@@ -1,0 +1,6 @@
+[
+	"name" => "progression",
+	"files" => '<script src="{site_host}modules_extra/progression/performers/main.js?v={cache}"></script><link rel="stylesheet" href="{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}">',
+	"info" => 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class="progression" data-index="{profile_id}"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>',
+	'template' => 'none'
+]
