@@ -3,6 +3,7 @@
 		Чат
 	</div>
 	<div id="chat">
+	<div id="fixed_message"><script>chat_load_fixed_message();</script></div>
 		<form>
 			<div id="drop_zone" class="">
 				<div id="drop_mask"></div>

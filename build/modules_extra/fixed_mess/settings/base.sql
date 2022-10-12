@@ -1,0 +1,1 @@
+ALTER TABLE `config` ADD `fixed_message` INT(11) NULL DEFAULT NULL

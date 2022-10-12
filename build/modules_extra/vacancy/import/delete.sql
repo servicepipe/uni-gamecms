@@ -1,0 +1,1 @@
+DROP TABLE `vacancy`, `vacancy__configs`, `vacancy__list`, `vacancy__messages`, `vacancy__names`;

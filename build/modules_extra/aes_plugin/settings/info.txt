@@ -1,0 +1,2 @@
+Настройки модуля: <a href="../admin/aes_settings" target="_blank">перейти</a><br>
+Ссылка на страницу статистики: <a href="../aes_list" target="_blank">aes_list</a><br>

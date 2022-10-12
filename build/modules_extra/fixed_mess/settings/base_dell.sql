@@ -1,0 +1,1 @@
+ALTER TABLE `config` DROP `fixed_message`

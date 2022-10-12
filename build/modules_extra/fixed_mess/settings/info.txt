@@ -1,0 +1,7 @@
+Модуль для закрепления сообщение в главном чате.<br>
+В файл по пути: <span class="text-success">templates/ваш_шаблон/tpl/elements/chat.tpl</span> 
+введите следующий код (желательно после <code>&ltdiv id="chat"&gt</code>):<br>
+<code>&ltdiv id="fixed_message"&gt&ltscript&gtchat_load_fixed_message();&lt/script&gt&lt/div&gt</code><br> 
+В файл по пути: <span class="text-success">templates/ваш_шаблон/tpl/elements/chat_message.tpl</span> 
+введите следующий код (желательно после "<code>{if(strripos("{gp_rights}", "d") !== false)}</code>"):
+<a href="../modules_extra/fixed_mess/ajax/info.html">Код тут! (нажми)</a>

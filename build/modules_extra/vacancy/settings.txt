@@ -1,0 +1,66 @@
+[
+	"name" => "vacancy",
+	"info" => "Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class='btn btn-default btn-sm f-l mr-5' href='/admin/vacancy'>Настройки вакансий</a><a class='btn btn-default btn-sm f-l' href='/vacancy'>Страница вакансий</a>",
+	"pages" => [
+		0 => [
+			'file' => 'modules_extra/vacancy/routing/index.php',
+			'url' => 'vacancy',
+			'name' => 'vacancy',
+			'title' => 'Вакансии',
+			'description' => 'Вакансии',
+			'keywords' => 'Вакансии,должностей,проекта',
+			'kind' => '1',
+			'robots' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'privacy' => 1,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		1 => [
+			'file' => 'modules_extra/vacancy/routing/index.php',
+			'url' => 'vacancy/index',
+			'name' => 'vacancy_index',
+			'title' => '{username}',
+			'description' => 'Просмотр вакансии',
+			'keywords' => 'Просмотр,вакансии,пользователя',
+			'kind' => '1',
+			'robots' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'privacy' => 1,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		2 => [
+			'file' => 'modules_extra/vacancy/routing/create.php',
+			'url' => 'vacancy/create',
+			'name' => 'vacancy_create',
+			'title' => 'Подача заявки',
+			'description' => 'Подача заявки',
+			'keywords' => 'Подача,заявки,на,должность',
+			'kind' => '1',
+			'robots' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'privacy' => 1,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		3 => [
+			'file' => 'modules_extra/vacancy/routing/admin/index.php',
+			'url'  => 'admin/vacancy',
+			'name' => 'admin_vacancy',
+			'title' => 'Вакансии',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		]
+	]
+]

@@ -26,6 +26,7 @@
 			
 			<div class="date" tooltip="yes" data-placement="left" title="{date_full}">{date_short}</div>
 			{if(strripos("{gp_rights}", "d") !== false)}
+				<span onclick="fixed_chat_message('{id}', '1');" tooltip="yes" data-placement="left" title="Закрепить" class="fas fa-paperclip" style="margin-right: 15px;position: absolute;top: 13px;right: 17px;"></span>
 				<span onclick="dell_chat_message('{id}');" tooltip="yes" data-placement="left" title="Удалить" class="m-icon icon-trash dell_message"></span>
 				<span id="edit_message_{id}" onclick="edit_chat_message('{id}', this);" tooltip="yes" data-placement="left" title="Редактировать" class="m-icon icon-pencil edit_message"></span>
 			{/if}

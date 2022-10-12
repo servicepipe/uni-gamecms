@@ -1,0 +1,70 @@
+div[data-vacancy] {
+	display: flex;
+    align-items: center;
+	background-color: rgba(0,0,0,.10);
+	padding: 15px;
+	height: 80px;
+	border-radius: 15px;
+	font-size: 16px;
+}
+
+div[data-vacancy]:hover {
+	cursor: pointer;
+	box-shadow: 3px 3px #6c97d4, -4px 0 .4em #40787d;
+	transition: box-shadow 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	background-color: rgba(0,0,0,.20);
+}
+
+div[data-vacancy] .avatar img {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+}
+
+div[data-vacancy] .name {
+	width: 120px;
+	margin-left: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div[data-vacancy] .avatar {
+	width: 44px;
+}
+
+div[data-vacancy] .status {
+	width: 85%;
+	text-align: end;
+}
+
+.vacancy-chat textarea {
+	width: 100%;
+    background-color: #222127;
+	border-color: rgba(255, 255, 255, .10);
+	border-radius: 8px;
+	box-shadow: 0 5px 19px 0 rgb(0 0 0 / 3%);
+	color: #626262;
+	resize: none;
+	height: 80px;
+	padding: 15px;
+}
+
+.vacancy-chat textarea:focus {
+	color: #ddd;
+}
+
+ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+ul li {
+	list-style-type: none;
+	margin-bottom: 8px;
+}
+
+ul li span.h {
+	font-weight: bold;
+}

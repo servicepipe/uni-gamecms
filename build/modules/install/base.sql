@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.1',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.2',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.1', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.2', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -520,7 +520,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(500) NOT NULL,
   `tpls` varchar(500) NOT NULL,
-  `active` int NOT NULL DEFAULT '1',
+  `active` int NOT NULL DEFAULT '0',
   `info` text NOT NULL,
   `files` text,
   `client_key` varchar(30) NOT NULL DEFAULT 'YDHGABATAMKESPCQMP9S',
@@ -531,7 +531,11 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (1, 'online_line [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Отображение линии общего онлайна под мониторингом серверов', '<script src=\"{site_host}modules_extra/online_line/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
 (2, 'snow [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Снег на Ваш сайт. <br>\r\nВы можете отредактировать параметры снега в файле <b>modules_extra/snow/templates/snow.js:</b><br>\r\n<b>sflakesMax</b> и <b>sflakesMaxActive</b> - количество снега<br>\r\n<b>svMaxY</b> - скорость падения снежинок<br>\r\n<b>ssnowStick </b>- скапливание снега внизу: включено - 1, отключено - 0<br>', '<script src=\"{site_host}modules_extra/snow/templates/snow.js?v={cache}\"></script>', 'unigamecms.ru'),
 (3, 'money_transfer [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит вашим пользователям передавать свои денежные средства любому другому пользователю.<br>Пропишите <code>&lt;li id=\"money_transfer\" data-user=\"{profile_id}\"&gt;&lt;/li&gt;</code> в место, где хотите появление кнопки перевода средств пользователю.', '<script src=\'{site_host}modules_extra/money_transfer/performers/ajax.js?v={cache}\'></script>', 'unigamecms.ru'),
-(4, 'progression [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class=\"progression\" data-index=\"{profile_id}\"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>', '<script src=\"{site_host}modules_extra/progression/performers/main.js?v={cache}\"></script><link rel=\"stylesheet\" href=\"{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru');
+(4, 'progression [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class=\"progression\" data-index=\"{profile_id}\"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>', '<script src=\"{site_host}modules_extra/progression/performers/main.js?v={cache}\"></script><link rel=\"stylesheet\" href=\"{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
+(5, 'fixed_mess [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль для закрепления сообщение в главном чате', '<script src=\"{site_host}modules_extra/fixed_mess/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(6, 'aes_plugin [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет отображать статистику игроков по плагину AES<br><br>Настройки модуля: <a href=\"../admin/aes_settings\" target=\"_blank\">перейти</a><br>\r\nСсылка на страницу статистики: <a href=\"../aes_list\" target=\"_blank\">aes_list</a><br>', '', 'unigamecms.ru'),
+(7, 'cookie [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Небольшой, но очень полезный модуль, который будет уведомлять Ваших новых пользователей о том, что Ваш сайт использует хранение Cookie файлов', '<link rel=\"stylesheet\" href=\"{site_host}modules_extra/cookie/css/primary.css?v={cache}\"><script src=\"{site_host}modules_extra/cookie/js/primary.js?v={cache}\"></script>', 'unigamecms.ru'),
+(8, 'vacancy [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', NULL, 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -720,7 +724,13 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (82, 'modules/prefixes/index.php', 'store/prefixes', 'prefixes', 'Префиксы', 'Префиксы', 'Префиксы', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
 (83, 'modules/admin/prefixes.php', 'admin/prefixes', 'admin_prefixes', 'Префиксы', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
 (84, 'modules/index/register.php', 'register', 'register', 'Регистрация', 'Страница регистрации на проекте', 'регистрация, на сайте, зарегистрироваться, новый пользователь', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
-(85, 'modules/index/login.php', 'login', 'login', 'Вход на сайт', 'Страница авторизации на сайте', 'войти на сайт, войти, авторизация', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0);
+(85, 'modules/index/login.php', 'login', 'login', 'Вход на сайт', 'Страница авторизации на сайте', 'войти на сайт, войти, авторизация', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
+(86, 'modules_extra/aes_plugin/base/index.php', 'aes_list', 'aes_list', 'Статистика AES', 'Статистика AES', 'Статистика AES', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
+(87, 'modules_extra/aes_plugin/base/admin/settings.php', 'admin/aes_settings', 'admin_aes_settings', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(88, 'modules_extra/vacancy/routing/index.php', 'vacancy', 'vacancy', 'Вакансии', 'Вакансии', 'Вакансии, должностей, проекта', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
+(89, 'modules_extra/vacancy/routing/index.php', 'vacancy/index', 'vacancy_index', '{username}', 'Просмотр вакансии', 'Просмотр, вакансии, пользователя', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
+(90, 'modules_extra/vacancy/routing/create.php', 'vacancy/create', 'vacancy_create', 'Подача заявки', 'Подача заявки', 'Подача,заявки,на,должность', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 13, 0, 0),
+(91, 'modules_extra/vacancy/routing/admin/index.php', 'admin/vacancy', 'admin_vacancy', 'Вакансии', 'Вакансии', 'Вакансии', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -875,6 +885,10 @@ CREATE TABLE IF NOT EXISTS `servers` (
   `binds` varchar(6) NOT NULL DEFAULT '1;1;1;',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `servers` ADD `aes_host` VARCHAR(64) NOT NULL AFTER `pass_prifix`, ADD `aes_user` VARCHAR(32) NOT NULL AFTER `aes_host`, ADD `aes_pass` VARCHAR(32) NOT NULL AFTER `aes_user`, ADD `aes_db` VARCHAR(32) NOT NULL AFTER `aes_pass`, ADD `aes_table` VARCHAR(32) NOT NULL AFTER `aes_db`;
+ALTER TABLE `servers` CHANGE `aes_host` `aes_host` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', CHANGE `aes_user` `aes_user` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', CHANGE `aes_pass` `aes_pass` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', CHANGE `aes_db` `aes_db` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '', CHANGE `aes_table` `aes_table` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+ALTER TABLE `servers` ADD `aes_code` INT(1) NOT NULL DEFAULT '0' AFTER `aes_table`;
 
 CREATE TABLE IF NOT EXISTS `servers__commands` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1118,3 +1132,77 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;
+
+CREATE TABLE `vacancy` (
+  `id` int NOT NULL,
+  `uid` int NOT NULL,
+  `sid` int NOT NULL,
+  `vacancy` int NOT NULL,
+  `info` text NOT NULL,
+  `status` int NOT NULL DEFAULT '2',
+  `reason` varchar(256) NOT NULL DEFAULT 'none',
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `vacancy__configs` (
+  `id` int NOT NULL,
+  `next_days` int NOT NULL DEFAULT '31',
+  `limit_vacancy` int NOT NULL DEFAULT '12'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `vacancy__configs` (`id`, `next_days`, `limit_vacancy`) VALUES
+(1, 7, 12);
+
+CREATE TABLE `vacancy__list` (
+  `id` int NOT NULL,
+  `sid` int NOT NULL,
+  `name` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `vacancy__messages` (
+  `id` int NOT NULL,
+  `uid` int NOT NULL,
+  `vid` int NOT NULL,
+  `message` text NOT NULL,
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `vacancy__names` (
+  `id` int NOT NULL,
+  `sid` int NOT NULL,
+  `title` varchar(64) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `placeholder` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `vacancy`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `vacancy__configs`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `vacancy__list`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `vacancy__messages`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `vacancy__names`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `vacancy`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `vacancy__configs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `vacancy__list`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `vacancy__messages`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `vacancy__names`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;

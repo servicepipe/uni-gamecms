@@ -1,0 +1,31 @@
+.cookie {
+	bottom: 2rem;
+}
+
+.cookie .info {
+	background-color: #e38d34;
+	border-radius: .8rem;
+	height: 68px;
+}
+
+.cookie .info .block-cookie {
+	height: 100%;
+	padding: 8px 12px 8px 12px;
+}
+
+.cookie .info span {
+	font-size: 16px;
+	color: #1e1e1e;
+	font-weight: 400;
+}
+
+.cookie .info img {
+	height: 50px;
+}
+
+.cookie .close {
+	position: absolute;
+	right: 20px;
+	bottom: 25%;
+	font-size: 64px;
+}

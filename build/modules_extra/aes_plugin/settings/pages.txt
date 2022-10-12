@@ -1,0 +1,32 @@
+array(
+	0 => array(
+		'file' => 'modules_extra/aes_plugin/base/index.php',
+		'url'  => 'aes_list',
+		'name' => 'aes_list',
+		'title' => 'Статистика AES',
+		'description' => 'Статистика AES',
+		'keywords' => 'Статистика, AES',
+		'kind' => 1,
+		'image' => 'files/miniatures/standart.jpg',
+		'robots' => 1,
+		'privacy' => 1,
+		'type' => 1,
+		'active' => 1,
+		'module' => 1
+	),
+	1 => array(
+		'file' => 'modules_extra/aes_plugin/base/admin/settings.php',
+		'url'  => 'admin/aes_settings',
+		'name' => 'admin_aes_settings',
+		'title' => 'Настройка серверов модуля AES',
+		'description' => 'none',
+		'keywords' => 'none',
+		'kind' => 1,
+		'image' => 'files/miniatures/standart.jpg',
+		'robots' => 0,
+		'privacy' => 0,
+		'type' => 2,
+		'active' => 1,
+		'module' => 1
+	)
+);

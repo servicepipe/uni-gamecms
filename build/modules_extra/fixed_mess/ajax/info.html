@@ -1,0 +1,11 @@
+Модуль для закрепления сообщение в главном чате.<br>
+В файл по пути: <span class="text-success">templates/ваш_шаблон/tpl/elements/chat.tpl</span> 
+введите следующий код (желательно после <code>&ltdiv id="chat"&gt</code>):<br>
+<code>&ltdiv id="fixed_message"&gt&ltscript&gtchat_load_fixed_message();&lt/script&gt&lt/div&gt</code><br> 
+В файл по пути: <span class="text-success">templates/ваш_шаблон/tpl/elements/chat_message.tpl</span> 
+введите следующий код (желательно после "<code>{if(strripos("{gp_rights}", "d") !== false)}</code>"):
+<a href="../modules_extra/fixed_mess/ajax/info.html">Код тут! (нажми)</a>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+&ltspan onclick="fixed_chat_message('{id}', '1');" tooltip="yes" data-placement="left" title="Закрепить" class="fas fa-paperclip" style="margin-right: 15px;position: absolute;top: 12px;right: 17px;"&gt&lt/span&gt</code>

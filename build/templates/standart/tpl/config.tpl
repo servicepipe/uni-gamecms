@@ -39,24 +39,30 @@
 
 // Вертикальное меню в сайдбаре
 // ----------------------------
-//Магазин услуг
-{var:vertical_menu[0]['name']} Магазин услуг {/var}
-{var:vertical_menu[0]['link']} ../store {/var}
 //Новости проекта
-{var:vertical_menu[1]['name']} Новости проекта {/var}
-{var:vertical_menu[1]['link']} ../news/ {/var}
-//Форум
-{var:vertical_menu[2]['name']} Форум {/var}
-{var:vertical_menu[2]['link']} ../forum/ {/var}
-//Пользователи
-{var:vertical_menu[3]['name']} Пользователи {/var}
-{var:vertical_menu[3]['link']} ../users {/var}
-//События проекта
-{var:vertical_menu[4]['name']} События проекта {/var}
-{var:vertical_menu[4]['link']} ../events {/var}
-//Поддержка
-{var:vertical_menu[5]['name']} Поддержка {/var}
-{var:vertical_menu[5]['link']} ../support/ {/var}
+{var:vertical_menu[0]['name']} Новости {/var}
+{var:vertical_menu[0]['link']} ../news {/var}
+//Магазин привилегий
+{var:vertical_menu[1]['name']} Купить привилегию {/var}
+{var:vertical_menu[1]['link']} ../store {/var}
+//Сообщения
+{var:vertical_menu[2]['name']} Мои сообщения {/var}
+{var:vertical_menu[2]['link']} ../messages {/var}
+//Настройки
+{var:vertical_menu[3]['name']} Мои настройки {/var}
+{var:vertical_menu[3]['link']} ../settings {/var}
+//Услуги
+{var:vertical_menu[3]['name']} Мои услуги {/var}
+{var:vertical_menu[3]['link']} ../my_stores {/var}
+//Пополнение
+{var:vertical_menu[4]['name']} Пополнить баланс {/var}
+{var:vertical_menu[4]['link']} ../purse {/var}
+//Жалобы
+{var:vertical_menu[5]['name']} Написать жалобу {/var}
+{var:vertical_menu[5]['link']} ../complaints {/var}
+//Заявки на администратора
+{var:vertical_menu[5]['name']} Вакансии {/var}
+{var:vertical_menu[5]['link']} ../vacancy {/var}
 
 
 // Вертикальное меню(навигация) в футере
