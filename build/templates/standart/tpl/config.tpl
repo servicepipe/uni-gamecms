@@ -61,8 +61,8 @@
 {var:vertical_menu[5]['name']} Написать жалобу {/var}
 {var:vertical_menu[5]['link']} ../complaints {/var}
 //Заявки на администратора
-{var:vertical_menu[5]['name']} Вакансии {/var}
-{var:vertical_menu[5]['link']} ../vacancy {/var}
+{var:vertical_menu[6]['name']} Вакансии {/var}
+{var:vertical_menu[6]['link']} ../vacancy {/var}
 
 
 // Вертикальное меню(навигация) в футере
