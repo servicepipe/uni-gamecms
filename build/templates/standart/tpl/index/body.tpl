@@ -71,6 +71,9 @@
 	</div>
 	</div>
 	{/if}
+	
+	<div id="site_stats"> <script>get_site_stats(1);</script> </div>
+	
 </div>
 
 <div class="disp-n" id="auth-result">{conf_mess}</div>

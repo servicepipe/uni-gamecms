@@ -1,0 +1,1 @@
+DROP TABLE activity_rewards, activity_rewards__participants, activity_rewards__config;

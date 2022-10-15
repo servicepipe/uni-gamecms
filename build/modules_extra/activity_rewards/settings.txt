@@ -1,0 +1,55 @@
+[
+	"name" => "activity_rewards",
+	
+	"files" => "<script src='{site_host}/modules_extra/activity_rewards/ajax/ajax.js?v={cache}'></script><link rel='stylesheet' href='{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}'>",
+	
+	"info" => "Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт<br><hr>Для добаления блока с виджетом на любую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id='activity-rewards-banner'&gt;	&lt;script&gt;getRewardsBanner('#activity-rewards-banner');&lt;/script&gt;&lt;/div&gt;</code><hr><a class='btn btn-default btn-sm f-l mr-5' href='../admin/activity_rewards' target='_blank'>Настройка модуля</a><a class='btn btn-default btn-sm f-l mr-5' href='../admin/activity_rewards_progress' target='_blank'>Прогресс пользователей</a><a class='btn btn-default btn-sm f-l' href='../activity_rewards' target='_blank'>activity_rewards - страница с информацией</a><div class='clearfix'></div>",
+	
+	"pages" => [
+		0 => [
+			"file" => "modules_extra/activity_rewards/base/index.php",
+			"url" => "activity_rewards",
+			"name" => "activity_rewards",
+			"title" => "Награды за посещения",
+			"description" => "Награды за посещения",
+			"keywords" => "Награды за посещения",
+			"kind" => 1,
+			"image" => "modules_extra/activity_rewards/templates/image.jpg",
+			"robots" => 1,
+			"privacy" => 2,
+			"type" => 1,
+			"active" => 1,
+			"module" => 1
+		],
+		1 => [
+			"file" => "modules_extra/activity_rewards/base/admin/index.php",
+			"url"  => "admin/activity_rewards",
+			"name" => "admin_activity_rewards",
+			"title" => "Настройка наград за посещения",
+			"description" => "none",
+			"keywords" => "none",
+			"kind" => 1,
+			"image" => "files/miniatures/standart.jpg",
+			"robots" => 0,
+			"privacy" => 0,
+			"type" => 2,
+			"active" => 1,
+			"module" => 1
+		],
+		2 => [
+	    	"file" => "modules_extra/activity_rewards/base/admin/user_progress.php",
+	    	"url"  => "admin/activity_rewards_progress",
+	    	"name" => "admin_activity_rewards_progress",
+	    	"title" => "Прогресс пользователей",
+	    	"description" => "none",
+	    	"keywords" => "none",
+	    	"kind" => 1,
+	    	"image" => "files/miniatures/standart.jpg",
+	    	"robots" => 0,
+	    	"privacy" => 0,
+	    	"type" => 2,
+	    	"active" => 1,
+	    	"module" => 1
+		]
+	]
+]

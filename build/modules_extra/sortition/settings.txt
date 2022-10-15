@@ -1,0 +1,40 @@
+[
+	"name" => "sortition",
+	
+	"files" => "<script src='{site_host}/modules_extra/sortition/ajax/ajax.js?v={cache}'></script><link rel='stylesheet' href='{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}'>",
+
+	"info" => "Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добаления блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id='sortition'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id='sortition'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class='btn btn-default btn-sm f-l mr-5' href='../admin/sortition' target='_blank'>Настройка розыгрыша</a><a class='btn btn-default btn-sm f-l' href='../sortition' target='_blank'>sortition - страница розыгрыша</a><div class='clearfix'></div>",
+
+	"pages" => [
+		0 => [
+			'file' => 'modules_extra/sortition/base/index.php',
+			'url'  => 'sortition',
+			'name' => 'sortition',
+			'title' => 'Розыгрыш',
+			'description' => 'Розыгрыш',
+			'keywords' => 'Розыгрыш',
+			'kind' => 1,
+			'image' => 'modules_extra/sortition/templates/image.jpg',
+			'robots' => 1,
+			'privacy' => 2,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		1 => [
+			'file' => 'modules_extra/sortition/base/admin/index.php',
+			'url'  => 'admin/sortition',
+			'name' => 'admin_sortition',
+			'title' => 'Настройка розыгрыша',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		]
+	]
+]

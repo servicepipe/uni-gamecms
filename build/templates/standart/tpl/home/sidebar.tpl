@@ -47,3 +47,5 @@
 		{func Widgets:last_forum_activity('5')}
 	</div>
 </div>
+
+<div id="activity-rewards-banner"> <script>getRewardsBanner('#activity-rewards-banner');</script> </div>

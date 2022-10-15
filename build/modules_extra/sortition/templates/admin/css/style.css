@@ -1,0 +1,29 @@
+#participants_list, #winner {
+	font-size: 13px !important;
+}
+#participants_list p, #winner p {
+	margin: 0px;
+}
+#participants_list td, #winner td {
+	vertical-align: middle !important;
+}
+#participants_list tr td img, #winner tr td img{
+	height: 30px;
+	width: 30px;
+	margin-right: 5px;
+	border: 2px solid #486B91;
+	border-radius: 50%;
+}
+.prize-block {
+	display: block;
+	padding: 7px;
+	border: 1px solid #DDD;
+	margin-bottom: 10px;
+}
+.prize-block b {
+	margin: -7px;
+	display: block;
+	padding: 7px;
+	background: rgb(239, 239, 239);
+	margin-bottom: 8px;
+}

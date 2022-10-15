@@ -311,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.3',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.4',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.3', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.4', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -537,7 +537,10 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (5, 'fixed_mess [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль для закрепления сообщение в главном чате', '<script src=\"{site_host}modules_extra/fixed_mess/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
 (6, 'aes_plugin [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет отображать статистику игроков по плагину AES<br><br>Настройки модуля: <a href=\"../admin/aes_settings\" target=\"_blank\">перейти</a><br>\r\nСсылка на страницу статистики: <a href=\"../aes_list\" target=\"_blank\">aes_list</a><br>', '', 'unigamecms.ru'),
 (7, 'cookie [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Небольшой, но очень полезный модуль, который будет уведомлять Ваших новых пользователей о том, что Ваш сайт использует хранение Cookie файлов', '<link rel=\"stylesheet\" href=\"{site_host}modules_extra/cookie/css/primary.css?v={cache}\"><script src=\"{site_host}modules_extra/cookie/js/primary.js?v={cache}\"></script>', 'unigamecms.ru'),
-(8, 'vacancy [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', NULL, 'unigamecms.ru');
+(8, 'vacancy [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', NULL, 'unigamecms.ru'),
+(9, 'site_stats [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Модуль позволяет добавить блок со статистикой на любую страницу Вашего сайта.\r\nПомимо текущей статистики в блоке отображается ее разница по сравнению с предыдущим днем.\r\n<br>\r\n<br>\r\n\r\nКод горизонтального блока: <br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(1);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<br>\r\n\r\nКод вертикального блока:\r\n<br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(2);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/site_stats/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(10, 'activity_rewards [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
+(11, 'sortition [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -732,7 +735,12 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (88, 'modules_extra/vacancy/routing/index.php', 'vacancy', 'vacancy', 'Вакансии', 'Вакансии', 'Вакансии, должностей, проекта', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
 (89, 'modules_extra/vacancy/routing/index.php', 'vacancy/index', 'vacancy_index', '{username}', 'Просмотр вакансии', 'Просмотр, вакансии, пользователя', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
 (90, 'modules_extra/vacancy/routing/create.php', 'vacancy/create', 'vacancy_create', 'Подача заявки', 'Подача заявки', 'Подача,заявки,на,должность', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 13, 0, 0),
-(91, 'modules_extra/vacancy/routing/admin/index.php', 'admin/vacancy', 'admin_vacancy', 'Вакансии', 'Вакансии', 'Вакансии', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0);
+(91, 'modules_extra/vacancy/routing/admin/index.php', 'admin/vacancy', 'admin_vacancy', 'Вакансии', 'Вакансии', 'Вакансии', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0),
+(92, 'modules_extra/activity_rewards/base/index.php', 'activity_rewards', 'activity_rewards', 'Награды за посещения', 'Награды за посещения', 'Награды за посещения', 1, 'modules_extra/activity_rewards/templates/image.jpg', 2, 1, 1, 1, 1, 0, 0),
+(93, 'modules_extra/activity_rewards/base/admin/index.php', 'admin/activity_rewards', 'admin_activity_rewards', 'Настройка наград за посещения', 'Настройка наград за посещения', 'Настройка наград за посещения', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(94, 'modules_extra/activity_rewards/base/admin/user_progress.php', 'admin/activity_rewards_progress', 'admin_activity_rewards_progress', 'Прогресс пользователей', 'Прогресс пользователей', 'Прогресс пользователей', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(95, 'modules_extra/sortition/base/index.php', 'sortition', 'sortition', 'Розыгрыш', 'Розыгрыш', 'Розыгрыш', 1, 'modules_extra/sortition/templates/image.jpg', 2, 1, 1, 1, 6, 0, 0),
+(96, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1212,3 +1220,52 @@ ALTER TABLE `vacancy__messages`
 
 ALTER TABLE `vacancy__names`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  
+CREATE TABLE `activity_rewards` (
+  `id` int(6) NOT NULL,
+  `days_in_a_row` int(3) NOT NULL,
+  `reward` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `activity_rewards__config` (
+  `id` int(11) NOT NULL,
+  `slug` varchar(256) NOT NULL,
+  `value` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `activity_rewards__participants` (
+  `id` int(6) NOT NULL,
+  `user_id` int(6) NOT NULL,
+  `days_in_a_row` int(3) NOT NULL,
+  `days_in_a_row_max` int(3) NOT NULL DEFAULT 1,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sortition` (
+  `name` varchar(255) DEFAULT NULL,
+  `ending` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `participants` int(11) DEFAULT NULL,
+  `how_old` INT(3) NULL DEFAULT '0',
+  `prize` text,
+  `own_prize` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sortition__participants` (
+  `id` int(11) NOT NULL,
+  `user_id` int(7) DEFAULT NULL,
+  `contribution` float DEFAULT NULL,
+  `winner` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `sortition__participants`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `sortition__participants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  
+ALTER TABLE `sortition` ADD `show_participants` INT(1) NULL DEFAULT '2' AFTER `own_prize`;
+ALTER TABLE `sortition` ADD `end_type` INT(1) NULL DEFAULT '1' AFTER `show_participants`;
+ALTER TABLE `sortition` ADD `finished` INT(1) NOT NULL DEFAULT '2' AFTER `end_type`;
