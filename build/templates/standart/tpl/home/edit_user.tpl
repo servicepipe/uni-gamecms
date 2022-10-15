@@ -385,16 +385,18 @@
 						{/if}
 					</td>
 				</tr>
+				{if(is_worthy('b'))}
 				{if('{ip}'!='127.0.0.1')}
 					<td>Местоположение</td>
 					<td id="place">
 						Неизвестно
 					</td>
 					<script>
-						$.getJSON('//api.sypexgeo.net/json/{ip}', function(resp){
-							$('#place').html(resp.country.name_ru+', '+resp.region.name_ru+', '+resp.city.name_ru);
+						$.getJSON('//geoip.unigamecms.ru/CWQcJ/json/{ip}', function(resp){
+							$('#place').html(resp.country.name_ru+', '+resp.city.name_ru);
 						});
 					</script>
+				{/if}
 				{/if}
 			</table>
 		</div>

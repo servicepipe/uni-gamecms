@@ -207,6 +207,7 @@ $tpl->set("{issetFriendRequestFromMe}", $issetFriendRequestFromMe);
 $tpl->set("{issetFriendRequestFromHim}", $issetFriendRequestFromHim);
 $tpl->set("{shilings}", $profile->shilings);
 $tpl->set("{proc}", $profile->proc);
+$tpl->set("{ip}", $profile->ip);
 $tpl->compile('content');
 $tpl->clear();
 ?>

@@ -248,12 +248,17 @@
 						<tr>
 							<td>Группа</td>
 							<td colspan="3"><span style="color: {group_color}">{group}</span></td>
-						</tr>
-						{if(isset($user->country) && isset($user->city))}
-						<tr>
-							<td>Откуда</td>
-							<td colspan="3">{{$user->country}}, {{$user->city}}</td>
-						</tr>
+						</tr>				
+						{if('{ip}'!='127.0.0.1')}
+						<td>Местоположение</td>
+						<td id="place">
+						Неизвестно
+						</td>
+						<script>
+						$.getJSON('//geoip.unigamecms.ru/CWQcJ/json/{ip}', function(resp){
+							$('#place').html(resp.country.name_ru+', '+resp.city.name_ru);
+						});
+						</script>				
 						{/if}
 						<tr>
 							<td>Дата регистрации</td>

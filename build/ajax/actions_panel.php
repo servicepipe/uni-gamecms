@@ -6624,16 +6624,6 @@ if(isset($_POST['send_prefixes_conf'])):
 	endif;
 endif;
 
-if(isset($_POST['edit_geoip'])) {
-	$status = clean($_POST['status'], 'int');
-	
-	pdo()->prepare("UPDATE `config` SET `geoip`=:status LIMIT 1")->execute([
-		':status' => $status
-	]);
-	
-	result(['status' => 'success', 'message' => 'Успех!']);
-}
-
 if(isset($_POST['edit_currency_site'])) {
 	$json = json_encode([
 		'code' => $_POST['cy_code'],
