@@ -1269,3 +1269,5 @@ ALTER TABLE `sortition__participants`
 ALTER TABLE `sortition` ADD `show_participants` INT(1) NULL DEFAULT '2' AFTER `own_prize`;
 ALTER TABLE `sortition` ADD `end_type` INT(1) NULL DEFAULT '1' AFTER `show_participants`;
 ALTER TABLE `sortition` ADD `finished` INT(1) NOT NULL DEFAULT '2' AFTER `end_type`;
+
+ALTER TABLE `config` ADD `fixed_message` INT(11) NULL DEFAULT NULL
