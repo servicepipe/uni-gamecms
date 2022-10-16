@@ -812,9 +812,9 @@ if(isset($_POST['get_tarifs'])) {
 		$price = calculate_price($row->price, $proc);
 
 		if($price != $row->price) {
-			$data .= '<option value="'.$row->id.'">'.$time.' - '.$price.' '.$messages['RUB'].' (с учетом скидки в '.$proc.'%)</option>';
+			$data .= '<option value="'.$row->id.'">'.$time.' - '.$price.' '.sys()->currency()->lang.' (с учетом скидки в '.$proc.'%)</option>';
 		} else {
-			$data .= '<option value="'.$row->id.'">'.$time.' - '.$price.' '.$messages['RUB'].'</option>';
+			$data .= '<option value="'.$row->id.'">'.$time.' - '.$price.' '.sys()->currency()->lang.'</option>';
 		}
 	}
 	exit(json_encode(array('status' => '1', 'data' => $data, 'text' => $text)));
