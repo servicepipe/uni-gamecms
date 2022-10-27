@@ -53,14 +53,14 @@
 	</div>
 	{/if}
 
-	<div class="block">
+	<!-- <div class="block">
 		<div class="block_head">
 			Форум
 		</div> 
 		<div id="forum">
 			{func Forum:get_forums()}
 		</div>
-	</div>
+	</div> -->
 
 	{if($conf->disp_last_online == '1')}
 	<div class="block">

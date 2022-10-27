@@ -66,6 +66,23 @@
 	{/if}
 
 	<div class="row pay_area">
+		{if('{fp}' == '1')}
+			<div class="col-md-6">
+				<div class="block">
+					<div class="block_head">
+						FowPay - PerfectMoney, VISA/MasterCard, ЮMoney, QIWI, SMS...
+					</div>
+					<label for="number_fowpay">
+						<img src="../templates/{template}/img/fowpay.png" alt="FowPay">
+					</label>
+					<input class="form-control" id="number_fowpay" placeholder="Укажите сумму" value="{price}">
+					<div id="balance_result_fowpay" class="mt-3"></div>
+					<button class="btn btn-outline-primary btn-xl" onclick="refill_balance('fowpay');">Пополнить баланс</button>
+				</div>
+			</div>
+		{/if}
+
+
 		{if('{up}' == '1')}
 			<div class="col-md-6">
 				<div class="block">

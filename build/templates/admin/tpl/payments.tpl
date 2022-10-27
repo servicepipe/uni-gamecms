@@ -1,7 +1,59 @@
 <div class="page">
 	<div class="row">
 		<div class="col-md-6">
-			<!--[ PerfectMoney добавил Metal Messiah ]-->
+			<!--[ FowPay ]-->
+			<div class="block">
+				<div class="block_head">
+					FowPay
+				</div>
+				
+				<div class="form-group mb-10">
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-default {fowpay_act}" onclick="change_value('config__bank','fowpay','1','1','fowpay_merchant,fowpay_api');">
+							<input type="radio"> Включить
+						</label>
+						
+						<label class="btn btn-default {fowpay_act2}" onclick="change_value('config__bank','fowpay','2','1');">
+							<input type="radio"> Выключить
+						</label>
+					</div>
+				</div>
+				
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default pd-23-12" type="button" onclick="edit_fowpay();">Изменить</button>
+					</span>
+					
+					<input type="text" class="form-control" id="fowpay_merchant" maxlength="255" autocomplete="off" value="{fowpay_merchant}" placeholder="Номер кошелька">
+					<input type="text" class="form-control" id="fowpay_api" maxlength="255" autocomplete="off" value="{fowpay_api}" placeholder="API ключ">
+				</div>
+				
+				<div id="edit_fowpay_result"></div>
+				<div class="bs-callout bs-callout-info mt-10">
+					<p>
+					<table>
+						<tr>
+							<td colspan="2">Необходимые данные:</td>
+						</tr>
+						<tr>
+							<td style="text-align: right">URL оповещ: </td>
+							<td>&nbsp&nbsp<b>{full_site_host}purse?fowpay=get</b></td>
+						</tr>
+						<tr>
+							<td style="text-align: right">URL успеха: </td>
+							<td>&nbsp&nbsp<b>{full_site_host}purse?result=success</b></td>
+						</tr>
+						<tr>
+							<td style="text-align: right">URL неуспеха: </td>
+							<td>&nbsp&nbsp<b>{full_site_host}purse?result=fail</b></td>
+						</tr>
+					</table>
+					</p>
+				</div>
+			</div>
+
+
+			<!--[ PerfectMoney ]-->
 			<div class="block">
 				<div class="block_head">
 					PerfectMoney
@@ -37,7 +89,7 @@
 							<td colspan="2">Необходимые данные:</td>
 						</tr>
 						<tr>
-							<td colspan=2>Секретный ключ это MD5 от Альтернативная кодовая фраза в ВЕРХНЕМ регистре (32 печаных символа A-F, 0-9)</td>
+							<td colspan=2>Секретный ключ это MD5 от Альтернативная кодовая фраза в ВЕРХНЕМ регистре (32 печатных символа A-F, 0-9)</td>
 						</tr>
 						<tr>
 							<td style="text-align: right">URL оповещ: </td>

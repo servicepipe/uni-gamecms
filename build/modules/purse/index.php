@@ -4,6 +4,40 @@ $Pm = new Payments;
 $bankConf = pdo()->query("SELECT * FROM config__bank LIMIT 1")->fetch(PDO::FETCH_OBJ);
 $bankConf->rubusd = @file_get_contents("./inc/configs/cbr.txt")+0.0;
 
+if(isset($_GET['fowpay']) && $_GET['fowpay'] == 'get') {
+	$payMethod = 'fowpay';
+	$_Merch = $bankConf->fowpay_merchant;
+	$_Api = $bankConf->fowpay_api;
+	$_Amount = $_REQUEST['AMOUNT'];
+	$uid = intval($_REQUEST['ORDER_ID']);
+	$_Sign = md5("$_Merch:$_Amount:$_Api:$uid");
+	
+	if($_Sign != $_REQUEST['SIGN']) {
+		$Pm->paymentLog($payMethod, "wrong sign", pdo(), $uid, 2);
+		die("wrong sign");
+	}
+	
+	$userInfo = $Pm->getUser(pdo(), $uid);
+	
+	if(empty($userInfo->id)) {
+		$Pm->paymentLog($payMethod, "unknown user", pdo(), $uid, 2);
+		die("Error: [User does not exist]");
+	}
+	else {
+		$pg = new Playground(pdo(), $conf);
+		
+		if($pg->is_bonuses()) {
+			$pg->add_bonuses($userInfo->id, $_Amount);
+		}
+		
+		$Pm->doPayAction(pdo(), $uid, $_Amount, $conf->bank, $payMethod, $uid + date("Ymd"), $messages['RUB']);
+		exit('YES');
+	}
+	
+	http_response_code(404);
+	exit;
+}
+
 if(isset($_GET['lava']) && $_GET['lava'] == 'get'):
 	$result = json_decode(file_get_contents("php://input"));
 	$payMethod = "lava";
@@ -972,6 +1006,7 @@ $bonuses = unserialize(
 	->set("{lp}", $bankConf->lp)
 	->set("{ap}", $bankConf->ap)
 	->set("{amara}", $bankConf->amarapay)
+	->set("{fp}", $bankConf->fowpay)
 	->compile('content')
 	->clear();
 ?>

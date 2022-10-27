@@ -1251,6 +1251,32 @@ if(isset($_POST['edit_lava'])):
 endif;
 
 /*
+	FowPay
+*/
+if(isset($_POST['edit_fowpay'])) {
+	$merchant = clean($_POST['merchant']);
+	$api = clean($_POST['api']);
+	
+	if(empty($merchant) || empty($api)) {
+		exit(json_encode([
+			'alert' => 'danger',
+			'message' => 'Заполните все поля!'
+		]));
+	}
+	
+	pdo()->prepare("UPDATE `config__bank` SET `fowpay_merchant`=:merchant,`fowpay_api`=:api LIMIT 1")->execute([
+		':merchant' => $merchant,
+		':api' => $api
+	]);
+	
+	write_log("Отредактирована FowPay");
+	exit(json_encode([
+		'alert' => 'success',
+		'message' => 'Настройки изменены!'
+	]));
+}
+
+/*
 	FreeKassa
 */
 if(isset($_POST['edit_freekassa_new'])):

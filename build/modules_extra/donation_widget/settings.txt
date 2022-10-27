@@ -1,0 +1,40 @@
+[
+	"name" => "donation_widget",
+
+	"files" => "<script src='{site_host}/modules_extra/donation_widget/ajax/ajax.js?v={cache}'></script><link rel='stylesheet' href='{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}'>",
+
+	"info" => "Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><br><code>&ltdiv id='dw_donations'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><br><br><a target='_blank' href='https://gamecms.ru/wiki/template_documentation'><span class='glyphicon glyphicon-link'></span> Куда вставить этот код? (Рекомендуем ознакомиться)</a><br><hr><a class='btn btn-default btn-sm f-l mr-5' href='../admin/donation_widget' target='_blank'>Управление модулем</a><a class='btn btn-default btn-sm f-l mr-5' href='../donation' target='_blank'>Страница пожертвований - donation</a><div class='clearfix'></div>",
+
+	"pages" => [
+		0 => [
+			'file' => 'modules_extra/donation_widget/base/index.php',
+			'url'  => 'donation',
+			'name' => 'donation',
+			'title' => 'Пожертвования',
+			'description' => 'Страница пожертвований',
+			'keywords' => 'пожертвование, помощь, донаты',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 2,
+			'privacy' => 2,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		1 => [
+			'file' => 'modules_extra/donation_widget/base/admin/index.php',
+			'url'  => 'admin/donation_widget',
+			'name' => 'admin_donation_widget',
+			'title' => 'Настройка модуля донатов',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		]
+	]
+]

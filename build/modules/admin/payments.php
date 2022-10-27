@@ -61,7 +61,9 @@ $apact  = get_active($bank_conf->ap, 2);
 $enotact  = get_active($bank_conf->enot, 2);
 $lava = get_active($bank_conf->lava, 2);
 $amarapayact = get_active($bank_conf->amarapay, 2);
+$fpact = get_active($bank_conf->fowpay, 2);
 $payeeract = get_active($bank_conf->payeer, 2);
+$fpact = get_active($bank_conf->fowpay, 2);
 $perfectmoneyact = get_active($bank_conf->perfectmoney, 2);
 $psRUB  = '';
 $psEUR  = '';
@@ -161,7 +163,12 @@ $tpl
 ->set("{lava_act}", $lava[0])
 ->set("{lava_act2}", $lava[1])
 ->set("{lava_wallet}", Lava::conf()->wallet)
-->set("{lava_token}", Lava::conf()->token);
+->set("{lava_token}", Lava::conf()->token)
+
+->set("{fowpay_act}", $fpact[0])
+->set("{fowpay_act2}", $fpact[1])
+->set("{fowpay_merchant}", $bank_conf->fowpay_merchant)
+->set("{fowpay_api}", $bank_conf->fowpay_api);
 
 $tpl->compile('content');
 $tpl->clear();

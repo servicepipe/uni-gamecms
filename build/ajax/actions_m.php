@@ -53,6 +53,25 @@ if(isset($_POST['refill_balance'])) {
 		$cashierSettings->rubusd = configs()->usd;
 
 		switch($cashier['slug']) {
+			case 'fowpay':
+				if(empty($cashierSettings->fowpay) || empty($cashierSettings->fowpay_merchant) || empty($cashierSettings->fowpay_api)) {
+					throw new Exception('Способ оплаты не настроен');
+				}
+				
+				$uri = 'https://fowpay.com/pay';
+				
+				$shop = $cashierSettings->fowpay_merchant;
+				$secret = $cashierSettings->fowpay_api;
+				$order = $user->id;
+				$sign = md5("$shop:$price:$secret:$order");
+				
+				$uri .= '?shop=' . $shop;
+				$uri .= '&order=' . $order;
+				$uri .= '&amount=' . $price;
+				$uri .= '&sign=' . $sign;
+				
+				Payments::showLink($uri);
+			break;
 			case 'amarapay':
 				if(empty($cashierSettings->amarapay_id) || empty($cashierSettings->amarapay_public)) {
 					throw new Exception('Способ оплаты не настроен');

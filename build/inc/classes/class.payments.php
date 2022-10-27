@@ -70,6 +70,10 @@ class Payments
 		[
 			'slug' => 'lava',
 			'name' => 'Lava'
+		],
+		[
+			'slug' => 'fowpay',
+			'name' => 'FowPay'
 		]
 	];
 

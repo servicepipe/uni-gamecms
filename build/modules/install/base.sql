@@ -181,77 +181,79 @@ INSERT INTO `config` (`id`, `name`, `template`, `template_mobile`, `violations_n
 ALTER TABLE `config` DROP `geoip`;
 
 CREATE TABLE IF NOT EXISTS `config__bank` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `rb` int NOT NULL DEFAULT '2',
+  `id` int(11) NOT NULL,
+  `rb` int(11) NOT NULL DEFAULT 2,
   `rb_login` varchar(255) NOT NULL,
   `rb_pass1` varchar(255) NOT NULL,
   `rb_pass2` varchar(255) NOT NULL,
-  `rb_commission` int NOT NULL DEFAULT '1',
-  `wb` int NOT NULL DEFAULT '2',
+  `rb_commission` int(11) NOT NULL DEFAULT 1,
+  `wb` int(11) NOT NULL DEFAULT 2,
   `wb_login` varchar(255) NOT NULL DEFAULT '',
   `wb_pass1` varchar(255) NOT NULL DEFAULT '',
   `wb_num` varchar(255) NOT NULL DEFAULT '',
-  `up` int NOT NULL DEFAULT '2',
-  `up_type` int NOT NULL DEFAULT '1',
+  `up` int(11) NOT NULL DEFAULT 2,
+  `up_type` int(11) NOT NULL DEFAULT 1,
   `up_pass1` varchar(255) NOT NULL DEFAULT '',
   `up_pass2` varchar(255) NOT NULL DEFAULT '',
-  `ps` int NOT NULL DEFAULT '2',
+  `ps` int(11) NOT NULL DEFAULT 2,
   `ps_num` varchar(255) NOT NULL DEFAULT '',
   `ps_pass` varchar(255) NOT NULL DEFAULT '',
   `ps_currency` varchar(3) NOT NULL DEFAULT 'RUB',
-  `ps_test` int NOT NULL DEFAULT '0',
-  `fk` int NOT NULL DEFAULT '2',
+  `ps_test` int(11) NOT NULL DEFAULT 0,
+  `fk` int(11) NOT NULL DEFAULT 2,
   `fk_login` varchar(255) NOT NULL,
   `fk_pass1` varchar(255) NOT NULL,
   `fk_pass2` varchar(255) NOT NULL,
-  `ik` int NOT NULL DEFAULT '2',
+  `ik` int(11) NOT NULL DEFAULT 2,
   `ik_login` varchar(255) NOT NULL,
   `ik_pass1` varchar(255) NOT NULL,
-  `wo` int NOT NULL DEFAULT '2',
+  `wo` int(11) NOT NULL DEFAULT 2,
   `wo_login` varchar(255) NOT NULL,
   `wo_pass` varchar(255) NOT NULL,
-  `ya` int NOT NULL DEFAULT '2',
+  `ya` int(11) NOT NULL DEFAULT 2,
   `ya_num` varchar(255) DEFAULT '',
   `ya_key` varchar(255) DEFAULT '',
-  `qw` int NOT NULL DEFAULT '2',
+  `qw` int(11) NOT NULL DEFAULT 2,
   `qw_pass` varchar(300) NOT NULL DEFAULT '',
-  `enot` int NOT NULL DEFAULT '2',
+  `enot` int(11) NOT NULL DEFAULT 2,
   `enot_id` varchar(255) NOT NULL,
   `enot_key` varchar(255) NOT NULL,
   `enot_key2` varchar(255) NOT NULL,
-  `lp` int NOT NULL DEFAULT '2',
+  `lp` int(11) NOT NULL DEFAULT 2,
   `lp_public_key` varchar(255) NOT NULL DEFAULT '',
   `lp_private_key` varchar(255) NOT NULL DEFAULT '',
-  `ap` int NOT NULL DEFAULT '2',
+  `ap` int(11) NOT NULL DEFAULT 2,
   `ap_project_id` varchar(255) NOT NULL DEFAULT '',
   `ap_private_key` varchar(255) NOT NULL DEFAULT '',
-  `fk_new` int NOT NULL DEFAULT '2',
+  `fk_new` int(11) NOT NULL DEFAULT 2,
   `fk_new_login` varchar(255) NOT NULL,
   `fk_new_pass1` varchar(255) NOT NULL,
   `fk_new_pass2` varchar(255) NOT NULL,
-  `amarapay` int NOT NULL DEFAULT '2',
+  `amarapay` int(11) NOT NULL DEFAULT 2,
   `amarapay_id` varchar(9) NOT NULL DEFAULT '',
   `amarapay_public` varchar(128) NOT NULL DEFAULT '',
   `amarapay_secret` varchar(128) NOT NULL DEFAULT '',
-  `freekassa` int NOT NULL DEFAULT '2',
+  `freekassa` int(11) NOT NULL DEFAULT 2,
   `freekassa_id` varchar(15) NOT NULL DEFAULT '',
   `freekassa_secret1` varchar(128) NOT NULL DEFAULT '',
   `freekassa_secret2` varchar(128) NOT NULL DEFAULT '',
-  `payeer` int(11) NOT NULL DEFAULT '2',
+  `payeer` int(11) NOT NULL DEFAULT 2,
   `payeer_id` varchar(10) NOT NULL DEFAULT '',
   `payeer_secret` varchar(128) NOT NULL DEFAULT '',
   `payeer_addsec` varchar(128) NOT NULL DEFAULT '',
-  `perfectmoney` int(11) NOT NULL DEFAULT '2',
+  `perfectmoney` int(11) NOT NULL DEFAULT 2,
   `perfectmoney_id` varchar(10) NOT NULL DEFAULT '',
   `perfectmoney_secret` varchar(128) NOT NULL DEFAULT '',
-  `lava` int NOT NULL DEFAULT '2',
+  `lava` int(11) NOT NULL DEFAULT 2,
   `lava_wallet` varchar(256) NOT NULL DEFAULT '',
   `lava_token` varchar(256) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `fowpay` int(9) NOT NULL DEFAULT 2,
+  `fowpay_merchant` varchar(32) DEFAULT NULL,
+  `fowpay_api` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `config__bank` (`id`, `rb`, `rb_login`, `rb_pass1`, `rb_pass2`, `rb_commission`, `wb`, `wb_login`, `wb_pass1`, `wb_num`, `up`, `up_type`, `up_pass1`, `up_pass2`, `ps`, `ps_num`, `ps_pass`, `ps_currency`, `ps_test`, `fk`, `fk_login`, `fk_pass1`, `fk_pass2`, `ik`, `ik_login`, `ik_pass1`, `wo`, `wo_login`, `wo_pass`, `ya`, `ya_num`, `ya_key`, `qw`, `qw_pass`, `enot`, `enot_id`, `enot_key`, `enot_key2`, `lp`, `lp_public_key`, `lp_private_key`, `ap`, `ap_project_id`, `ap_private_key`, `fk_new`, `fk_new_login`, `fk_new_pass1`, `fk_new_pass2`, `amarapay`, `amarapay_id`, `amarapay_public`, `amarapay_secret`, `freekassa`, `freekassa_id`, `freekassa_secret1`, `freekassa_secret2`, `payeer`, `payeer_id`, `payeer_secret`, `payeer_addsec`, `perfectmoney`, `perfectmoney_id`, `perfectmoney_secret`, `lava`, `lava_wallet`, `lava_token`) VALUES
-(1, 2, '', '', '', 1, 2, '', '', '', 2, 1, '', '', 2, '', '', 'EUR', 0, 2, '', '', '', 2, '', '', 2, '', '', 2, '', '', 2, '', 2, '', '', '', 2, '', '', 2, '', '', 2, '', '', '', 2, '', '', '', 2, '', '', '', 2, '', '', '', 2, '', '', 2, '', '');
+INSERT INTO `config__bank` (`id`, `rb`, `rb_login`, `rb_pass1`, `rb_pass2`, `rb_commission`, `wb`, `wb_login`, `wb_pass1`, `wb_num`, `up`, `up_type`, `up_pass1`, `up_pass2`, `ps`, `ps_num`, `ps_pass`, `ps_currency`, `ps_test`, `fk`, `fk_login`, `fk_pass1`, `fk_pass2`, `ik`, `ik_login`, `ik_pass1`, `wo`, `wo_login`, `wo_pass`, `ya`, `ya_num`, `ya_key`, `qw`, `qw_pass`, `enot`, `enot_id`, `enot_key`, `enot_key2`, `lp`, `lp_public_key`, `lp_private_key`, `ap`, `ap_project_id`, `ap_private_key`, `fk_new`, `fk_new_login`, `fk_new_pass1`, `fk_new_pass2`, `amarapay`, `amarapay_id`, `amarapay_public`, `amarapay_secret`, `freekassa`, `freekassa_id`, `freekassa_secret1`, `freekassa_secret2`, `payeer`, `payeer_id`, `payeer_secret`, `payeer_addsec`, `perfectmoney`, `perfectmoney_id`, `perfectmoney_secret`, `lava`, `lava_wallet`, `lava_token`, `fowpay`, `fowpay_merchant`, `fowpay_api`) VALUES
+(1, 2, '', '', '', 1, 2, '', '', '', 2, 1, '', '', 2, '', '', 'EUR', 0, 2, '', '', '', 2, '', '', 2, '', '', 2, '', '', 2, '', 2, '', '', '', 2, '', '', 2, '', '', 2, '', '', '', 2, '', '', '', 2, '', '', '', 2, '', '', '', 2, '', '', 2, '', '', 2, '', '');
 
 CREATE TABLE IF NOT EXISTS `config__email` (
   `username` varchar(255) NOT NULL DEFAULT '',
@@ -311,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.4',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.5',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -326,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.4', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.5', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -540,7 +542,8 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (8, 'vacancy [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', NULL, 'unigamecms.ru'),
 (9, 'site_stats [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Модуль позволяет добавить блок со статистикой на любую страницу Вашего сайта.\r\nПомимо текущей статистики в блоке отображается ее разница по сравнению с предыдущим днем.\r\n<br>\r\n<br>\r\n\r\nКод горизонтального блока: <br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(1);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<br>\r\n\r\nКод вертикального блока:\r\n<br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(2);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/site_stats/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
 (10, 'activity_rewards [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
-(11, 'sortition [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
+(11, 'sortition [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(12, 'donation_widget [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -740,7 +743,9 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (93, 'modules_extra/activity_rewards/base/admin/index.php', 'admin/activity_rewards', 'admin_activity_rewards', 'Настройка наград за посещения', 'Настройка наград за посещения', 'Настройка наград за посещения', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
 (94, 'modules_extra/activity_rewards/base/admin/user_progress.php', 'admin/activity_rewards_progress', 'admin_activity_rewards_progress', 'Прогресс пользователей', 'Прогресс пользователей', 'Прогресс пользователей', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
 (95, 'modules_extra/sortition/base/index.php', 'sortition', 'sortition', 'Розыгрыш', 'Розыгрыш', 'Розыгрыш', 1, 'modules_extra/sortition/templates/image.jpg', 2, 1, 1, 1, 6, 0, 0),
-(96, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0);
+(96, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0),
+(97, 'modules_extra/donation_widget/base/index.php', 'donation', 'donation', 'Пожертвования', 'Страница пожертвований', 'пожертвование, помощь, донаты', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 8, 0, 0),
+(98, 'modules_extra/donation_widget/base/admin/index.php', 'admin/donation_widget', 'admin_donation_widget', 'Настройка модуля донатов', 'Настройка модуля донатов', 'Настройка модуля донатов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 8, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1270,4 +1275,39 @@ ALTER TABLE `sortition` ADD `show_participants` INT(1) NULL DEFAULT '2' AFTER `o
 ALTER TABLE `sortition` ADD `end_type` INT(1) NULL DEFAULT '1' AFTER `show_participants`;
 ALTER TABLE `sortition` ADD `finished` INT(1) NOT NULL DEFAULT '2' AFTER `end_type`;
 
-ALTER TABLE `config` ADD `fixed_message` INT(11) NULL DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `dw__config` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `enabled` int(1) NOT NULL DEFAULT 2,
+  `raising` int(11) DEFAULT NULL COMMENT 'Current raising ID',
+  `showlist` int(1) NOT NULL DEFAULT 2,
+  `listlimit` int(2) NOT NULL DEFAULT 0,
+  `comments` int(1) NOT NULL DEFAULT 2,
+  `autostop` int(1) NOT NULL DEFAULT 2,
+  PRIMARY KEY (`id`),
+  KEY `raising` (`raising`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `dw__donations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Donation ID',
+  `pid` int(11) NOT NULL COMMENT 'Payment ID',
+  `fid` int(11) NOT NULL COMMENT 'Fundrising ID',
+  `comment` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pid` (`pid`),
+  KEY `fid` (`fid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `dw__raisings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(250) NOT NULL DEFAULT '' COMMENT 'Target description',
+  `target` int(11) NOT NULL DEFAULT 0 COMMENT 'Target amount',
+  `stopdate` varchar(20) NOT NULL DEFAULT '0000.00.00 00:00' COMMENT 'End date of fundraising',
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `dw__config` (`id`) VALUES (NULL);
+INSERT INTO `money__actions_types` (`id`, `name`, `class`) VALUES ('20', 'Пожертвование проекту', 'danger');
+
+ALTER TABLE `config` ADD `fixed_message` INT(11) NULL DEFAULT NULL;
