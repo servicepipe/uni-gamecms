@@ -3,9 +3,9 @@
 		Подключение элементных значений
 		///////////////////////////////
 	*/
-	$levels = new Levels($pdo);										// Система уровней профиля
+	$levels = new Levels($pdo);												// Система уровней профиля
 	$playground = new Playground($pdo, $conf);								// Система торговой площадки
-	$very = new Verification($pdo);										// Система верификации
+	$very = new Verification($pdo);											// Система верификации
 	
 	$frame = trading()->get_resource_active(3, '{profile_id}');
 ?>
@@ -190,7 +190,7 @@
 
 		<div class="col-lg-9">
 			{if(empty($_COOKIE['very_info_1']) and {profile_id} == $_SESSION['id'] and $very->is_very('{profile_id}', 0))}
-			<div class="alert alert-success" role="alert" id="very_info_1">
+			<div class="alert secondary-success" role="alert" id="very_info_1">
 				<button type="button" class="close" OnClick="close_event(1);">
 					<span aria-hidden="true">&times;</span> 
 				</button>
@@ -387,9 +387,22 @@
 							<td>Рейтинг</td>
 							<td colspan="3">{reit}</td>
 						</tr>
+						
+						 <tr>
+							<td colspan="4">
+								<h4>Активность на серверах</h4>
+							</td>
+						</tr>
+						<tr>
+						<td class="w30"><img class="icon">Провел на серверах:</td>
+						<td class="w70"><?php if($profile->steam_id == "0") { echo "Не указан Steam ID в профиле ( <a data-target='#steamid' data-toggle='modal'>Подробнее</a> )"; } else { if(expand_seconds2($profile->game_time) == "Навсегда") { echo "0 часов 0 минут 0 секунд"; } else { echo expand_seconds2($profile->game_time); } } ?></td>
+						</tr>
                     {else}
 						<tr>
-							<td colspan="4">
+
+
+						<tr>
+							<td colspan="2">
 								<h4>Пользователь удален</h4>
 							</td>
 						</tr>
@@ -416,6 +429,34 @@
 						<tr style="overflow-x:auto;"><?=(new Prefixes(pdo()))->user_prefixes('{profile_id}');?></tr>
 				</table>
 			</div>
+			
+			
+	<script>$('steamid').modal('hide');</script>
+
+	<div id="steamid" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<font style="word-break: break-all">
+					Необходимо зайти на игровой сервер, после чего вписать в консоли сервера слово <span style="color:#e67e23;">status</span>, далее находим там себя, и копируем свой <span style="color:#3598db;">SteamID</span>
+					<br><br>					
+					<img src="../files/other/steamid.png" class="img-fluid" alt="status" style="width: 100%;border-radius: 10px;">
+					<br><br>
+					Далее заходим в настройках своего <a href="../settings" target="_blank">профиля</a> и указываем его там, именно так как показано на примере
+					<center>
+					<a href="../settings" target="_blank"><img src="../files/other/steamid_profile_wydget.png" class="img-fluid" alt="set_prefix"></a>				
+					</center>
+					И нажимаем кнопку <span style="color:#e67e23;">Изменить</span>					
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
 
             {if('{dell}' != '1')}
 				<div class="block">

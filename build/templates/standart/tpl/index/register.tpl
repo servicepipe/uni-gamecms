@@ -1,3 +1,23 @@
+<?php
+$ip = $_SERVER['REMOTE_ADDR'];
+$ipInfo = json_decode(file_get_contents("http://ip-api.com/json/{$ip}?fields=status,message,country,countryCode"), true);
+
+if(isset($ipInfo['country']) && $ipInfo['country'] != 'Kazakhstan' && $ipInfo['country'] != 'Russia' && $ipInfo['country'] != 'Serbia' && $ipInfo['country'] != 'Slovakia' && $ipInfo['country'] != 'Slovenia' && $ipInfo['country'] != 'Tajikistan' && $ipInfo['country'] != 'Turkmenistan' && $ipInfo['country'] != 'Ukraine' && $ipInfo['country'] != 'Turkey' && $ipInfo['country'] != 'Uzbekistan' && $ipInfo['country'] != 'Belarus' && $ipInfo['country'] != 'Latvia' && $ipInfo['country'] != 'Lithuania'&& $ipInfo['country'] != 'Moldova' && $ipInfo['country'] != 'Azerbaijan' && $ipInfo['country'] != 'Armenia' && $ipInfo['country'] != 'Bulgaria' && $ipInfo['country'] != 'Kyrgyzstan' && $ipInfo['country'] != 'Estonia' && $ipInfo['country'] != 'Georgia') {  
+  //print('BLOCKED COUNTRY');	
+    http_response_code(403);
+    die('
+	
+	<div class="col-lg-12 order-is-first">
+	<div class="noty-block secondary">
+	<p>Извините, но регистрация на этом ресурсе для вас закрыта :(</p>
+	<p>Если вы считаете, что не совершили никаких нарушений и ограничение появились ошибочно — пожалуйста <a href="../profile?id=1" target="_blank">напишите</a> нам</p>
+	</div>
+	</div>
+	
+	');
+}
+?>
+
 <div class="col-lg-3 order-is-last">
 	{include file="/index/authorization.tpl"}
 	{include file="/index/sidebar.tpl"}

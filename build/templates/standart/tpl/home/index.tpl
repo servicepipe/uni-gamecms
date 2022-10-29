@@ -7,7 +7,10 @@
 		<div id="notifications">
 			{notifications}
 		</div>
+				
 	</div>
+	
+	{include file="/elements/steam_id_nickname.tpl"}
 
 	<div id="main-slider" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">

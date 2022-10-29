@@ -1,6 +1,12 @@
 <div class="block">
 	<div class="block_head">
 		Чат
+		
+		<button class="btn btn-sm btn-light btn-block-head" data-toggle="collapse" href="#chat" onclick="set_chat_cookie();" style="float:right; background: center;"><i class="fas fa-minus" style="position: relative;font-size: 11px;left: 1px;"></i></button>
+		
+		<button data-toggle="modal" title="Правила чата" class="btn btn-outline-dark btn-sm" href="#chatrules">
+			<i class="fa fa-hashtag" style="position: relative; left: 1px;" aria-hidden="true"></i>_правила
+		</button>
 	</div>
 	<div id="chat">
 	<div id="fixed_message"><script>chat_load_fixed_message();</script></div>
@@ -40,6 +46,27 @@
 		</center>
 	</div>
 </div>
+
+<!-- ChatRules -->
+<div id="chatrules" class="modal fade in" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+		    <h6 class="modal-title">В чате запрещено: </h6><br>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                  <li>Отправлять ссылки на другие игровые проекты</li> 
+		  <li>Оскорблять других участников чата</li>
+                  <li>Спамить и флудить</li>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- ChatRules -->
+
+
 <script>
 	//drag&drop
 	$(document).ready(function(){

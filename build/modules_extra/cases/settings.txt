@@ -1,0 +1,85 @@
+[
+	"name" => "cases",
+	
+	"files" => "<script src='{site_host}/modules_extra/cases/ajax/ajax.js?v={cache}'></script><link rel='stylesheet' href='{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}'>",
+
+	"info" => "Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выйгрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id='case_banner'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class='btn btn-default btn-sm f-l mr-5' href='../admin/cases' target='_blank'>Настройка кейсов</a><a class='btn btn-default btn-sm f-l mr-5' href='../admin/open_cases' target='_blank'>Список открытий кейсов</a><a class='btn btn-default btn-sm f-l' href='../cases' target='_blank'>cases - страница магазина кейсов</a><div class='clearfix'></div>",
+	
+	"pages" => [
+		0 => [
+			'file' => 'modules_extra/cases/base/index.php',
+			'url'  => 'cases',
+			'name' => 'cases',
+			'title' => 'Магазин кейсов',
+			'description' => 'Магазин кейсов',
+			'keywords' => 'Магазин кейсов',
+			'kind' => 1,
+			'image' => 'modules_extra/cases/templates/image.jpg',
+			'robots' => 1,
+			'privacy' => 2,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		1 => [
+			'file' => 'modules_extra/cases/base/case.php',
+			'url'  => 'case',
+			'name' => 'case',
+			'title' => 'Кейс {value}',
+			'description' => 'Кейс {value}',
+			'keywords' => 'Кейс {value}',
+			'kind' => 1,
+			'image' => 'modules_extra/cases/templates/image.jpg',
+			'robots' => 1,
+			'privacy' => 2,
+			'type' => 1,
+			'active' => 1,
+			'module' => 1
+		],
+		2 => [
+			'file' => 'modules_extra/cases/base/admin/index.php',
+			'url'  => 'admin/cases',
+			'name' => 'admin_cases',
+			'title' => 'Настройка кейсов',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		],
+		3 => [
+			'file' => 'modules_extra/cases/base/admin/case.php',
+			'url'  => 'admin/case',
+			'name' => 'admin_case',
+			'title' => 'Настройка кейса',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		],
+		4 => [
+			'file' => 'modules_extra/cases/base/admin/open_cases.php',
+			'url'  => 'admin/open_cases',
+			'name' => 'admin_open_cases',
+			'title' => 'Список открытий кейсов',
+			'description' => 'none',
+			'keywords' => 'none',
+			'kind' => 1,
+			'image' => 'files/miniatures/standart.jpg',
+			'robots' => 0,
+			'privacy' => 0,
+			'type' => 2,
+			'active' => 1,
+			'module' => 1
+		]
+	]
+]

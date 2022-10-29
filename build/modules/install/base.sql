@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config` (`id`, `name`, `template`, `template_mobile`, `violations_number`, `violations_delta`, `ban_time`, `protect`, `geoip`, `hide_players_id`, `top_donators`, `top_donators_count`, `top_donators_show_sum`, `vk_api_version`, `update_server`, `stat`, `stat_number`, `show_news`, `show_events`, `bank`, `date`, `cont`, `col_nick`, `col_pass`, `col_type`, `conf_us`, `cote`, `widgets_type`, `vk_group`, `vk_group_id`, `vk_admin`, `vk_admin_id`, `disp_last_online`, `new_year`, `win_day`, `copyright_key`, `developer_mode`, `off`, `dell_admin_time`, `global_ban`, `time_zone`, `protocol`, `code`, `cache`, `salt`, `secret`, `ip_protect`, `privacy_policy`, `captcha`, `date_cbr`, `usd`, `currency`, `token`, `caching`) VALUES
-(1, '<<project>>', 'standart', 'standart', 30, '2', '15', 2, 1, 0, 1, 5, 2, 5.131, 1, 2, '3000', 0, 3, 0, '2021-10-13', 2, 1, 1, 1, 2, 2, 2, 2, '', 2, '', 1, 2, 2, 'none', 2, 2, '2021-10-14 02:19:00', 2, 'Etc/GMT-3', 1, '<<code>>', 38, '<<salt>>', 'none', 1, 2, '2', '2022-03-26 13:19:37', '95.66', '{\"code\":\"RUB\",\"lang\":\"\\u0440\\u0443\\u0431\",\"html\":\"&#8381;\"}', 1, 2);
+(1, '<<project>>', 'standart', 'standart', 30, '2', '15', 2, 1, 0, 1, 5, 2, 5.131, 1, 2, '3000', 0, 3, 0, '2021-10-13', 2, 1, 1, 1, 2, 2, 2, 2, '', 2, '', 1, 2, 2, 'none', 2, 2, '2021-10-14 02:19:00', 2, 'Etc/GMT-3', 1, '<<code>>', 38, '<<salt>>', 'none', 1, 2, '2', '2022-03-26 13:19:37', '95.66', '{\"code\":\"RUB\",\"lang\":\"\\u20bd\",\"html\":\"&#8381;\"}', 1, 2);
 
 ALTER TABLE `config` DROP `geoip`;
 
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.5',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.6',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 1, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.5', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.6', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -543,7 +543,8 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (9, 'site_stats [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Модуль позволяет добавить блок со статистикой на любую страницу Вашего сайта.\r\nПомимо текущей статистики в блоке отображается ее разница по сравнению с предыдущим днем.\r\n<br>\r\n<br>\r\n\r\nКод горизонтального блока: <br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(1);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<br>\r\n\r\nКод вертикального блока:\r\n<br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(2);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/site_stats/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
 (10, 'activity_rewards [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
 (11, 'sortition [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
-(12, 'donation_widget [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
+(12, 'donation_widget [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(13, 'cases [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -745,7 +746,12 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (95, 'modules_extra/sortition/base/index.php', 'sortition', 'sortition', 'Розыгрыш', 'Розыгрыш', 'Розыгрыш', 1, 'modules_extra/sortition/templates/image.jpg', 2, 1, 1, 1, 6, 0, 0),
 (96, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0),
 (97, 'modules_extra/donation_widget/base/index.php', 'donation', 'donation', 'Пожертвования', 'Страница пожертвований', 'пожертвование, помощь, донаты', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 8, 0, 0),
-(98, 'modules_extra/donation_widget/base/admin/index.php', 'admin/donation_widget', 'admin_donation_widget', 'Настройка модуля донатов', 'Настройка модуля донатов', 'Настройка модуля донатов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 8, 0, 0);
+(98, 'modules_extra/donation_widget/base/admin/index.php', 'admin/donation_widget', 'admin_donation_widget', 'Настройка модуля донатов', 'Настройка модуля донатов', 'Настройка модуля донатов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 8, 0, 0),
+(99, 'modules_extra/cases/base/index.php', 'cases', 'cases', 'Магазин кейсов', 'Магазин кейсов', 'Магазин кейсов', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 1, 0, 0),
+(100, 'modules_extra/cases/base/case.php', 'case', 'case', 'Кейс {value}', 'Кейс {value}', 'Кейс {value}', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 1, 0, 0),
+(101, 'modules_extra/cases/base/admin/index.php', 'admin/cases', 'admin/cases', 'Настройка кейсов', 'Настройка кейсов', 'Настройка кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(102, 'modules_extra/cases/base/admin/case.php', 'admin/case', 'admin/case', 'Настройка кейсов', 'Настройка кейса', 'Настройка кейса', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(103, 'modules_extra/cases/base/admin/open_cases.php', 'admin/open_cases', 'admin/open_cases', 'Список открытий кейсов', 'Список открытий кейсов', 'Список открытий кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1311,3 +1317,59 @@ INSERT INTO `dw__config` (`id`) VALUES (NULL);
 INSERT INTO `money__actions_types` (`id`, `name`, `class`) VALUES ('20', 'Пожертвование проекту', 'danger');
 
 ALTER TABLE `config` ADD `fixed_message` INT(11) NULL DEFAULT NULL;
+
+CREATE TABLE `cases` (
+  `id` int(4) NOT NULL,
+  `name` varchar(256) DEFAULT NULL,
+  `price` float NOT NULL,
+  `image` int(4) NOT NULL,
+  `subjects` text NOT NULL,
+  `trim` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `cases__images` (
+  `id` int(4) NOT NULL,
+  `url` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `cases__images` (`id`, `url`) VALUES
+(1, 'modules_extra/cases/templates/_cases_images/1.png'),
+(2, 'modules_extra/cases/templates/_cases_images/2.png'),
+(3, 'modules_extra/cases/templates/_cases_images/3.png'),
+(4, 'modules_extra/cases/templates/_cases_images/4.png'),
+(5, 'modules_extra/cases/templates/_cases_images/5.png'),
+(6, 'modules_extra/cases/templates/_cases_images/6.png'),
+(7, 'modules_extra/cases/templates/_cases_images/7.png'),
+(8, 'modules_extra/cases/templates/_cases_images/8.png'),
+(9, 'modules_extra/cases/templates/_cases_images/9.png'),
+(10, 'modules_extra/cases/templates/_cases_images/10.png'),
+(11, 'modules_extra/cases/templates/_cases_images/11.png'),
+(12, 'modules_extra/cases/templates/_cases_images/12.png'),
+(13, 'modules_extra/cases/templates/_cases_images/13.png');
+
+CREATE TABLE `cases__wins` (
+  `id` int(6) NOT NULL,
+  `case_id` int(4) NOT NULL,
+  `item` text NOT NULL,
+  `user_id` int(7) NOT NULL,
+  `time` int(11) NOT NULL,
+  `finished` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `cases`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `cases__images`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `cases__wins`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `cases`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `cases__images`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+ALTER TABLE `cases__wins`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

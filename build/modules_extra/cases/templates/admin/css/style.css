@@ -1,0 +1,101 @@
+.subject-block {
+	display: block;
+	padding: 7px;
+	border: 1px solid #DDD;
+	margin-bottom: 10px;
+}
+.subject-block b {
+	margin: -7px;
+	display: block;
+	padding: 7px;
+	background: rgb(239, 239, 239);
+	margin-bottom: 8px;
+}
+
+div[id^="case_"] .btn-group {
+	width: 100%;
+}
+div[id^="case_"] .btn-group .btn-default {
+	width: 25%;
+}
+div[id^="case_"] img {
+	height: 190px;
+	width: 250px;
+	display: block;
+	margin: 0 auto;
+}
+
+.case-image {
+	cursor: pointer;
+	margin-bottom: 0;
+	display: inline-block;	
+}
+.case-image img {
+	height: 150px !important;
+	width: 212px !important;
+}
+
+#cases_images {
+	text-align: center;
+}
+#cases_images .case-image {
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	margin-bottom: 4px;
+}
+#cases_images .case-image > span {
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background: rgba(221, 221, 221, 0.35);
+	border-top: 1px solid #DDD;
+}
+#cases_images .case-image > span > a {
+	font-size: 13px;
+	cursor: pointer;
+	margin: 0 3px;
+}
+#cases_images .case-image > span > a:nth-child(1) {
+	color: rgb(56, 137, 26);
+}
+#cases_images .case-image > span > a:nth-child(2) {
+	color: rgb(183, 32, 32);
+}
+
+.form-group.file-load input.form-control {
+	padding: 0;
+}
+
+#open_cases td {
+	vertical-align: middle !important;
+}
+#open_cases td > span.orange {
+	color: rgb(255, 196, 0);
+}
+#open_cases td > span.red {
+	color: rgb(255, 88, 115);
+}
+#open_cases td > span.purple {
+	color: rgb(255, 70, 179);
+}
+#open_cases td > span.blue {
+	color: rgb(116, 99, 255)
+}
+#open_cases td > span.military {
+	color: rgb(158, 191, 251);
+}
+#open_cases tr > td:nth-child(2) img {
+	width: 50px;
+	margin-right: 10px;
+}
+#open_cases tr > td:nth-child(3) > a > img {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    border: 2px solid RGB(72, 107, 145);
+    border-radius: 50%;
+}
+#open_cases a {
+    white-space: normal !important;
+}
