@@ -1,9 +1,9 @@
 .wapper .header {
 	position: relative;
 }
-.b-page__content{
-	height: 50px;
-	background-color: #FFF;
+.b-page__content {
+    height: 50px;
+    background-color: #FFF;
 }
 .b-head-decor{
 	display:none

@@ -3,9 +3,9 @@
 		Подключение элементных значений
 		///////////////////////////////
 	*/
-	$levels = new Levels($pdo);												// Система уровней профиля
+	$levels = new Levels($pdo);										// Система уровней профиля
 	$playground = new Playground($pdo, $conf);								// Система торговой площадки
-	$very = new Verification($pdo);											// Система верификации
+	$very = new Verification($pdo);										// Система верификации
 	
 	$frame = trading()->get_resource_active(3, '{profile_id}');
 ?>
@@ -322,7 +322,7 @@
                             {/if}
                             {if('{discord}' != '')}
 								<tr>
-									<td colspan="3">Discord</td>
+									<td colspan="1">Discord</td>
 									<td><a title="Написать в Discord">{discord}</a></td>
 								</tr>
                             {/if}

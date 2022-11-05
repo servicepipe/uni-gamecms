@@ -1,0 +1,77 @@
+.rcon-shop-product {
+	padding: 0;
+	border-radius: 5px;
+	overflow: hidden;
+
+	.image {
+		height: 200px;
+		width: 100%;
+		background-size: cover;
+		transition: .3s all;
+		position: relative;
+
+		.price {
+			right: 10px;
+			top: 10px;
+			position: absolute;
+		}
+
+		.title {
+			background: rgba(0, 0, 0, 0.47);
+			color: #FFF;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			height: 34px;
+			line-height: 34px;
+			padding: 0 10px;
+			border-radius: 3px;
+			cursor: default;
+			max-width: 60%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	&:hover {
+		.image {
+			filter: grayscale(0%);
+			-webkit-filter: grayscale(0%);
+		}
+	}
+
+	.actions {
+		text-align: center;
+
+		.btn {
+			margin: 10px;
+			width: calc( (100% - 40px) / 2);
+
+			&.description-btn {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.rcon-shop-product-in-detail {
+	.image {
+		display: block;
+		max-height: 300px;
+		max-width: 50%;
+
+		img {
+			margin: 0 auto;
+			max-height: 300px;
+			max-width: 100%;
+			border-radius: 3px;
+		}
+	}
+
+	.form-check {
+		.form-check-input {
+			top: -2px;
+		}
+	}
+}

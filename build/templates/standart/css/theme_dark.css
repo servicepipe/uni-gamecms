@@ -950,4 +950,9 @@ div.spoiler div.spoiler-content {
     color: white;
 }
 
+.b-page__content {
+    height: 50px !important;
+    background-color: #ffffff08 !important;
+}
+
 /*# sourceMappingURL=theme_dark.css.map */

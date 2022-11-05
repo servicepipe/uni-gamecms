@@ -1,0 +1,1 @@
+DROP TABLE `digital_store__categories`, `digital_store__keys`, `digital_store__products`;

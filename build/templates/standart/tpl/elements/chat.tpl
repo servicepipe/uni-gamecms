@@ -4,8 +4,8 @@
 		
 		<button class="btn btn-sm btn-light btn-block-head" data-toggle="collapse" href="#chat" onclick="set_chat_cookie();" style="float:right; background: center;"><i class="fas fa-minus" style="position: relative;font-size: 11px;left: 1px;"></i></button>
 		
-		<button data-toggle="modal" title="Правила чата" class="btn btn-outline-dark btn-sm" href="#chatrules">
-			<i class="fa fa-hashtag" style="position: relative; left: 1px;" aria-hidden="true"></i>_правила
+		<button data-toggle="modal" title="Правила чата" class="btn btn-outline-dark btn-sm" href="#chatrules" style="position: absolute;">
+			#_правила
 		</button>
 	</div>
 	<div id="chat">

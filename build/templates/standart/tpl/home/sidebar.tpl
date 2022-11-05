@@ -48,4 +48,8 @@
 	</div>
 </div>
 
+{if(isModuleActive('cases'))}
+	<div id="case_banner"> <script>get_case_banner();</script> </div>
+{/if}
+
 <div id="activity-rewards-banner"> <script>getRewardsBanner('#activity-rewards-banner');</script> </div>

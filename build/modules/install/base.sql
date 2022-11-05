@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `developer_mode` int NOT NULL DEFAULT '2',
   `off` int NOT NULL DEFAULT '2',
   `dell_admin_time` varchar(20) NOT NULL DEFAULT '2016-10-09 01:00:00',
-  `global_ban` int NOT NULL DEFAULT '2',
+  `global_ban` int NOT NULL DEFAULT '1',
   `time_zone` varchar(25) NOT NULL DEFAULT 'Etc/GMT-3',
   `protocol` int NOT NULL DEFAULT '1',
   `code` varchar(20) NOT NULL DEFAULT '',
@@ -313,22 +313,22 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.6',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.7',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
   `update_link` text NOT NULL,
   `return_services` int NOT NULL DEFAULT '1',
-  `bad_nicks_act` int NOT NULL DEFAULT '2',
+  `bad_nicks_act` int NOT NULL DEFAULT '1',
   `min_amount` float DEFAULT '10',
-  `bonuses` int NOT NULL DEFAULT '2',
+  `bonuses` int NOT NULL DEFAULT '1',
   `auto_steam_id_fill` int NOT NULL DEFAULT '2',
   `steam_id_format` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.6', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.7', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -518,7 +518,9 @@ INSERT INTO `menu__sub` (`id`, `name`, `link`, `menu`, `poz`, `for_all`) VALUES
 (9, 'Магазин привилегий', '../store', 4, 1, 1),
 (10, 'Магазин префиксов', '../store/prefixes', 4, 2, 1),
 (11, 'Торговая площадка', '/market', 4, 3, 1),
-(12, 'Инвентарь', '/inventory', 5, 7, 1);
+(13, 'Магазин кейсов', '../cases', 4, 4, 1),
+(14, 'Магазин дополнении', '../shop', 4, 5, 1),
+(15, 'Магазин цифровых товаров', '../digital_store', 4, 6, 1);
 
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -532,19 +534,21 @@ CREATE TABLE IF NOT EXISTS `modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_key`) VALUES
-(1, 'online_line [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Отображение линии общего онлайна под мониторингом серверов', '<script src=\"{site_host}modules_extra/online_line/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
-(2, 'snow [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Снег на Ваш сайт. <br>\r\nВы можете отредактировать параметры снега в файле <b>modules_extra/snow/templates/snow.js:</b><br>\r\n<b>sflakesMax</b> и <b>sflakesMaxActive</b> - количество снега<br>\r\n<b>svMaxY</b> - скорость падения снежинок<br>\r\n<b>ssnowStick </b>- скапливание снега внизу: включено - 1, отключено - 0<br>', '<script src=\"{site_host}modules_extra/snow/templates/snow.js?v={cache}\"></script>', 'unigamecms.ru'),
-(3, 'money_transfer [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит вашим пользователям передавать свои денежные средства любому другому пользователю.<br>Пропишите <code>&lt;li id=\"money_transfer\" data-user=\"{profile_id}\"&gt;&lt;/li&gt;</code> в место, где хотите появление кнопки перевода средств пользователю.', '<script src=\'{site_host}modules_extra/money_transfer/performers/ajax.js?v={cache}\'></script>', 'unigamecms.ru'),
-(4, 'progression [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class=\"progression\" data-index=\"{profile_id}\"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>', '<script src=\"{site_host}modules_extra/progression/performers/main.js?v={cache}\"></script><link rel=\"stylesheet\" href=\"{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
-(5, 'fixed_mess [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль для закрепления сообщение в главном чате', '<script src=\"{site_host}modules_extra/fixed_mess/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
-(6, 'aes_plugin [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет отображать статистику игроков по плагину AES<br><br>Настройки модуля: <a href=\"../admin/aes_settings\" target=\"_blank\">перейти</a><br>\r\nСсылка на страницу статистики: <a href=\"../aes_list\" target=\"_blank\">aes_list</a><br>', '', 'unigamecms.ru'),
-(7, 'cookie [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Небольшой, но очень полезный модуль, который будет уведомлять Ваших новых пользователей о том, что Ваш сайт использует хранение Cookie файлов', '<link rel=\"stylesheet\" href=\"{site_host}modules_extra/cookie/css/primary.css?v={cache}\"><script src=\"{site_host}modules_extra/cookie/js/primary.js?v={cache}\"></script>', 'unigamecms.ru'),
-(8, 'vacancy [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', NULL, 'unigamecms.ru'),
-(9, 'site_stats [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, '﻿Модуль позволяет добавить блок со статистикой на любую страницу Вашего сайта.\r\nПомимо текущей статистики в блоке отображается ее разница по сравнению с предыдущим днем.\r\n<br>\r\n<br>\r\n\r\nКод горизонтального блока: <br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(1);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<br>\r\n\r\nКод вертикального блока:\r\n<br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(2);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/site_stats/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
-(10, 'activity_rewards [ Донат \n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
-(11, 'sortition [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
-(12, 'donation_widget [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
-(13, 'cases [ Донат \r\n<a href=\"https://qiwi.com/n/HIDEMYASS\" style=\"color: #FFA500\" target=\"_blank\">QIWI</a>/<a href=\"https://yoomoney.ru/to/4100117929952847\" style=\"color: #8b00ff\" target=\"_blank\">ЮMoney</a> ]', 'none', 0, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru');
+(1, 'online_line', 'none', 1, '﻿Отображение линии общего онлайна под мониторингом серверов', '<script src=\"{site_host}modules_extra/online_line/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(2, 'snow', 'none', 0, '﻿Снег на Ваш сайт. <br>\r\nВы можете отредактировать параметры снега в файле <b>modules_extra/snow/templates/snow.js:</b><br>\r\n<b>sflakesMax</b> и <b>sflakesMaxActive</b> - количество снега<br>\r\n<b>svMaxY</b> - скорость падения снежинок<br>\r\n<b>ssnowStick </b>- скапливание снега внизу: включено - 1, отключено - 0<br>', '<script src=\"{site_host}modules_extra/snow/templates/snow.js?v={cache}\"></script>', 'unigamecms.ru'),
+(3, 'money_transfer', 'none', 1, 'Данный модуль позволит вашим пользователям передавать свои денежные средства любому другому пользователю.<br>Пропишите <code>&lt;li id=\"money_transfer\" data-user=\"{profile_id}\"&gt;&lt;/li&gt;</code> в место, где хотите появление кнопки перевода средств пользователю.', '<script src=\'{site_host}modules_extra/money_transfer/performers/ajax.js?v={cache}\'></script>', 'unigamecms.ru'),
+(4, 'progression', 'none', 1, 'Данный модуль позволит создать вам шкалу прогрессии Заполнения профиля пользователей на вашем сайте, что позволит обратить внимание пользователей.<hr>Добавьте следующий код:<br><code>&lt;div class=\"progression\" data-index=\"{profile_id}\"&gt;&lt;/div&gt;</code><br><small>В файл templates/{template}/tpl/home/profile.tpl. Помимо этого, вы можете разместить его на любую страницу, только вам потребуется указать вместо {profile_id} индекс профиля (чей профиль открывается).</small>', '<script src=\"{site_host}modules_extra/progression/performers/main.js?v={cache}\"></script><link rel=\"stylesheet\" href=\"{site_host}modules_extra/progression/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
+(5, 'fixed_mess', 'none', 1, 'Модуль для закрепления сообщение в главном чате', '<script src=\"{site_host}modules_extra/fixed_mess/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(6, 'aes_plugin', 'none', 0, 'Модуль позволяет отображать статистику игроков по плагину AES<br><br>Настройки модуля: <a href=\"../admin/aes_settings\" target=\"_blank\">перейти</a><br>\r\nСсылка на страницу статистики: <a href=\"../aes_list\" target=\"_blank\">aes_list</a><br>', '', 'unigamecms.ru'),
+(7, 'cookie', 'none', 1, 'Небольшой, но очень полезный модуль, который будет уведомлять Ваших новых пользователей о том, что Ваш сайт использует хранение Cookie файлов', '<link rel=\"stylesheet\" href=\"{site_host}modules_extra/cookie/css/primary.css?v={cache}\"><script src=\"{site_host}modules_extra/cookie/js/primary.js?v={cache}\"></script>', 'unigamecms.ru'),
+(8, 'vacancy', 'none', 0, 'Модуль «Вакансии» позволит открыть доступ к созданию Вакансий. Данный модуль подходит для тех, кто хочет автоматизировать подачу и принятие заявок в отдельной странице с возможность заполнения своих (дополнительных) данных.<hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'/admin/vacancy\'>Настройки вакансий</a><a class=\'btn btn-default btn-sm f-l\' href=\'/vacancy\'>Страница вакансий</a>', '', 'unigamecms.ru'),
+(9, 'site_stats', 'none', 1, '﻿Модуль позволяет добавить блок со статистикой на любую страницу Вашего сайта.\r\nПомимо текущей статистики в блоке отображается ее разница по сравнению с предыдущим днем.\r\n<br>\r\n<br>\r\n\r\nКод горизонтального блока: <br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(1);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<br>\r\n\r\nКод вертикального блока:\r\n<br>\r\n<code>\r\n&lt;div id=\"site_stats\"&gt;\r\n	&lt;script&gt;get_site_stats(2);&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/site_stats/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(10, 'activity_rewards', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
+(11, 'sortition', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(12, 'donation_widget', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(13, 'cases', 'none', 1, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(14, 'rcon_shop', 'none', 1, '<p>Универсальный магазин для продажи различных услуг и товаров. Модуль работает\r\nпутем отправки rcon команд на игровые сервера, таким образом через него можно\r\nосуществлять продажу всего, что можно сделать через консоль сервера, начиная от\r\nвыдачи различных кредитов и опыта, заканчивая сменой названия сервера или других\r\nего конфигураций.</p>\r\n<p><b>Важно!</b> Для работы модуля на вебхостинге должны быть открыты udp/tcp\r\n27000-27999 порты и настроена работа rcon команд в настройках серверов.</p>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop\" target=\"_blank\">Настройка магазина</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop_buys\" target=\"_blank\">Статистика продаж</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../shop\" target=\"_blank\">shop - страница магазина</a>', '', 'unigamecms.ru'),
+(15, 'digital_store', 'none', 1, 'Модуль позволяет осуществлять продажу цифровых товаров на вашем сайте. <br>Для добавления блока с магазином на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'digital_store\' class=\'row\'&gt;	&lt;script&gt;laod_digital_store(0)&lt;/script&gt;&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store\' target=\'_blank\'>Настройка товара</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store_sales\' target=\'_blank\'>Статистика продаж</a><a class=\'btn btn-default btn-sm f-l\' href=\'../digital_store\' target=\'_blank\'>Страница магазина - digital_store</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/digital_store/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/digital_store/templates/{template}/css/primary.css?v={cache}\'>', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -751,7 +755,17 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (100, 'modules_extra/cases/base/case.php', 'case', 'case', 'Кейс {value}', 'Кейс {value}', 'Кейс {value}', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 1, 0, 0),
 (101, 'modules_extra/cases/base/admin/index.php', 'admin/cases', 'admin/cases', 'Настройка кейсов', 'Настройка кейсов', 'Настройка кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
 (102, 'modules_extra/cases/base/admin/case.php', 'admin/case', 'admin/case', 'Настройка кейсов', 'Настройка кейса', 'Настройка кейса', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(103, 'modules_extra/cases/base/admin/open_cases.php', 'admin/open_cases', 'admin/open_cases', 'Список открытий кейсов', 'Список открытий кейсов', 'Список открытий кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0);
+(103, 'modules_extra/cases/base/admin/open_cases.php', 'admin/open_cases', 'admin/open_cases', 'Список открытий кейсов', 'Список открытий кейсов', 'Список открытий кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(104, 'modules_extra/rcon_shop/base/pages/index.php', 'shop', 'rcon_shop', 'Магазин', 'Магазин', 'Магазин', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
+(105, 'modules_extra/rcon_shop/base/pages/product.php', 'shop/product', 'rcon_shop_product', '«{value}»', 'Магазин товаров, продукт «{value}»', 'Магазин, товаров, продукт, «{value}»', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
+(106, 'modules_extra/rcon_shop/base/pages/admin/index.php', 'admin/rcon_shop', 'admin_rcon_shop', 'Настройка магазина', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(107, 'modules_extra/rcon_shop/base/pages/admin/product.php', 'admin/rcon_shop_product', 'admin_rcon_shop_product', 'Настройка продукта «{value}»', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(108, 'modules_extra/rcon_shop/base/pages/admin/buys.php', 'admin/rcon_shop_buys', 'admin_rcon_shop_buys', 'Покупки', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(109, 'modules_extra/digital_store/base/index.php', 'digital_store', 'digital_store', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
+(110, 'modules_extra/digital_store/base/product.php', 'digital_store/product', 'digital_store/product', '«{value}»', 'Магазин цифровых товаров, продукт «{value}»', 'Магазин цифровых товаров, продукт «{value}»', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
+(111, 'modules_extra/digital_store/base/admin/index.php', 'admin/digital_store', 'admin/digital_store', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 0, 2, 1, 1, 0, 0),
+(112, 'modules_extra/digital_store/base/admin/product.php', 'admin/digital_store_product', 'admin/digital_store_product', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
+(113, 'modules_extra/digital_store/base/admin/sales.php', 'admin/digital_store_sales', 'admin/digital_store_sales', 'Статистика продаж', 'Статистика продаж', 'Статистика продаж', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1373,3 +1387,117 @@ ALTER TABLE `cases__images`
 
 ALTER TABLE `cases__wins`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+CREATE TABLE `rcon_shop__buys` (
+  `id` int(6) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `tarif_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `command` text NOT NULL,
+  `answer` text NOT NULL,
+  `date` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `rcon_shop__categories` (
+  `id` int(6) NOT NULL,
+  `server_id` int(4) NOT NULL,
+  `title` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `rcon_shop__command_params` (
+  `id` int(6) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `rcon_shop__products` (
+  `id` int(6) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `is_has_tarifs` int(1) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `rcon_shop__tarifs` (
+  `id` int(6) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `command` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `rcon_shop__buys`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rcon_shop__categories`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rcon_shop__command_params`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rcon_shop__products`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rcon_shop__tarifs`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `rcon_shop__buys`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `rcon_shop__categories`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `rcon_shop__command_params`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `rcon_shop__products`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `rcon_shop__tarifs`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `digital_store__categories` (
+  `id` int(6) NOT NULL,
+  `name` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `digital_store__keys` (
+  `id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `product` int(11) NOT NULL,
+  `pay` int(7) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `digital_store__products` (
+  `id` int(7) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `image` varchar(512) NOT NULL,
+  `category` int(6) NOT NULL,
+  `price` float NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `digital_store__categories`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `digital_store__keys`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `digital_store__products`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `digital_store__categories`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `digital_store__keys`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `digital_store__products`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;

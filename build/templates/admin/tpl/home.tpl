@@ -73,16 +73,6 @@
 				</div>
 				<div class="clearfix"></div>
 				<hr>
-				<b>Ключ для отключения копирайта</b>
-				<div class="input-group">
-					<span class="input-group-btn">
-						<a class="btn btn-default disabled" href="#">Получить</a>
-						<button class="btn btn-default" type="button" onclick="edit_copyright_key();">Изменить</button>
-					</span>
-					<input type="text" class="form-control" id="copyright_key" maxlength="40" autocomplete="off" value="{copyright_key}">
-				</div>
-				<div class="clearfix"></div>
-				<hr>
 				<b>Режим разработчика</b>
 				<div class="input-group">
 					<div class="input-group-btn" data-toggle="buttons">

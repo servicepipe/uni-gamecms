@@ -970,4 +970,9 @@ html, body {
   color: #dee1e9;
 }
 
+.b-page__content {
+    height: 50px !important;
+    background-color: #262836 !important;
+}
+
 /*# sourceMappingURL=theme_ghost.css.map */

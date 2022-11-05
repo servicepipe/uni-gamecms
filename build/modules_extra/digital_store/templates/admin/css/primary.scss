@@ -1,0 +1,46 @@
+#sales {
+	tr {
+		td {
+			vertical-align: middle;
+
+			&:nth-child(2) {
+				img {
+					width: 65px;
+					height: 35px;
+					border-radius: 2px;
+				}
+				a {
+					max-width: 400px;
+					display: inline-block;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+			}
+			&:nth-child(5) {
+				img {
+					width: 35px;
+					height: 35px;
+					border-radius: 50%;
+				}
+				a {
+					max-width: 200px;
+					display: inline-block;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}
+.buy-product-key-info {
+	padding: 15px;
+	background: rgb(251, 251, 251);
+	border: 1px solid RGB(221, 221, 221);
+	border-radius: 2px;
+
+	p:last-child {
+		margin: 0;
+	}
+}
