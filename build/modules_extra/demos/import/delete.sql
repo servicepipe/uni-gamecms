@@ -1,0 +1,1 @@
+DROP TABLE `servers__demos`, `demos`

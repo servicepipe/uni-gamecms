@@ -121,6 +121,12 @@
 					{if($rewardsTypes[7] == 1)}\
 						<option value="7">Приз из vip_key (MyArena)</option>\
 					{/if}\
+					{if($rewardsTypes[8] == 1)}\
+						<option value="8">Поинты</option>\
+					{/if}\
+					{if($rewardsTypes[9] == 1)}\
+						<option value="9">Опыт</option>\
+					{/if}\
 				</select>\
 				<p class="card-text">Награда</p>\
 				<div class="input-group w-100" id="reward-line' + rewardsLastId + '"></div>\

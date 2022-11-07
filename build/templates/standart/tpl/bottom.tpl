@@ -77,6 +77,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="modal_viewer"></div>
 		<script src="{site_host}files/jquery-confirm/js/jquery-confirm.js?v={cache}"></script>
 		<script src="{site_host}files/toasts/toasty.min.js?v={cache}" type="text/javascript"></script>
 		<script src="{site_host}templates/{template}/js/lightbox.js"></script>

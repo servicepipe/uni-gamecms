@@ -204,6 +204,12 @@
 									{if($prize_types[6] == 1)}\
 									<option value="6">Приз из vip_key_ws</option>\
 									{/if}\
+									{if($prize_types[7] == 1)}\
+									<option value="7">Поинты</option>\
+									{/if}\
+									{if($prize_types[8] == 1)}\
+									<option value="8">Опыт</option>\
+									{/if}\
 									</select>\
 								</div>\
 							</div>');

@@ -1,0 +1,44 @@
+.demo {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.14);
+}
+.demo:last-child {
+  border-bottom: 0;
+}
+.demo .col-lg-2 .map, .demo .col-xs-2 .map {
+  height: 75px;
+  width: 100%;
+  background-size: 100% 100%;
+  border-radius: 2px;
+}
+@media (max-width: 991.99px) {
+  .demo .col-lg-2 .map, .demo .col-xs-2 .map {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+}
+.demo .col-lg-5 p, .demo .col-xs-5 p {
+  display: block;
+  line-height: 25px;
+  margin-bottom: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+}
+.demo .col-lg-5 p b, .demo .col-xs-5 p b {
+  font-weight: 500;
+}
+.demo .col-lg-5 p a, .demo .col-xs-5 p a {
+  font-weight: 500;
+  color: #4D86D1;
+  text-decoration: underline;
+}
+.demo .col-lg-5:nth-child(3) p:nth-child(1) b, .demo .col-xs-5:nth-child(3) p:nth-child(1) b {
+  color: #AD4747;
+}
+.demo .col-lg-5:nth-child(3) p:nth-child(2) b, .demo .col-xs-5:nth-child(3) p:nth-child(2) b {
+  color: #466EA5;
+}
+
+/*# sourceMappingURL=primary.css.map */

@@ -267,6 +267,28 @@ if(isset($sortition->finished)) {
 									send_noty($pdo, 'Не удалось сгенерировать ключ для приза из shop_key для пользователя <a target="_blank" href="../profile?id='.$winners[$i]['id'].'">'.$winners[$i]['login'].'</a>', 0, 2);
 								}
 							}
+							if($prize[$j]['type'] == 7) {
+								$prize_str .= ' - Поинты : <b>'.$prize[$j]['points'].'</b> шт<br>';
+
+								$STH = $pdo->prepare("SELECT `id`,`playground` FROM `users` WHERE `id`=:id LIMIT 1"); $STH->setFetchMode(PDO::FETCH_OBJ);
+								$STH->execute(array( ':id' => $winners[$i]['id'] ));
+								$row = $STH->fetch();
+								if (!empty($row->id)){
+									$STH = $pdo->prepare("UPDATE `users` SET `playground`=:playground WHERE `id`=:id LIMIT 1");
+									$STH->execute(array( ':id' => $winners[$i]['id'], 'playground' => $row->playground+$prize[$j]['points'] ));
+								}
+							}
+							if($prize[$j]['type'] == 8) {
+								$prize_str .= ' - Опыт : <b>'.$prize[$j]['exp'].'</b> шт<br>';
+
+								$STH = $pdo->prepare("SELECT `id`,`experience` FROM `users` WHERE `id`=:id LIMIT 1"); $STH->setFetchMode(PDO::FETCH_OBJ);
+								$STH->execute(array( ':id' => $winners[$i]['id'] ));
+								$row = $STH->fetch();
+								if (!empty($row->id)){
+									$STH = $pdo->prepare("UPDATE `users` SET `experience`=:experience WHERE `id`=:id LIMIT 1");
+									$STH->execute(array( ':id' => $winners[$i]['id'], 'experience' => $row->experience+$prize[$j]['exp'] ));
+								}
+							}
 						}
 					}
 				}

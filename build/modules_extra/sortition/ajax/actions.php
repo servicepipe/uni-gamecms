@@ -336,6 +336,64 @@ if(isset($_POST['get_prizes'])) {
 						</div>
 						<?php
 					}
+					if($prizes[$j]['type'] == 7) {
+						?>
+						<div class="prize" data-target="#prize<?php echo $place; ?>_<?php echo $j; ?>" data-toggle="modal">
+							<i class="fa fa-money" aria-hidden="true"></i>
+							<span>
+								<?php echo $prizes[$j]['points']; ?> Поинты
+							</span>
+							<span>
+								<small>На Ваш баланс</small>
+							</span>
+						</div>
+						</div>
+						<div id="prize<?php echo $place; ?>_<?php echo $j; ?>" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" style="margin-top: 0px;">
+											<?php echo $prizes[$j]['points']; ?> Поинты
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										</h4>
+									</div>
+									<div class="modal-body">
+										Призом является <b><?php echo $prizes[$j]['points']; ?></b> Поинты.
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+					}
+					if($prizes[$j]['type'] == 8) {
+						?>
+						<div class="prize" data-target="#prize<?php echo $place; ?>_<?php echo $j; ?>" data-toggle="modal">
+							<i class="fa fa-money" aria-hidden="true"></i>
+							<span>
+								<?php echo $prizes[$j]['exp']; ?> Опыт
+							</span>
+							<span>
+								<small>В профиль</small>
+							</span>
+						</div>
+						</div>
+						<div id="prize<?php echo $place; ?>_<?php echo $j; ?>" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" style="margin-top: 0px;">
+											<?php echo $prizes[$j]['exp']; ?> Опыт
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										</h4>
+									</div>
+									<div class="modal-body">
+										Призом является <b><?php echo $prizes[$j]['exp']; ?></b> Опыт.
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+					}
 				}
 			}
 		}
@@ -646,6 +704,30 @@ if(isset($_POST['get_prizes_adm'])) {
 							<?php
 						}
 					}
+					if($prizes[$j]['type'] == 7) {
+						?>
+						<div class="input-group w-100" id="prize_line_<?php echo $place; ?>_<?php echo $prize_count; ?>">
+							<span class="input-group-btn w-100">
+								<input class="form-control" name="points<?php echo $place; ?>_<?php echo $prize_count; ?>" id="points<?php echo $place; ?>_<?php echo $prize_count; ?>" placeholder="колличество" value="<?php echo $prizes[$j]['points']; ?>" type="number">
+							</span>
+							<span class="input-group-btn">
+								<button onclick="dell_prize_line(<?php echo $place; ?>, <?php echo $prize_count; ?>)" class="btn btn-default" type="button">Удалить</button>
+							</span>
+						</div>
+						<?php
+					}
+					if($prizes[$j]['type'] == 8) {
+						?>
+						<div class="input-group w-100" id="prize_line_<?php echo $place; ?>_<?php echo $prize_count; ?>">
+							<span class="input-group-btn w-100">
+								<input class="form-control" name="exp<?php echo $place; ?>_<?php echo $prize_count; ?>" id="exp<?php echo $place; ?>_<?php echo $prize_count; ?>" placeholder="колличество" value="<?php echo $prizes[$j]['exp']; ?>" type="number">
+							</span>
+							<span class="input-group-btn">
+								<button onclick="dell_prize_line(<?php echo $place; ?>, <?php echo $prize_count; ?>)" class="btn btn-default" type="button">Удалить</button>
+							</span>
+						</div>
+						<?php
+					}
 					?>
 					<script>$('#prize_count_<?php echo $place; ?>').val('<?php echo $prize_count; ?>');</script>
 					<?php
@@ -855,6 +937,30 @@ if(isset($_POST['get_prize_line'])) {
 			</div>
 			<?php
 		}
+	}
+	if($prize_type == 7) {
+		?>
+		<div class="input-group w-100" id="prize_line_<?php echo $place; ?>_<?php echo $prize_count; ?>">
+			<span class="input-group-btn w-100">
+				<input class="form-control" name="points<?php echo $place; ?>_<?php echo $prize_count; ?>" id="points<?php echo $place; ?>_<?php echo $prize_count; ?>" placeholder="Колличество" value="" type="number">
+			</span>
+			<span class="input-group-btn">
+				<button onclick="dell_prize_line(<?php echo $place; ?>, <?php echo $prize_count; ?>)" class="btn btn-default" type="button">Удалить</button>
+			</span>
+		</div>
+		<?php
+	}
+	if($prize_type == 8) {
+		?>
+		<div class="input-group w-100" id="prize_line_<?php echo $place; ?>_<?php echo $prize_count; ?>">
+			<span class="input-group-btn w-100">
+				<input class="form-control" name="exp<?php echo $place; ?>_<?php echo $prize_count; ?>" id="exp<?php echo $place; ?>_<?php echo $prize_count; ?>" placeholder="Колличество" value="" type="number">
+			</span>
+			<span class="input-group-btn">
+				<button onclick="dell_prize_line(<?php echo $place; ?>, <?php echo $prize_count; ?>)" class="btn btn-default" type="button">Удалить</button>
+			</span>
+		</div>
+		<?php
 	}
 	?>
 	<script>$('#prize_count_<?php echo $place; ?>').val('<?php echo $prize_count; ?>');</script>
@@ -1104,6 +1210,20 @@ if(isset($_POST['save_sortition'])) {
 						exit (json_encode(array('status' => '2', 'input' => 'tarif'.$j.'_'.$l, 'reply' => 'Заполните')));
 					}
 				}
+				if($value == 7) {
+					if(!empty($_POST['points'.$j.'_'.$l])) {
+						$prize[$i]['points'] = check($_POST['points'.$j.'_'.$l], "int");
+					} else {
+						exit (json_encode(array('status' => '2', 'input' => 'points'.$j.'_'.$l, 'reply' => 'Заполните')));
+					}
+				}
+				if($value == 8) {
+					if(!empty($_POST['exp'.$j.'_'.$l])) {
+						$prize[$i]['exp'] = check($_POST['exp'.$j.'_'.$l], "int");
+					} else {
+						exit (json_encode(array('status' => '2', 'input' => 'exp'.$j.'_'.$l, 'reply' => 'Заполните')));
+					}
+				}
 				if(!empty($prize[$i]['type'])) {
 					$i++;
 				}
@@ -1124,7 +1244,7 @@ if(isset($_POST['save_sortition'])) {
 		}
 
 		include_once '../../../inc/classes/HTMLPurifier/HTMLPurifier.auto.php';
-		$prize = $Purifier->purify($_POST['text']);
+		$prize = HTMLPurifier()->purify($_POST['text']);
 		$prize = find_img_mp3($prize, 1, 1);
 
 		if (empty($prize)) {

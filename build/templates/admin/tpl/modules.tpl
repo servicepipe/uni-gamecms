@@ -1,6 +1,6 @@
 <div class="page">
 	<div class="col-md-12">
-		{if('{dev_mode}' == '1' && '{safe_mode}' != '1')}
+		{* {if('{dev_mode}' == '1' && '{safe_mode}' != '1')}
 		<div class="block">
 			<div class="block_head">
 				Установить модуль, закачав zip архив
@@ -48,7 +48,7 @@
 				<input type="text" class="form-control" id="module_key" maxlength="40" autocomplete="off" placeholder="Введите ключ">
 			</div>
 			<div id="installing_result"></div>
-		</div>
+		</div> *}
 
 		<div id="modules">
 			<center><img src="{site_host}templates/admin/img/loader.gif"></center>

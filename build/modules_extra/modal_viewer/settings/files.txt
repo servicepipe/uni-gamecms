@@ -1,0 +1,1 @@
+<script src="{site_host}/modules_extra/modal_viewer/ajax/ajax.js?v={cache}"></script>

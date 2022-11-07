@@ -1,0 +1,7 @@
+Модуль, который позволит Вам открывать модульное окно при заходе пользователя.<br>
+Данный модуль позволит Вам рассказать о своих новостях, нововведениях или скидках.<br>
+Для корректной работы модуля, Вам потребутеся внести скрипт ниже в файл: <span class="text-success">templates/ваш_шаблон/tpl/bottom.tpl</span><br>
+<code>&ltdiv id="modal_viewer"&gt;&lt/div&gt;</code><br>
+<hr>
+<a class="btn btn-default btn-sm f-l mr-5" href="/admin/modal_viewer" target="_blank">Настройки модуля</a>
+<div class="clearfix"></div>

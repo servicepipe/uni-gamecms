@@ -125,7 +125,7 @@ if(isset($_POST['setActivity'])) {
 							    servers.binds,
 							    $params[2].name, 
 							    $params[3].time, 
-							    $params[3].price
+							    $params[3].pirce
 							FROM 
 							    $params[2] 
 								LEFT JOIN $params[3] ON $params[3].service=$params[2].id
@@ -170,7 +170,7 @@ if(isset($_POST['setActivity'])) {
 				$glob = $STH->fetch();
 
 				//инфа о тарифе
-				$STH = $pdo->prepare("SELECT id,time,price,discount FROM services__tarifs WHERE id=:id LIMIT 1");
+				$STH = $pdo->prepare("SELECT id,time,pirce,discount FROM services__tarifs WHERE id=:id LIMIT 1");
 				$STH->setFetchMode(PDO::FETCH_OBJ);
 				$STH->execute([':id' => $reward['tarif']]);
 				$tarif = $STH->fetch();
@@ -179,8 +179,8 @@ if(isset($_POST['setActivity'])) {
 				$AM                     = new AdminsManager;
 				$admin['ending_date']   = $AM->get_ending_date($tarif->time);
 				$admin['bought_date']   = date("Y-m-d H:i:s");
-				$tarif->price           = calculate_price(
-					$tarif->price,
+				$tarif->pirce           = calculate_pirce(
+					$tarif->pirce,
 					calculate_discount(
 						$rewardInfo->discount,
 						$glob->discount,
@@ -189,7 +189,7 @@ if(isset($_POST['setActivity'])) {
 						$tarif->discount
 					)
 				);
-				$admin['irretrievable'] = calculate_return($tarif->price, $tarif->time);
+				$admin['irretrievable'] = calculate_return($tarif->pirce, $tarif->time);
 
 				//думаем что делать с привигелией
 				$adding_type['insert']    = 0; //записать новую на рандомный идентификатор
@@ -428,7 +428,7 @@ if(isset($_POST['setActivity'])) {
 						$old_full_price = $old_left * $row->irretrievable;
 
 						$admin['irretrievable'] = calculate_return(
-							$tarif->price + $old_full_price,
+							$tarif->pirce + $old_full_price,
 							$tarif->time + $old_left
 						);
 					}
@@ -803,6 +803,30 @@ if(isset($_POST['setActivity'])) {
 				);
 			}
 		}
+		if($reward['type'] == 8) {
+			$prizeMessage .= ' - Поинты: <b>' . $reward['points'] . 'шт</b><br>';
+
+			$STH = $pdo->prepare("SELECT id, playground FROM users WHERE id=:id LIMIT 1");
+			$STH->setFetchMode(PDO::FETCH_OBJ);
+			$STH->execute([':id' => $_SESSION['id']]);
+			$row = $STH->fetch();
+			if(!empty($row->id)) {
+				$STH = $pdo->prepare("UPDATE users SET playground=:playground WHERE id=:id LIMIT 1");
+				$STH->execute([':id' => $_SESSION['id'], 'playground' => $row->playground + $reward['points']]);
+			}			
+		}
+		if($reward['type'] == 9) {
+			$prizeMessage .= ' - Опыт: <b>' . $reward['exp'] . 'шт</b><br>';
+
+			$STH = $pdo->prepare("SELECT id, experience FROM users WHERE id=:id LIMIT 1");
+			$STH->setFetchMode(PDO::FETCH_OBJ);
+			$STH->execute([':id' => $_SESSION['id']]);
+			$row = $STH->fetch();
+			if(!empty($row->id)) {
+				$STH = $pdo->prepare("UPDATE users SET experience=:experience WHERE id=:id LIMIT 1");
+				$STH->execute([':id' => $_SESSION['id'], 'experience' => $row->experience + $reward['exp']]);
+			}			
+		}
 
 		send_noty($pdo, $noty . $prizeMessage, $_SESSION['id'], 2);
 
@@ -939,6 +963,26 @@ if(isset($_POST['getRewardsWidget'])) {
 					</span>
 				<?php
 			}
+			if($reward['type'] == 8) {
+				?>
+					<span>
+						<?php echo $reward['points']; ?> Поинты
+					</span>
+					<span>
+						<small>На баланс</small>
+					</span>
+				<?php
+			}
+			if($reward['type'] == 9) {
+				?>
+					<span>
+						<?php echo $reward['exp']; ?> Опыт
+					</span>
+					<span>
+						<small>В профиле</small>
+					</span>
+				<?php
+			}
 			?>
 			</div>
 		</div>
@@ -1000,6 +1044,12 @@ if(isset($_POST['getRewards'])) {
 					<?php } ?>
 					<?php if($rewardsTypes[7] == 1) { ?>
 						<option <?php if($reward['type'] == 7) {echo 'selected';} ?> value="7">Приз из vip_key (MyArena)</option>
+					<?php } ?>
+					<?php if($rewardsTypes[8] == 1) { ?>
+						<option <?php if($reward['type'] == 8) {echo 'selected';} ?> value="8">Поинты</option>
+					<?php } ?>
+					<?php if($rewardsTypes[9] == 1) { ?>
+						<option <?php if($reward['type'] == 9) {echo 'selected';} ?> value="9">Опыт</option>
 					<?php } ?>
 				</select>
 				<p class="card-text">Награда</p>
@@ -1141,7 +1191,22 @@ if(isset($_POST['getRewards'])) {
 						<?php
 					}
 				}
+				if($reward['type'] == 8) {
+					?>
+						<span class="input-group-btn w-100">
+							<input class="form-control" name="points<?php echo $row->id; ?>" id="points<?php echo $row->id; ?>" placeholder="Значение в шт" value="<?php echo $reward['points']; ?>" type="number">
+						</span>
+					<?php
+				}
+				if($reward['type'] == 9) {
+					?>
+						<span class="input-group-btn w-100">
+							<input class="form-control" name="exp<?php echo $row->id; ?>" id="exp<?php echo $row->id; ?>" placeholder="Значение в шт" value="<?php echo $reward['exp']; ?>" type="number">
+						</span>
+					<?php
+				}
 				?>
+				
 				</div>
 			</div>
 		</div>
@@ -1284,6 +1349,20 @@ if(isset($_POST['getRewardLine'])) {
 			<?php
 		}
 	}
+	if($rewardType == 8) {
+		?>
+			<span class="input-group-btn w-100">
+				<input class="form-control" name="points<?php echo $rewardId; ?>" id="points<?php echo $rewardId; ?>" placeholder="Значение в шт" value="" type="number">
+			</span>
+		<?php
+	}
+	if($rewardType == 9) {
+		?>
+			<span class="input-group-btn w-100">
+				<input class="form-control" name="exp<?php echo $rewardId; ?>" id="exp<?php echo $rewardId; ?>" placeholder="Значение в шт" value="" type="number">
+			</span>
+		<?php
+	}
 	exit();
 }
 if(isset($_POST['getServicesReward'])) {
@@ -1411,6 +1490,20 @@ if(isset($_POST['saveRewards'])) {
 					$rewards[$id]['tarif'] = check($_POST['tarif' . $id], "int");
 				} else {
 					exit (json_encode(['status' => '2', 'input' => 'tarif' . $id, 'reply' => 'Заполните']));
+				}
+			}
+			if($value == 8) {
+				if(!empty($_POST['points' . $id])) {
+					$rewards[$id]['points'] = check($_POST['points' . $id], "int");
+				} else {
+					exit (json_encode(['status' => '2', 'input' => 'points' . $id, 'reply' => 'Заполните']));
+				}
+			}
+			if($value == 9) {
+				if(!empty($_POST['exp' . $id])) {
+					$rewards[$id]['exp'] = check($_POST['exp' . $id], "int");
+				} else {
+					exit (json_encode(['status' => '2', 'input' => 'exp' . $id, 'reply' => 'Заполните']));
 				}
 			}
 		}
@@ -1578,6 +1671,18 @@ if(isset($_POST['getActivityRewardsProgress'])) {
 												?>
 												<?php echo $row->number; ?> (<?php echo $services_data[$row->type]['name']; ?>)
 												<small>Сервер: <?php echo $row->server_name; ?></small>
+												<?php
+											}
+											if($reward['type'] == 8) {
+												?>
+												<?php echo $reward['points']; ?> Поинты
+												<small>На баланс</small>
+												<?php
+											}
+											if($reward['type'] == 9) {
+												?>
+												<?php echo $reward['exp']; ?> Опыт
+												<small>В профиль</small>
 												<?php
 											}
 											?>

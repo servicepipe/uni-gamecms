@@ -21,6 +21,8 @@ function getRewardsTypes($pdo)
 	$prize_types[5] = 0;
 	$prize_types[6] = 0;
 	$prize_types[7] = 0;
+	$prize_types[8] = 1;
+	$prize_types[9] = 1;
 
 	$STH = $pdo->query("SELECT name FROM modules");
 	$STH->setFetchMode(PDO::FETCH_OBJ);

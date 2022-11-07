@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.7',
+  `version` varchar(10) NOT NULL DEFAULT '5.8.8',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.7', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.8', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -548,7 +548,12 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (12, 'donation_widget', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
 (13, 'cases', 'none', 1, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
 (14, 'rcon_shop', 'none', 1, '<p>Универсальный магазин для продажи различных услуг и товаров. Модуль работает\r\nпутем отправки rcon команд на игровые сервера, таким образом через него можно\r\nосуществлять продажу всего, что можно сделать через консоль сервера, начиная от\r\nвыдачи различных кредитов и опыта, заканчивая сменой названия сервера или других\r\nего конфигураций.</p>\r\n<p><b>Важно!</b> Для работы модуля на вебхостинге должны быть открыты udp/tcp\r\n27000-27999 порты и настроена работа rcon команд в настройках серверов.</p>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop\" target=\"_blank\">Настройка магазина</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop_buys\" target=\"_blank\">Статистика продаж</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../shop\" target=\"_blank\">shop - страница магазина</a>', '', 'unigamecms.ru'),
-(15, 'digital_store', 'none', 1, 'Модуль позволяет осуществлять продажу цифровых товаров на вашем сайте. <br>Для добавления блока с магазином на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'digital_store\' class=\'row\'&gt;	&lt;script&gt;laod_digital_store(0)&lt;/script&gt;&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store\' target=\'_blank\'>Настройка товара</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store_sales\' target=\'_blank\'>Статистика продаж</a><a class=\'btn btn-default btn-sm f-l\' href=\'../digital_store\' target=\'_blank\'>Страница магазина - digital_store</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/digital_store/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/digital_store/templates/{template}/css/primary.css?v={cache}\'>', 'unigamecms.ru');
+(15, 'digital_store', 'none', 1, 'Модуль позволяет осуществлять продажу цифровых товаров на вашем сайте. <br>Для добавления блока с магазином на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'digital_store\' class=\'row\'&gt;	&lt;script&gt;laod_digital_store(0)&lt;/script&gt;&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store\' target=\'_blank\'>Настройка товара</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store_sales\' target=\'_blank\'>Статистика продаж</a><a class=\'btn btn-default btn-sm f-l\' href=\'../digital_store\' target=\'_blank\'>Страница магазина - digital_store</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/digital_store/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/digital_store/templates/{template}/css/primary.css?v={cache}\'>', 'unigamecms.ru'),
+(16, 'modal_viewer', 'none', 0, 'Модуль, который позволит Вам открывать модальное окно при заходе пользователя.<br>\r\nДанный модуль позволит Вам рассказать о своих новостях, нововедениях или скидках.<br>\r\nДля корректной работы модуля, Вам потребутеся внести скрипт ниже в файл: <span class=\"text-success\">templates/ваш_шаблон/tpl/bottom.tpl</span><br>\r\n<code>&ltdiv id=\"modal_viewer\"&gt;&lt/div&gt;</code><br>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/admin/modal_viewer\" target=\"_blank\">Настройки модуля</a>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/modal_viewer/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
+(17, 'demos', 'none', 0, 'Модуль позволяет отображать список демо записей с ваших серверов. <br><br>Необходима установка плагина\r\n<a href=\"https://gamecms.ru/wiki/demos\" target=\"_blank\">Auto recorder</a>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/demos\" target=\"_blank\">Настройка серверов</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../demos\" target=\"_blank\">demos - страница с демками</a>', '', 'unigamecms.ru'),
+(18, 'skins_store', 'none', 0, 'Данный модуль позволит Вам добавить дополнительный магазин для покупки игровых скинов на Ваших серверах.<br>\r\nМодуль позволяет создать скины под каждый сервер индивидуально.\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/admin/skins_store\" target=\"_blank\">Настройки модуля</a><a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/store/skins\" target=\"_blank\">Страница магазина</a>\r\n<div class=\"clearfix\"></div>', '', 'unigamecms.ru'),
+(19, 'shop_key', 'none', 0, 'Модуль позволяет пользователям покупать ключи и активировать их в игре для получения кредитов, банк уровней, золота, приватных рас. <br>Работает совместно с данными плагинами: <a href=\'http://hlmod.ru/resources/keys-core.438/\' target=\'_blank\'>[Keys] Core 1.4+</a>, <a href=\'http://hlmod.ru/resources/keys-shop.439/\' target=\'_blank\'>[Keys] Shop 1.1+</a>, <a href=\'http://hlmod.ru/resources/keys-wcs.446/\' target=\'_blank\'>[Keys] WCS <span class=\'muted\'>1.0+</span></a><br><br>Параметры:<br><a href=\'../shop_key\' target=\'_blank\'>shop_key</a> - страница покупки кредитов, можете добавить ссылку на нее через редактор меню<br>ftp server: logs/shop_key.txt - лог покупок кредитов<br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sk_servers\' target=\'_blank\'>Подключить сервера</a><a class=\'btn btn-default btn-sm f-l\' href=\'../admin/sk_services\' target=\'_blank\'>Создать услуги</a><div class=\'clearfix\'></div>', '', 'unigamecms.ru'),
+(20, 'buy_key', 'none', 0, 'Модуль позволяет покупать ключи и активировать их в игре для активации ВИП услуги. <br>Работает совместно с данным плагинами: <a href=\'http://hlmod.ru/resources/keys-core.438/\' target=\'_blank\'>[Keys] Core 1.4+</a> и <a href=\'http://hlmod.ru/resources/keys-vip.440/\' target=\'_blank\'>[Keys] VIP 1.2+</a><br><br>Параметры:<br><a href=\'../buy_key\' target=\'_blank\'>buy_key</a> - страница покупки услуг, можете добавить ссылку на нее через редактор меню<br>ftp server: logs/buy_key.txt - лог покупок привилегий<br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/bk_servers\' target=\'_blank\'>Подключить сервера</a><a class=\'btn btn-default btn-sm f-l\' href=\'../admin/bk_services\' target=\'_blank\'>Создать услуги</a><div class=\'clearfix\'></div>', '', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -656,7 +661,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `page` int NOT NULL DEFAULT '0',
   `class` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
 
 INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywords`, `kind`, `image`, `robots`, `privacy`, `type`, `active`, `module`, `page`, `class`) VALUES
 (1, 'modules/index/index.php', '', 'main', 'Главная страница', 'Игровой проект посвященный играм CS1.6, CSS, CG:GO', 'игровой, проект, игра, CS1.6, CSS, CG:GO', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
@@ -721,51 +726,56 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (66, 'modules/pages/index.php', 'processing-of-personal-data', 'processing-of-personal-data', 'Согласие на обработку персональных данных', 'Согласие на обработку персональных данных', 'Согласие на обработку персональных данных', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 1, 1),
 (67, 'modules/pages/index.php', 'pages/rules', 'pages_rules', 'Правила', 'Правила, игрового, проекта', 'Правила, игрового, проекта', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 1, 2),
 (68, 'modules/pages/index.php', 'pages/baza_znaniy', 'pages_baza_znaniy', 'База знаний', 'База, знаний', 'База, знаний', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 1, 2),
-(69, 'modules_extra/buy_key/base/index.php', 'buy_key', 'buy_key', 'Покупка VIP', 'Покупка VIP', 'Покупка, VIP', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 1, 0, 0),
-(70, 'modules_extra/buy_key/base/admin/servers.php', 'admin/bk_servers', 'admin_bk_servers', 'Настройка услуг модуля buy_key', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(71, 'modules_extra/buy_key/base/admin/services.php', 'admin/bk_services', 'admin_bk_services', 'Настройка серверов модуля buy_key', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(72, 'modules_extra/buy_key/base/index.php', 'buy_key', 'buy_key', 'Покупка VIP', 'Покупка VIP', 'Покупка, VIP', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 1, 0, 0),
-(73, 'modules_extra/buy_key/base/admin/servers.php', 'admin/bk_servers', 'admin_bk_servers', 'Настройка услуг модуля buy_key', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(74, 'modules_extra/buy_key/base/admin/services.php', 'admin/bk_services', 'admin_bk_services', 'Настройка серверов модуля buy_key', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(75, 'modules/admin/verifications.php', 'admin/verifications', 'admin_page_verification', 'Верификация пользователей', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
-(76, 'modules/playground/index.php', 'market', 'playground', 'Торговая площадка', 'Торговая площадка', 'Торговая, площадка', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 0, 0, 0),
-(77, 'modules/playground/inventory.php', 'inventory', 'inventory', 'Инвентарь', 'Инвентарь профиля', 'инвентарь,профиля', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 0, 0, 0),
-(78, 'modules/admin/playground.php', 'admin/market', 'admin_market', 'Маркет', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
-(79, 'modules/complaints/index.php', 'complaints', 'complaints', 'Жалобы', 'Жалобы', 'Жалобы', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
-(80, 'modules/complaints/complaint.php', 'complaints/complaint', 'complaints_complaint', 'Жалоба на {value}', 'Жалоба на {value}', 'Жалоба на {value}', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
-(81, 'modules/complaints/add.php', 'complaints/add', 'complaints_add', 'Добавление жалобы', 'Добавление жалобы', 'Добавление жалобы', 1, 'files/miniatures/standart.jpg', 2, 0, 1, 1, 0, 0, 0),
-(82, 'modules/prefixes/index.php', 'store/prefixes', 'prefixes', 'Префиксы', 'Префиксы', 'Префиксы', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
-(83, 'modules/admin/prefixes.php', 'admin/prefixes', 'admin_prefixes', 'Префиксы', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
-(84, 'modules/index/register.php', 'register', 'register', 'Регистрация', 'Страница регистрации на проекте', 'регистрация, на сайте, зарегистрироваться, новый пользователь', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
-(85, 'modules/index/login.php', 'login', 'login', 'Вход на сайт', 'Страница авторизации на сайте', 'войти на сайт, войти, авторизация', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
-(86, 'modules_extra/aes_plugin/base/index.php', 'aes_list', 'aes_list', 'Статистика AES', 'Статистика AES', 'Статистика AES', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
-(87, 'modules_extra/aes_plugin/base/admin/settings.php', 'admin/aes_settings', 'admin_aes_settings', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(88, 'modules_extra/vacancy/routing/index.php', 'vacancy', 'vacancy', 'Вакансии', 'Вакансии', 'Вакансии, должностей, проекта', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
-(89, 'modules_extra/vacancy/routing/index.php', 'vacancy/index', 'vacancy_index', '{username}', 'Просмотр вакансии', 'Просмотр, вакансии, пользователя', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 13, 0, 0),
-(90, 'modules_extra/vacancy/routing/create.php', 'vacancy/create', 'vacancy_create', 'Подача заявки', 'Подача заявки', 'Подача,заявки,на,должность', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 13, 0, 0),
-(91, 'modules_extra/vacancy/routing/admin/index.php', 'admin/vacancy', 'admin_vacancy', 'Вакансии', 'Вакансии', 'Вакансии', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0),
-(92, 'modules_extra/activity_rewards/base/index.php', 'activity_rewards', 'activity_rewards', 'Награды за посещения', 'Награды за посещения', 'Награды за посещения', 1, 'modules_extra/activity_rewards/templates/image.jpg', 2, 1, 1, 1, 1, 0, 0),
-(93, 'modules_extra/activity_rewards/base/admin/index.php', 'admin/activity_rewards', 'admin_activity_rewards', 'Настройка наград за посещения', 'Настройка наград за посещения', 'Настройка наград за посещения', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(94, 'modules_extra/activity_rewards/base/admin/user_progress.php', 'admin/activity_rewards_progress', 'admin_activity_rewards_progress', 'Прогресс пользователей', 'Прогресс пользователей', 'Прогресс пользователей', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(95, 'modules_extra/sortition/base/index.php', 'sortition', 'sortition', 'Розыгрыш', 'Розыгрыш', 'Розыгрыш', 1, 'modules_extra/sortition/templates/image.jpg', 2, 1, 1, 1, 6, 0, 0),
-(96, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0),
-(97, 'modules_extra/donation_widget/base/index.php', 'donation', 'donation', 'Пожертвования', 'Страница пожертвований', 'пожертвование, помощь, донаты', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 8, 0, 0),
-(98, 'modules_extra/donation_widget/base/admin/index.php', 'admin/donation_widget', 'admin_donation_widget', 'Настройка модуля донатов', 'Настройка модуля донатов', 'Настройка модуля донатов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 8, 0, 0),
-(99, 'modules_extra/cases/base/index.php', 'cases', 'cases', 'Магазин кейсов', 'Магазин кейсов', 'Магазин кейсов', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 1, 0, 0),
-(100, 'modules_extra/cases/base/case.php', 'case', 'case', 'Кейс {value}', 'Кейс {value}', 'Кейс {value}', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 1, 0, 0),
-(101, 'modules_extra/cases/base/admin/index.php', 'admin/cases', 'admin/cases', 'Настройка кейсов', 'Настройка кейсов', 'Настройка кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(102, 'modules_extra/cases/base/admin/case.php', 'admin/case', 'admin/case', 'Настройка кейсов', 'Настройка кейса', 'Настройка кейса', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(103, 'modules_extra/cases/base/admin/open_cases.php', 'admin/open_cases', 'admin/open_cases', 'Список открытий кейсов', 'Список открытий кейсов', 'Список открытий кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(104, 'modules_extra/rcon_shop/base/pages/index.php', 'shop', 'rcon_shop', 'Магазин', 'Магазин', 'Магазин', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
-(105, 'modules_extra/rcon_shop/base/pages/product.php', 'shop/product', 'rcon_shop_product', '«{value}»', 'Магазин товаров, продукт «{value}»', 'Магазин, товаров, продукт, «{value}»', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
-(106, 'modules_extra/rcon_shop/base/pages/admin/index.php', 'admin/rcon_shop', 'admin_rcon_shop', 'Настройка магазина', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
-(107, 'modules_extra/rcon_shop/base/pages/admin/product.php', 'admin/rcon_shop_product', 'admin_rcon_shop_product', 'Настройка продукта «{value}»', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
-(108, 'modules_extra/rcon_shop/base/pages/admin/buys.php', 'admin/rcon_shop_buys', 'admin_rcon_shop_buys', 'Покупки', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
-(109, 'modules_extra/digital_store/base/index.php', 'digital_store', 'digital_store', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
-(110, 'modules_extra/digital_store/base/product.php', 'digital_store/product', 'digital_store/product', '«{value}»', 'Магазин цифровых товаров, продукт «{value}»', 'Магазин цифровых товаров, продукт «{value}»', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 1, 0, 0),
-(111, 'modules_extra/digital_store/base/admin/index.php', 'admin/digital_store', 'admin/digital_store', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 0, 2, 1, 1, 0, 0),
-(112, 'modules_extra/digital_store/base/admin/product.php', 'admin/digital_store_product', 'admin/digital_store_product', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0),
-(113, 'modules_extra/digital_store/base/admin/sales.php', 'admin/digital_store_sales', 'admin/digital_store_sales', 'Статистика продаж', 'Статистика продаж', 'Статистика продаж', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 1, 0, 0);
+(69, 'modules/admin/verifications.php', 'admin/verifications', 'admin_page_verification', 'Верификация пользователей', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
+(70, 'modules/playground/index.php', 'market', 'playground', 'Торговая площадка', 'Торговая площадка', 'Торговая, площадка', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 0, 0, 0),
+(71, 'modules/playground/inventory.php', 'inventory', 'inventory', 'Инвентарь', 'Инвентарь профиля', 'инвентарь,профиля', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 0, 0, 0),
+(72, 'modules/admin/playground.php', 'admin/market', 'admin_market', 'Маркет', 'none', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
+(73, 'modules/complaints/index.php', 'complaints', 'complaints', 'Жалобы', 'Жалобы', 'Жалобы', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
+(75, 'modules/complaints/complaint.php', 'complaints/complaint', 'complaints_complaint', 'Жалоба на {value}', 'Жалоба на {value}', 'Жалоба на {value}', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
+(76, 'modules/complaints/add.php', 'complaints/add', 'complaints_add', 'Добавление жалобы', 'Добавление жалобы', 'Добавление жалобы', 1, 'files/miniatures/standart.jpg', 2, 0, 1, 1, 0, 0, 0),
+(77, 'modules/prefixes/index.php', 'store/prefixes', 'prefixes', 'Префиксы', 'Префиксы', 'Префиксы', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 0, 0, 0),
+(78, 'modules/admin/prefixes.php', 'admin/prefixes', 'admin_prefixes', 'Префиксы', 'Префиксы', 'none', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 0, 0, 0),
+(79, 'modules/index/register.php', 'register', 'register', 'Регистрация', 'Страница регистрации на проекте', 'регистрация, на сайте, зарегистрироваться, новый пользователь', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
+(80, 'modules/index/login.php', 'login', 'login', 'Вход на сайт', 'Страница авторизации на сайте', 'войти на сайт, войти, авторизация', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 0, 0, 0),
+(81, 'modules_extra/aes_plugin/base/index.php', 'aes_list', 'aes_list', 'Статистика AES', 'Статистика AES', 'Статистика AES', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 6, 0, 0),
+(82, 'modules_extra/aes_plugin/base/admin/settings.php', 'admin/aes_settings', 'admin_aes_settings', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 'Настройка серверов модуля AES', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 6, 0, 0),
+(83, 'modules_extra/vacancy/routing/index.php', 'vacancy', 'vacancy', 'Вакансии', 'Вакансии', 'Вакансии, должностей, проекта', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 8, 0, 0),
+(84, 'modules_extra/vacancy/routing/index.php', 'vacancy/index', 'vacancy_index', '{username}', 'Просмотр вакансии', 'Просмотр, вакансии, пользователя', 1, 'files/miniatures/standart.jpg', 2, 1, 1, 1, 8, 0, 0),
+(85, 'modules_extra/vacancy/routing/create.php', 'vacancy/create', 'vacancy_create', 'Подача заявки', 'Подача заявки', 'Подача,заявки,на,должность', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 8, 0, 0),
+(86, 'modules_extra/vacancy/routing/admin/index.php', 'admin/vacancy', 'admin_vacancy', 'Вакансии', 'Вакансии', 'Вакансии', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 8, 0, 0),
+(87, 'modules_extra/activity_rewards/base/index.php', 'activity_rewards', 'activity_rewards', 'Награды за посещения', 'Награды за посещения', 'Награды за посещения', 1, 'modules_extra/activity_rewards/templates/image.jpg', 2, 1, 1, 1, 10, 0, 0),
+(88, 'modules_extra/activity_rewards/base/admin/index.php', 'admin/activity_rewards', 'admin_activity_rewards', 'Настройка наград за посещения', 'Настройка наград за посещения', 'Настройка наград за посещения', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 10, 0, 0),
+(89, 'modules_extra/activity_rewards/base/admin/user_progress.php', 'admin/activity_rewards_progress', 'admin_activity_rewards_progress', 'Прогресс пользователей', 'Прогресс пользователей', 'Прогресс пользователей', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 10, 0, 0),
+(90, 'modules_extra/sortition/base/index.php', 'sortition', 'sortition', 'Розыгрыш', 'Розыгрыш', 'Розыгрыш', 1, 'modules_extra/sortition/templates/image.jpg', 2, 1, 1, 1, 11, 0, 0),
+(91, 'modules_extra/sortition/base/admin/index.php', 'admin/sortition', 'admin_sortition', 'Настройка розыгрыша', 'Настройка розыгрыша', 'Настройка розыгрыша', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 11, 0, 0),
+(92, 'modules_extra/donation_widget/base/index.php', 'donation', 'donation', 'Пожертвования', 'Страница пожертвований', 'пожертвование, помощь, донаты', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 12, 0, 0),
+(93, 'modules_extra/donation_widget/base/admin/index.php', 'admin/donation_widget', 'admin_donation_widget', 'Настройка модуля донатов', 'Настройка модуля донатов', 'Настройка модуля донатов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 12, 0, 0),
+(94, 'modules_extra/cases/base/index.php', 'cases', 'cases', 'Магазин кейсов', 'Магазин кейсов', 'Магазин кейсов', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 13, 0, 0),
+(95, 'modules_extra/cases/base/case.php', 'case', 'case', 'Кейс {value}', 'Кейс {value}', 'Кейс {value}', 1, 'modules_extra/cases/templates/image.jpg', 1, 2, 1, 1, 13, 0, 0),
+(96, 'modules_extra/cases/base/admin/index.php', 'admin/cases', 'admin/cases', 'Настройка кейсов', 'Настройка кейсов', 'Настройка кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0),
+(97, 'modules_extra/cases/base/admin/case.php', 'admin/case', 'admin/case', 'Настройка кейсов', 'Настройка кейса', 'Настройка кейса', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0),
+(98, 'modules_extra/cases/base/admin/open_cases.php', 'admin/open_cases', 'admin/open_cases', 'Список открытий кейсов', 'Список открытий кейсов', 'Список открытий кейсов', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 13, 0, 0),
+(99, 'modules_extra/rcon_shop/base/pages/index.php', 'shop', 'rcon_shop', 'Магазин', 'Магазин', 'Магазин', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
+(100, 'modules_extra/rcon_shop/base/pages/product.php', 'shop/product', 'rcon_shop_product', '«{value}»', 'Магазин товаров, продукт «{value}»', 'Магазин, товаров, продукт, «{value}»', 1, 'files/miniatures/standart.jpg', 1, 2, 1, 1, 14, 0, 0),
+(101, 'modules_extra/rcon_shop/base/pages/admin/index.php', 'admin/rcon_shop', 'admin_rcon_shop', 'Настройка магазина', 'Настройка магазина', 'Настройка магазина', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(102, 'modules_extra/rcon_shop/base/pages/admin/product.php', 'admin/rcon_shop_product', 'admin_rcon_shop_product', 'Настройка продукта «{value}»', 'Настройка продукта «{value}»', 'Настройка продукта «{value}»', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(103, 'modules_extra/rcon_shop/base/pages/admin/buys.php', 'admin/rcon_shop_buys', 'admin_rcon_shop_buys', 'Покупки', 'Покупки', 'Покупки', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 14, 0, 0),
+(104, 'modules_extra/digital_store/base/index.php', 'digital_store', 'digital_store', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 'Магазин цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 15, 0, 0),
+(105, 'modules_extra/digital_store/base/product.php', 'digital_store/product', 'digital_store/product', '«{value}»', 'Магазин цифровых товаров, продукт «{value}»', 'Магазин цифровых товаров, продукт «{value}»', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 15, 0, 0),
+(106, 'modules_extra/digital_store/base/admin/index.php', 'admin/digital_store', 'admin/digital_store', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 'Настройка магазина цифровых товаров', 1, 'files/miniatures/standart.jpg', 1, 0, 2, 1, 15, 0, 0),
+(107, 'modules_extra/digital_store/base/admin/product.php', 'admin/digital_store_product', 'admin/digital_store_product', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 'Настройка содержимого продукта «{value}»', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 15, 0, 0),
+(108, 'modules_extra/digital_store/base/admin/sales.php', 'admin/digital_store_sales', 'admin/digital_store_sales', 'Статистика продаж', 'Статистика продаж', 'Статистика продаж', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 15, 0, 0),
+(109, 'modules_extra/modal_viewer/base/admin/index.php', 'admin/modal_viewer', 'admin/modal_viewer', 'Настройка модального окна', 'Настройка модального окна', 'Настройка модального окна', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 16, 0, 0),
+(110, 'modules_extra/demos/base/index.php', 'demos', 'demos', 'Демо записи', 'Демо записи', 'Демо записи', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 17, 0, 0),
+(111, 'modules_extra/demos/base/admin/settings.php', 'admin/demos', 'admin/demos', 'Настройка серверов модуля демо записей', 'Настройка серверов модуля демо записей', 'Настройка серверов модуля демо записей', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 17, 0, 0),
+(112, 'modules_extra/skins_store/base/index.php', 'store/skins', 'skins_store', 'Магазин игровых скинов', 'Магазин игровых скинов', 'Магазин игровых скинов', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 18, 0, 0),
+(113, 'modules_extra/skins_store/base/admin/index.php', 'admin/skins_store', 'admin_skins_store', 'Настройки', 'Настройки', 'Настройки', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 18, 0, 0),
+(114, 'modules_extra/shop_key/base/index.php', 'shop_key', 'shop_key', 'Покупка кредитов', 'Покупка кредитов', 'Покупка кредитов', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 19, 0, 0),
+(115, 'modules_extra/shop_key/base/admin/servers.php', 'admin/sk_servers', 'admin/sk_servers', 'Настройка серверов модуля shop_key', 'Настройка серверов модуля shop_key', 'Настройка серверов модуля shop_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 19, 0, 0),
+(116, 'modules_extra/shop_key/base/admin/services.php', 'admin/sk_services', 'admin/sk_services', 'Настройка услуг модуля shop_key', 'Настройка услуг модуля shop_key', 'Настройка услуг модуля shop_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 19, 0, 0),
+(117, 'modules_extra/buy_key/base/index.php', 'buy_key', 'buy_key', 'Покупка VIP', 'Покупка VIP', 'Покупка VIP', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 20, 0, 0),
+(118, 'modules_extra/buy_key/base/admin/servers.php', 'admin/bk_servers', 'admin/bk_servers', 'Настройка услуг модуля buy_key', 'Настройка услуг модуля buy_key', 'Настройка услуг модуля buy_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 20, 0, 0),
+(119, 'modules_extra/buy_key/base/admin/services.php', 'admin/bk_services', 'admin/bk_services', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 20, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1501,3 +1511,155 @@ ALTER TABLE `digital_store__keys`
 
 ALTER TABLE `digital_store__products`
   MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE IF NOT EXISTS `modal_viewer` (
+	`id` int(3) NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`text` text NOT NULL,
+	`timelife` int(9) NOT NULL,
+	`auth` int(3) NOT NULL DEFAULT '1',
+	`enable` int(3) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `modal_viewer`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `modal_viewer`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE `demos` (
+  `id` varchar(36) NOT NULL,
+  `file` varchar(512) NOT NULL,
+  `size` int NOT NULL,
+  `map` varchar(128) NOT NULL,
+  `server_id` int NOT NULL,
+  `created_at` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `servers__demos` (
+  `server_id` int NOT NULL,
+  `work_method` int NOT NULL DEFAULT '1' COMMENT '1 - Auto recorder; 2 - [AutoDemo] Simple Web Uploader; 3 - Myarena HLTV; 4 - Csserv HLTV',
+  `hltv_url` varchar(512) DEFAULT NULL,
+  `swu_key` varchar(256) DEFAULT NULL,
+  `ftp_host` varchar(64) DEFAULT NULL,
+  `ftp_login` varchar(32) DEFAULT NULL,
+  `ftp_pass` varchar(32) DEFAULT NULL,
+  `ftp_port` int DEFAULT NULL,
+  `ftp_string` varchar(255) DEFAULT NULL,
+  `db_host` varchar(64) DEFAULT NULL,
+  `db_user` varchar(32) DEFAULT NULL,
+  `db_pass` varchar(32) DEFAULT NULL,
+  `db_db` varchar(32) DEFAULT NULL,
+  `db_table` varchar(32) DEFAULT NULL,
+  `db_code` int NOT NULL DEFAULT '1',
+  `url` varchar(512) DEFAULT NULL,
+  `shelf_life` int NOT NULL DEFAULT '3',
+  `last_demo` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `demos` ADD PRIMARY KEY (`id`);
+
+CREATE TABLE `skins__purchases` (
+  `id` int(9) NOT NULL,
+  `user_id` int(9) NOT NULL,
+  `skin_id` int(9) NOT NULL,
+  `server_id` int(9) NOT NULL,
+  `model_name_t` varchar(255) NOT NULL,
+  `model_name_ct` varchar(255) NOT NULL,
+  `price` int(9) NOT NULL,
+  `nickname` varchar(33) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `timeleft` int(15) NOT NULL,
+  `enable` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Структура таблицы `skins__store`
+--
+
+CREATE TABLE `skins__store` (
+  `id` int(9) NOT NULL,
+  `server_id` int(9) NOT NULL,
+  `name` varchar(33) NOT NULL,
+  `price` int(9) NOT NULL,
+  `model_name_t` varchar(33) NOT NULL,
+  `model_name_ct` varchar(33) NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Индексы таблицы `skins__purchases`
+--
+ALTER TABLE `skins__purchases`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `skins__store`
+--
+ALTER TABLE `skins__store`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для таблицы `skins__purchases`
+--
+ALTER TABLE `skins__purchases`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `skins__store`
+--
+ALTER TABLE `skins__store`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+ALTER TABLE `servers` ADD `sk_host` VARCHAR(64) NOT NULL DEFAULT '0' AFTER `pass_prifix`, ADD `sk_user` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `sk_host`, ADD `sk_pass` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `sk_user`, ADD `sk_db` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `sk_pass`;
+ALTER TABLE `servers` ADD `sk_code` INT(1) NOT NULL DEFAULT '0' AFTER `sk_db`;
+  
+CREATE TABLE IF NOT EXISTS `sk_services` (
+  `id` int(4) NOT NULL,
+  `server` int(3) NOT NULL,
+  `price` FLOAT NOT NULL,
+  `number` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `sk_services`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `sk_services`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+  
+ALTER TABLE `sk_services` ADD `type` INT(1) NOT NULL DEFAULT '1' AFTER `number`;
+ALTER TABLE `sk_services` CHANGE `number` `number` VARCHAR(50) NOT NULL;
+
+ALTER TABLE `servers` ADD `bk_host` VARCHAR(64) NOT NULL DEFAULT '0' AFTER `pass_prifix`, ADD `bk_user` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `bk_host`, ADD `bk_pass` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `bk_user`, ADD `bk_db` VARCHAR(32) NOT NULL DEFAULT '0' AFTER `bk_pass`;
+ALTER TABLE `servers` ADD `bk_code` INT(1) NOT NULL DEFAULT '0' AFTER `bk_db`;
+
+CREATE TABLE IF NOT EXISTS `bk_services` (
+  `id` int(3) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `server` int(3) NOT NULL,
+  `text` text NOT NULL,
+  `trim` int(3) NOT NULL DEFAULT '0',
+  `sale` int(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `bk_services`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `bk_services`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  
+CREATE TABLE IF NOT EXISTS `bk_services_times` (
+  `id` int(4) NOT NULL,
+  `service` int(3) NOT NULL,
+  `price` FLOAT NOT NULL,
+  `time` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `bk_services_times`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `bk_services_times`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;

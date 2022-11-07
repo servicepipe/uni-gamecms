@@ -1,13 +1,13 @@
 <div class="col-lg-9 order-is-first">
 	<div class="block">
 		<div class="block_head">
-			Награды за ежедневные посещения сайта, у вас сейчас:<span class="day-in-a-row">{daysInARow}</span>
+			Награды за ежедневные посещения сайта, у Вас сейчас: <span class="day-in-a-row">{daysInARow}</span>
 		</div>
 
 		{if('{isNeedMoneyActivity}' == '1' && '{amountOfMoneyDelta}' != '0')}
 		<div class="noty-block success">
 			Для получения наград необходимо,
-			<b><a href="../purse?price={amountOfMoneyDelta}">пополнить баланс</a></b>
+			<b><a href="../purse?pirce={amountOfMoneyDelta}">пополнить баланс</a></b>
 			еще на {amountOfMoneyDelta}{{$messages['RUB']}}.
 		</div>
 		{/if}

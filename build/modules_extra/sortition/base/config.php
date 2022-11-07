@@ -21,6 +21,8 @@ function get_prizes_types($pdo) {
 	$prize_types[4] = 0;
 	$prize_types[5] = 0;
 	$prize_types[6] = 0;
+	$prize_types[7] = 1;
+	$prize_types[8] = 1;
 	$STH = $pdo->query("SELECT `name` FROM `modules`"); $STH->setFetchMode(PDO::FETCH_OBJ);
 	while($row = $STH->fetch()) {
 		if($row->name == 'shop_key') {

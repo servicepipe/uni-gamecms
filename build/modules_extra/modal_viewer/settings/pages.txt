@@ -1,0 +1,17 @@
+array(
+	array(
+		'file' => 'modules_extra/modal_viewer/base/admin/index.php',
+		'url'  => 'admin/modal_viewer',
+		'name' => 'admin_modal_viewer',
+		'title' => 'Настройка модульного окна',
+		'description' => 'none',
+		'keywords' => 'none',
+		'kind' => 1,
+		'image' => 'files/miniatures/standart.jpg',
+		'robots' => 0,
+		'privacy' => 0,
+		'type' => 2,
+		'active' => 1,
+		'module' => 1
+	)
+);
