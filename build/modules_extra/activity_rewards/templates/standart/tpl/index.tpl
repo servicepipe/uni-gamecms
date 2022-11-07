@@ -1,7 +1,7 @@
 <div class="col-lg-9 order-is-first">
 	<div class="block">
 		<div class="block_head">
-			Награды за ежедневные посещения сайта, у Вас сейчас: <span class="day-in-a-row">{daysInARow}</span>
+			Награды за ежедневные посещения сайта, у вас сейчас: <span class="day-in-a-row">{daysInARow}</span>
 		</div>
 
 		{if('{isNeedMoneyActivity}' == '1' && '{amountOfMoneyDelta}' != '0')}
