@@ -297,6 +297,23 @@
 			
 			return $buf;
 		}
+
+		public static function GetServerName($vid = null) {
+			$vid = clean($vid, "int");
+			
+			if(empty($vid)) {
+				return 'Неизвестно';
+			}
+			
+			$sth = pdo()->query("SELECT * FROM `servers` WHERE `id`='$vid' LIMIT 1");
+			
+			if(!$sth->rowCount()) {
+				return 'Неизвестно';
+			}
+			
+			$row = $sth->fetch(PDO::FETCH_OBJ);
+			return "<a href='/vacancy?sid={$vid}'>{$row->name}</a>";
+		}
 		
 		public static function SetVacancyStatus($vid, $status, $reason = 'none') {
 			return pdo()->prepare("UPDATE `vacancy` SET `status`=:status, `reason`=:reason WHERE `id`=:vid")->execute([

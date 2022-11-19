@@ -95,7 +95,12 @@
 				$this->tpl->set("{id}", $row->id);
 				$this->tpl->set("{avatar}", $row->avatar);
 				$this->tpl->set("{login}", $row->login);
+				if($row->reit < 1000){
 				$this->tpl->set("{reit}", $row->reit);
+				}else{
+				$numb = floor($row->reit / 100)/10;
+				$this->tpl->set("{reit}", ''.$numb.'K');
+				}
 				$this->tpl->set("{answers}", $row->answers);
 				$this->tpl->set("{thanks}", $row->thanks);
 				$this->tpl->compile('local_content');
@@ -432,6 +437,29 @@
 				$this->tpl->result['local_content'] = '<tr><td colspan="10">Привилегий нет</td></tr>';
 			}
 
+			return $this->tpl->result['local_content'];
+		}		
+		
+		public function user_clan($id = 1) {
+			$id = check($id, "int");
+			
+			$i = 0;
+			$this->tpl->result['local_content'] = '';
+
+			$STH = $this->pdo->query("SELECT cid FROM `clans__joined` WHERE `uid` = '$id'");
+			while ($row = $STH->fetch()) {
+				$STH2 = $this->pdo->query("SELECT name FROM `clans` WHERE `id` = '$row[cid]'");
+				while ($row2 = $STH2->fetch()) {
+					$this->tpl->load_template('elements/user_clan.tpl');
+					$this->tpl->set("{clan}", $row2['name']);				
+					$this->tpl->set("{url}", $row['cid']);
+					$this->tpl->compile( 'local_content' );
+					$this->tpl->clear();
+				}
+			}
+			if ($this->tpl->result['local_content'] == '') {
+				$this->tpl->result['local_content'] = 'Не состоит';
+			}
 			return $this->tpl->result['local_content'];
 		}
 	}

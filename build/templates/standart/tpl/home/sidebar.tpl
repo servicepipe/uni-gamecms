@@ -52,4 +52,6 @@
 	<div id="case_banner"> <script>get_case_banner();</script> </div>
 {/if}
 
+{if(isModuleActive('activity_rewards'))}
 <div id="activity-rewards-banner"> <script>getRewardsBanner('#activity-rewards-banner');</script> </div>
+{/if}

@@ -46,6 +46,12 @@
 		<link rel="stylesheet" href="{site_host}files/jquery-confirm/css/jquery-confirm.css?v={cache}">
 		<link href="{site_host}files/toasts/toasty.min.css?v={cache}" rel="stylesheet">
 
+		<!-- Google Translate -->
+		<link rel="stylesheet" href="{site_host}templates/{template}/css/google-translate.css">
+  		<script src="{site_host}templates/{template}/js/jquery.cookie.min.js"></script>
+  		<script src="{site_host}templates/{template}/js/google-translate.js"></script>
+		<!-- Google Translate -->
+
 		{if($conf->new_year == 1 || $conf->win_day == 1)}
 		<link rel="stylesheet" href="{site_host}templates/{template}/css/holiday.css">
 		<script src="{site_host}templates/{template}/js/holiday.js"></script>
@@ -53,6 +59,10 @@
 
 		{files}
 		{other}
+
+		{if(isModuleActive('activity_rewards'))}	
+		<button class="smart-roulette__gift smart-roulette__gift_left d-none d-sm-block"> <a href="../activity_rewards"><img src="/templates/standart/img/gift.svg" width="80" alt="Подарок" title="Награды за твое посещение"></a></button>
+		{/if}
 	</head>
 	<body>
 		{if($conf->new_year == 1)}
@@ -71,3 +81,19 @@
 			<span class="m-icon icon-remove result_error_b disp-n"></span>
 		</div>
 		<div id="result_player"></div>
+
+		<div class="d-none d-sm-block">
+		<div class="language">
+   			<img src="{site_host}templates/{template}/img/lang/lang__ru.png" alt="ru" data-google-lang="ru" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__en.png" alt="en" data-google-lang="en" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__de.png" alt="de" data-google-lang="de" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__fr.png" alt="fr" data-google-lang="fr" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__pt.png" alt="pt" data-google-lang="pt" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__es.png" alt="es" data-google-lang="es" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__it.png" alt="it" data-google-lang="it" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__zh.png" alt="zh" data-google-lang="zh-CN" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__ar.png" alt="ar" data-google-lang="ar" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__nl.png" alt="nl" data-google-lang="nl" class="language__img">
+   			<img src="{site_host}templates/{template}/img/lang/lang__sv.png" alt="sv" data-google-lang="sv" class="language__img">
+		</div>
+	</div>

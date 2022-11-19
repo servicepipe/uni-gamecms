@@ -16,7 +16,7 @@
 	{if(is_worthy("g") && '{status-id}' == '2')}
 	<div class="block">
 		<div class="block_head">
-			Панель модератора
+			Панель упавления
 		</div>
 		
 		<div class="d-flex justify-content-center">
@@ -38,6 +38,7 @@
 			{else}
 			<hr>
 			{/if}
+			<li><span class="h">Сервер:</span> {server_name}</li>
 			<li><span class="h">Вакансия:</span> {vacancy}</li>
 			<li><span class="h">Автор:</span> <a href="/profile?id={uid}" target="_blank" title="Группа: {gp_name}" style="color: {gp_color};">{author}</a></li>
 			<li><span class="h">Дата создания:</span> {date}</li>

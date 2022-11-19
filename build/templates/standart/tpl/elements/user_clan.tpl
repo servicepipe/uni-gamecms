@@ -1,0 +1,1 @@
+<a href="../clans?id={url}">{clan}</a>

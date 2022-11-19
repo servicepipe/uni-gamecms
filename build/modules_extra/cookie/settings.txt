@@ -1,5 +1,0 @@
-[
-	"name" => "cookie",
-	"files" => "<link rel=\"stylesheet\" href=\"../modules_extra/cookie/css/primary.css?v={cache}\"><script src=\"../modules_extra/cookie/js/primary.js?v={cache}\"></script>",
-	"info" => "Небольшой, но очень полезный модуль, который будет уведомлять Ваших новых пользователей о том, что Ваш сайт использует хранение Cookie файлов."
-]

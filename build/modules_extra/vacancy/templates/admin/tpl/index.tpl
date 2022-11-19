@@ -10,7 +10,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Конфигурации</div>
 			<div class="panel-body">
-				<label class="mt-4 mb-0" for="">Лимит товаров на странице</label>
+				<label class="mt-4 mb-0" for="">Лимит вакансии на странице</label>
 				<div class="input-group">
 					<span class="input-group-btn">
 						<button onclick="SendConfigs('limit_vacancy', $('#limit_vacancy').val());" class="btn btn-default" type="button">Изменить</button>

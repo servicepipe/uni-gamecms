@@ -13,6 +13,10 @@
 		</div>
     {/if}
 
+	{if(isModuleActive('donation_widget'))}
+	<div id='dw_donations'><script>dw_donations();</script></div>
+	{/if}
+
 	<div class="block purse">
 		<div class="row">
 			<div class="col-lg-3">

@@ -1,0 +1,1 @@
+<a class="user_visit" target="_blank" href="../profile?id={id}" tooltip="yes" title="" data-original-title="{login}"><img src="../{avatar}" alt="{login}"></a>

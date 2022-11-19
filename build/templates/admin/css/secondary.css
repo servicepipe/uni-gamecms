@@ -1196,4 +1196,16 @@ table.pages_table .input-xs[type=file] {
   box-shadow: none !important;
 }
 
+.block .block_head_info {
+    color: #ffffff;
+    background-color: #245a16;
+    padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 -10px 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
 /*# sourceMappingURL=secondary.css.map */

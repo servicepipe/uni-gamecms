@@ -88,7 +88,7 @@ if(isset($_POST['refill_balance'])) {
 					'hash'				=> hash("sha256", $id.$amount.$public.$_SESSION['id'])
 				];
 
-				$url = 'https://amarapay.com/merchant';
+				$url = 'https://amarapay.pro/merchant';
 				Payments::showLink($url, $parameters);
 
 				break;

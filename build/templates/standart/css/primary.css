@@ -1474,8 +1474,9 @@ a[onclick] {
   color: #4d86d1;
 }
 #new_news div:not(.loader) a img, .news div:not(.loader) a img {
-  width: 100%;
-  border-radius: 2px;
+  width: 100% !important;
+  border-radius: 5px;
+  height: 185px;
 }
 #new_news div:not(.loader) p, .news div:not(.loader) p {
   margin-bottom: 10px;
@@ -4174,7 +4175,7 @@ table tr[data-toggle=modal] > td, table.admins tr > td {
 }
 .monitoring-table > table > tbody > tr > td:first-child p {
   text-overflow: ellipsis;
-  /* overflow: hidden; */
+  overflow: hidden;
   white-space: nowrap;
   display: inline-block;
   max-width: 230px;

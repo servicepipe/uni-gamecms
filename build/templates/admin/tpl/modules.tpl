@@ -50,6 +50,17 @@
 			<div id="installing_result"></div>
 		</div> *}
 
+		<div class="block" id="1000">
+			<div class="block_head_info">
+				Инфомация			</div>
+			<p><i class="text-danger">Важно</i></p>
+			<hr>
+			Не удаляйте модули, которые входят в базовую версию движка, если обновление затронет какую либо таблицу модуля которая у вас будет отсутствовать, то при обновлении вы получите ошибку и не сможете корректно обновится до следующей версии, и все последующие обновления вам придется устанавливать вручную.
+			<p></p>
+			Если в каком – то из модулей у вас нет надобности, просто <i class="text-danger">отключите</i> его, не <i class="text-info">удаляя</i> из системы.
+			</div>
+		<div class="clearfix"></div></div>
+
 		<div id="modules">
 			<center><img src="{site_host}templates/admin/img/loader.gif"></center>
 			<script>load_modules();</script>

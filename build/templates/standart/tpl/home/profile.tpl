@@ -184,7 +184,9 @@
 				</div>
 			</div>
 
-			<div class="progression" data-index="{profile_id}"></div>
+			{include file="../../../modules_extra/user_visit/templates/users_visit.tpl"}
+
+			<div class="progression" data-index="{profile_id}"></div>	
 
 		</div>
 
@@ -267,7 +269,11 @@
 						<tr>
 							<td>Ник на сервере</td>
 							<td colspan="3">{nick}</td>
-						</tr>					
+						</tr>
+						<tr>
+							<td>Клан</td>
+							<td colspan="3">{func Widgets:user_clan('{profile_id}')}</td>
+						</tr>						
 						<tr>
 							<td colspan="4">
 								<h4>Уровень профиля</h4>

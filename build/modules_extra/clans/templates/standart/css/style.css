@@ -1,0 +1,186 @@
+svg {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.shop {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.shop .bg {
+	border-radius: 8px;
+	height: 200px;
+	width: 100%;
+	background-size: cover;
+	background-position: 50%;
+}
+
+.shop .bg .price {
+	padding: 12px;
+	position: absolute;
+	background-color: #0044c182;
+	border-top-left-radius: 8px;
+}
+
+.shop span {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 8px !important;
+	color: #fbff00;
+	text-shadow: 1px 1px #506a00;
+}
+
+ul.applications,
+ul.players,
+ul.info,
+ul.clans {
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+ul.applications li,
+ul.players li,
+ul.info li,
+ul.clans li {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	list-style-type: none;
+	height: 32px;
+	font-size: 12px;
+	margin-bottom: 32px;
+}
+
+ul.applications li:last-child,
+ul.players li:last-child,
+ul.info li:last-child,
+ul.clans li:last-child {
+	margin-bottom: 0;
+}
+
+ul.applications li {
+	width: 100%;
+	height: 40px;
+}
+
+ul.applications .btn-sm {
+	margin-bottom: 0;
+}
+
+ul.applications li .name {
+	font-size: 16px;
+	width: 40%;
+}
+
+ul.applications li .buttons {
+	display: flex;
+	justify-content: end;
+	width: 60%;
+}
+
+.clans.more .details img,
+ul.players li img,
+ul.info li img,
+ul.clans li img {
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	border-radius: 8px;
+}
+
+.clans.more .details p,
+ul.players li p,
+ul.info li p,
+ul.clans li .content p {
+	margin-bottom: 0;
+}
+
+.clans.more .details span,
+ul.players li span,
+ul.info li span,
+ul.clans li .content span {
+	color: #7c7c7c;
+	margin-bottom: 0;
+}
+
+ul.players li .nickname,
+ul.players li .info,
+ul.players li .player,
+ul.players li .rating,
+ul.players li .date-enter {
+	display: flex;
+	align-items: center;
+	width: 25%;
+}
+
+ul.clans li .name,
+ul.clans li .creator,
+ul.clans li .users, 
+ul.clans li .rating,
+ul.clans li .date-create {
+	display: flex;
+	align-items: center;
+	width: 20%;
+}
+
+svg {
+	margin-right: 8px;
+}
+
+button svg {
+	margin-right: 0;
+}
+
+.clans.more .cover {
+	min-height: 20rem;
+	background-position: center;
+	margin-bottom: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.clans.more .details {
+	display: inline-grid;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	background-color: #222127;
+	margin-bottom: 30px;
+	border-radius: 0 0 8px 8px;
+	padding: 16px;
+}
+
+.clans.more .details img {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+}
+
+.bi.bi-star:hover {
+	cursor: pointer;
+}
+
+.bi.bi-star.active {
+	color: #a04cd5;
+}
+
+#list_role .input-group input.form-control {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+#list_role .input-group select.form-control {
+	border-radius: 0;
+}
+
+.input-group-btn button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.input-group input.form-control[readonly] {
+	background-color: #36353e !important;
+}

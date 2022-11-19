@@ -1,0 +1,27 @@
+.user_visit {
+	width: 36px;
+	height: 36px;
+}
+.user_visit img {
+	width: 36px;
+	height: 36px;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	border-radius: 4px;
+}
+.users-visit-frame {
+	position: relative;
+}
+.users-visit-frame img {
+	background: none;
+	filter: none;
+	display: block;
+	padding: 0px;
+}
+.users-visit-avatar-frame {
+	position: absolute;
+}
+.users-visit-avatar-frame > img {
+	transform: scale(1.23);
+	background: none;
+}

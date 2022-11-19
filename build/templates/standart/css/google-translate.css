@@ -1,0 +1,49 @@
+/* Виджет назначает height: 100% , что может привести к непредксказуемому результату, если вы этого не планровали */
+
+html {
+    height: auto !important;
+}
+
+/* Фиксируем позицию body, которую меняет панель гугла */
+
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Прячем панель гугла */
+
+.skiptranslate {
+    display: none !important;
+}
+
+/* Убираем подсветку ссылок */
+
+.goog-text-highlight {
+    background-color: inherit;
+    box-shadow: none;
+    box-sizing: inherit;
+}
+
+/* language */
+
+.language {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.language__img {
+    margin: 2px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.language__img:hover,
+.language__img_active {
+    opacity: 1;
+}

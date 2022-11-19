@@ -57,6 +57,7 @@
 		->set("{uid}", $vacancy->uid)
 		->set("{vid}", $vacancy->id)
 		->set("{author}", Vacancy::GetValidName($vacancy->uid))
+		->set("{server_name}", Vacancy::GetServerName($vacancy->sid))
 		->set("{vacancy}", Vacancy::GetVacancyName($vacancy->vacancy))
 		->set("{messages}", Vacancy::GetMessages($vacancy->id))
 		->set("{info}", Vacancy::Parse($vacancy->info))

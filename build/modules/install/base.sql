@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
   `complaints_lim` int NOT NULL DEFAULT '30',
   `stand_rights` int NOT NULL DEFAULT '1',
   `stand_balance` float NOT NULL DEFAULT '0',
-  `version` varchar(10) NOT NULL DEFAULT '5.8.8',
+  `version` varchar(10) NOT NULL DEFAULT '5.9.0',
   `col_login` int NOT NULL DEFAULT '30',
   `admins_ids` varchar(80) NOT NULL DEFAULT '1',
   `off_message` varchar(250) NOT NULL DEFAULT 'Сайт находится в стадии разработки',
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `config__secondary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `config__secondary` (`id`, `vk_api`, `vk_id`, `vk_key`, `vk_service_key`, `steam_api`, `steam_key`, `fb_api`, `fb_id`, `fb_key`, `mon_gap`, `mon_time`, `mon_api`, `mon_key`, `bans_lim`, `muts_lim`, `users_lim`, `bans_lim2`, `news_lim`, `stats_lim`, `complaints_lim`, `stand_rights`, `stand_balance`, `version`, `col_login`, `admins_ids`, `off_message`, `update_link`, `return_services`, `bad_nicks_act`, `min_amount`, `bonuses`, `auto_steam_id_fill`, `steam_id_format`) VALUES
-(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.8.8', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
+(1, 2, NULL, NULL, NULL, 2, NULL, 2, NULL, NULL, 60, 1634158027, 2, 'unigamecms.ru', 30, 30, 12, 30, 10, 30, 30, 2, 0, '5.9.0', 30, '1', 'Ведутся технические работы', '', 2, 2, 10, 2, 2, 1);
 
 CREATE TABLE IF NOT EXISTS `config__prefixes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -546,14 +546,16 @@ INSERT INTO `modules` (`id`, `name`, `tpls`, `active`, `info`, `files`, `client_
 (10, 'activity_rewards', 'none', 0, 'Модуль позволяет выдавать поощрения пользователям, ежедневно посещающим сайт\r\n<br>\r\n<br>\r\nКод баннера наград: <br>\r\n<code>\r\n&lt;div id=\"activity-rewards-banner\"&gt;\r\n	&lt;script&gt;getRewardsBanner(\'#activity-rewards-banner\');&lt;/script&gt;\r\n&lt;/div&gt;\r\n</code>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards\" target=\"_blank\">Настройка модуля</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/activity_rewards_progress\" target=\"_blank\">Прогресс пользователей</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../activity_rewards\" target=\"_blank\">activity_rewards - страница с информацией</a>', '<script src=\"{site_host}modules_extra/activity_rewards/ajax/ajax.js?v={cache}\"></script>\n<link rel=\"stylesheet\" href=\"{site_host}modules_extra/activity_rewards/templates/{template}/css/style.css?v={cache}\">', 'unigamecms.ru'),
 (11, 'sortition', 'none', 0, 'Модуль позволяет устраивать розыгрыши на Вашем проекте. Есть возможность установки нескольких мест для победителей, а также нескольких призов для каждого. Модуль позволяет произвести розыгрыш либо по истечению определенного срока, либо по достижению необходимого количества участников<br><hr>Для добавления блока с розыгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition();&lt;/script&gt;&lt;/div&gt;</code><br>Для добаления минимизированного блока с розгрышем на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'sortition\'&gt;	&lt;script&gt;get_sortition_lite();&lt;/script&gt;&lt;/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sortition\' target=\'_blank\'>Настройка розыгрыша</a><a class=\'btn btn-default btn-sm f-l\' href=\'../sortition\' target=\'_blank\'>sortition - страница розыгрыша</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/sortition/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/sortition/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
 (12, 'donation_widget', 'none', 0, 'Модуль позволяет добавить систему пожертвований прямо на Ваш сайт.<br><hr>Для добавления виджета пожертвований на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы:<br><code>&ltdiv id=\'dw_donations\'&gt;&ltscript&gt;dw_donations();&lt/script&gt;&lt/div&gt;</code><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/donation_widget\' target=\'_blank\'>Управление модулем</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../donation\' target=\'_blank\'>Страница пожертвований - donation</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/donation_widget/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/donation_widget/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
-(13, 'cases', 'none', 1, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
+(13, 'cases', 'none', 0, 'Модуль позволяет организовать на сайте систему магазина кейсов, тем самым пользователям предоставляется возможность открывать кейсы за различные суммы и выигрывать всевозможные услуги на сайте: деньги, привилегии, услуги из других модулей. <br><code>&lt;div id=\'case_banner\'&gt;<br>&lt;script&gt;get_case_banner();&lt;/script&gt;<br>&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/cases\' target=\'_blank\'>Настройка кейсов</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/open_cases\' target=\'_blank\'>Список открытий кейсов</a><a class=\'btn btn-default btn-sm f-l\' href=\'../cases\' target=\'_blank\'>cases - страница магазина кейсов</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/cases/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/cases/templates/{template}/css/style.css?v={cache}\'>', 'unigamecms.ru'),
 (14, 'rcon_shop', 'none', 1, '<p>Универсальный магазин для продажи различных услуг и товаров. Модуль работает\r\nпутем отправки rcon команд на игровые сервера, таким образом через него можно\r\nосуществлять продажу всего, что можно сделать через консоль сервера, начиная от\r\nвыдачи различных кредитов и опыта, заканчивая сменой названия сервера или других\r\nего конфигураций.</p>\r\n<p><b>Важно!</b> Для работы модуля на вебхостинге должны быть открыты udp/tcp\r\n27000-27999 порты и настроена работа rcon команд в настройках серверов.</p>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop\" target=\"_blank\">Настройка магазина</a>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/rcon_shop_buys\" target=\"_blank\">Статистика продаж</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../shop\" target=\"_blank\">shop - страница магазина</a>', '', 'unigamecms.ru'),
 (15, 'digital_store', 'none', 1, 'Модуль позволяет осуществлять продажу цифровых товаров на вашем сайте. <br>Для добавления блока с магазином на любую другую страницу, необходимо вставить код, приведенный ниже, в шаблон требуемой страницы: <br><code>&lt;div id=\'digital_store\' class=\'row\'&gt;	&lt;script&gt;laod_digital_store(0)&lt;/script&gt;&lt;/div&gt;</code><br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store\' target=\'_blank\'>Настройка товара</a><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/digital_store_sales\' target=\'_blank\'>Статистика продаж</a><a class=\'btn btn-default btn-sm f-l\' href=\'../digital_store\' target=\'_blank\'>Страница магазина - digital_store</a><div class=\'clearfix\'></div>', '<script src=\'{site_host}modules_extra/digital_store/ajax/ajax.js?v={cache}\'></script><link rel=\'stylesheet\' href=\'{site_host}modules_extra/digital_store/templates/{template}/css/primary.css?v={cache}\'>', 'unigamecms.ru'),
 (16, 'modal_viewer', 'none', 0, 'Модуль, который позволит Вам открывать модальное окно при заходе пользователя.<br>\r\nДанный модуль позволит Вам рассказать о своих новостях, нововедениях или скидках.<br>\r\nДля корректной работы модуля, Вам потребутеся внести скрипт ниже в файл: <span class=\"text-success\">templates/ваш_шаблон/tpl/bottom.tpl</span><br>\r\n<code>&ltdiv id=\"modal_viewer\"&gt;&lt/div&gt;</code><br>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/admin/modal_viewer\" target=\"_blank\">Настройки модуля</a>\r\n<div class=\"clearfix\"></div>', '<script src=\"{site_host}modules_extra/modal_viewer/ajax/ajax.js?v={cache}\"></script>', 'unigamecms.ru'),
 (17, 'demos', 'none', 0, 'Модуль позволяет отображать список демо записей с ваших серверов. <br><br>Необходима установка плагина\r\n<a href=\"https://gamecms.ru/wiki/demos\" target=\"_blank\">Auto recorder</a>\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../admin/demos\" target=\"_blank\">Настройка серверов</a>\r\n<a class=\"btn btn-default btn-sm f-l\" href=\"../demos\" target=\"_blank\">demos - страница с демками</a>', '', 'unigamecms.ru'),
 (18, 'skins_store', 'none', 0, 'Данный модуль позволит Вам добавить дополнительный магазин для покупки игровых скинов на Ваших серверах.<br>\r\nМодуль позволяет создать скины под каждый сервер индивидуально.\r\n<hr>\r\n<a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/admin/skins_store\" target=\"_blank\">Настройки модуля</a><a class=\"btn btn-default btn-sm f-l mr-5\" href=\"/store/skins\" target=\"_blank\">Страница магазина</a>\r\n<div class=\"clearfix\"></div>', '', 'unigamecms.ru'),
 (19, 'shop_key', 'none', 0, 'Модуль позволяет пользователям покупать ключи и активировать их в игре для получения кредитов, банк уровней, золота, приватных рас. <br>Работает совместно с данными плагинами: <a href=\'http://hlmod.ru/resources/keys-core.438/\' target=\'_blank\'>[Keys] Core 1.4+</a>, <a href=\'http://hlmod.ru/resources/keys-shop.439/\' target=\'_blank\'>[Keys] Shop 1.1+</a>, <a href=\'http://hlmod.ru/resources/keys-wcs.446/\' target=\'_blank\'>[Keys] WCS <span class=\'muted\'>1.0+</span></a><br><br>Параметры:<br><a href=\'../shop_key\' target=\'_blank\'>shop_key</a> - страница покупки кредитов, можете добавить ссылку на нее через редактор меню<br>ftp server: logs/shop_key.txt - лог покупок кредитов<br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/sk_servers\' target=\'_blank\'>Подключить сервера</a><a class=\'btn btn-default btn-sm f-l\' href=\'../admin/sk_services\' target=\'_blank\'>Создать услуги</a><div class=\'clearfix\'></div>', '', 'unigamecms.ru'),
-(20, 'buy_key', 'none', 0, 'Модуль позволяет покупать ключи и активировать их в игре для активации ВИП услуги. <br>Работает совместно с данным плагинами: <a href=\'http://hlmod.ru/resources/keys-core.438/\' target=\'_blank\'>[Keys] Core 1.4+</a> и <a href=\'http://hlmod.ru/resources/keys-vip.440/\' target=\'_blank\'>[Keys] VIP 1.2+</a><br><br>Параметры:<br><a href=\'../buy_key\' target=\'_blank\'>buy_key</a> - страница покупки услуг, можете добавить ссылку на нее через редактор меню<br>ftp server: logs/buy_key.txt - лог покупок привилегий<br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/bk_servers\' target=\'_blank\'>Подключить сервера</a><a class=\'btn btn-default btn-sm f-l\' href=\'../admin/bk_services\' target=\'_blank\'>Создать услуги</a><div class=\'clearfix\'></div>', '', 'unigamecms.ru');
+(20, 'buy_key', 'none', 0, 'Модуль позволяет покупать ключи и активировать их в игре для активации ВИП услуги. <br>Работает совместно с данным плагинами: <a href=\'http://hlmod.ru/resources/keys-core.438/\' target=\'_blank\'>[Keys] Core 1.4+</a> и <a href=\'http://hlmod.ru/resources/keys-vip.440/\' target=\'_blank\'>[Keys] VIP 1.2+</a><br><br>Параметры:<br><a href=\'../buy_key\' target=\'_blank\'>buy_key</a> - страница покупки услуг, можете добавить ссылку на нее через редактор меню<br>ftp server: logs/buy_key.txt - лог покупок привилегий<br><hr><a class=\'btn btn-default btn-sm f-l mr-5\' href=\'../admin/bk_servers\' target=\'_blank\'>Подключить сервера</a><a class=\'btn btn-default btn-sm f-l\' href=\'../admin/bk_services\' target=\'_blank\'>Создать услуги</a><div class=\'clearfix\'></div>', '', 'unigamecms.ru'),
+(21, 'clans', 'none', 0, 'Модуль кланов, позволит вам создать систему команд на вашем игровом проекте<br><br><a class=\"btn btn-default btn-sm f-l mr-5\" href=\"../clans\" target=\"_blank\">Перейти</a>', '', 'unigamecms.ru'),
+(22, 'users_visit', 'none', 1, 'Данный модуль отобразит в вашем профиле ваших гостей', '<script src=\"{site_host}/modules_extra/user_visit/ajax/ajax.js?v={cache}\"></script> <link rel=\"stylesheet\" href=\"{site_host}/modules_extra/user_visit/templates/style.css?v={cache}\"\">', 'unigamecms.ru');
 
 CREATE TABLE IF NOT EXISTS `money__actions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -775,7 +777,9 @@ INSERT INTO `pages` (`id`, `file`, `url`, `name`, `title`, `description`, `keywo
 (116, 'modules_extra/shop_key/base/admin/services.php', 'admin/sk_services', 'admin/sk_services', 'Настройка услуг модуля shop_key', 'Настройка услуг модуля shop_key', 'Настройка услуг модуля shop_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 19, 0, 0),
 (117, 'modules_extra/buy_key/base/index.php', 'buy_key', 'buy_key', 'Покупка VIP', 'Покупка VIP', 'Покупка VIP', 1, 'files/miniatures/standart.jpg', 2, 2, 1, 1, 20, 0, 0),
 (118, 'modules_extra/buy_key/base/admin/servers.php', 'admin/bk_servers', 'admin/bk_servers', 'Настройка услуг модуля buy_key', 'Настройка услуг модуля buy_key', 'Настройка услуг модуля buy_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 20, 0, 0),
-(119, 'modules_extra/buy_key/base/admin/services.php', 'admin/bk_services', 'admin/bk_services', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 20, 0, 0);
+(119, 'modules_extra/buy_key/base/admin/services.php', 'admin/bk_services', 'admin/bk_services', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 'Настройка серверов модуля buy_key', 1, 'files/miniatures/standart.jpg', 0, 0, 2, 1, 20, 0, 0),
+(120, 'modules_extra/clans/routing/index.php', 'clans', 'clans', 'Кланы', 'Кланы', 'Кланы, сайта, игрового, проекта', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 21, 0, 0),
+(121, 'modules_extra/clans/routing/shop.php', 'clans/shop', 'clans/shop', 'Магазин', 'Магазин', 'Магазин, клана, игрового, проекта', 1, 'files/miniatures/standart.jpg', 1, 1, 1, 1, 21, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `pages__classes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -1685,3 +1689,92 @@ ALTER TABLE `bk_services_times`
 
 ALTER TABLE `bk_services_times`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE `clans` (
+  `id` int NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `logotype` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT 'none.jpg',
+  `cover` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT 'none.jpg',
+  `status` varchar(64) NOT NULL DEFAULT '',
+  `rating` int NOT NULL DEFAULT '0',
+  `uid` int NOT NULL,
+  `max_users` int NOT NULL DEFAULT '10',
+  `balance` int NOT NULL DEFAULT '0',
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `clans__configs` (
+  `id` int NOT NULL,
+  `price` int NOT NULL DEFAULT '100',
+  `give_like` int NOT NULL DEFAULT '25',
+  `currency` varchar(128) NOT NULL DEFAULT 'RUB'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `clans__configs` (`id`, `price`, `give_like`, `currency`) VALUES
+(1, 100, 25, '&#x20bd;');
+
+CREATE TABLE `clans__groups` (
+  `id` int NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `flags` varchar(64) NOT NULL DEFAULT 'z'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `clans__groups` (`id`, `name`, `flags`) VALUES
+(1, 'Глава клана', 'abcdefghijklmnopqrstuvwxyz'),
+(2, 'Заместитель', 'abcdefghijklmnopqrstvwxyz'),
+(3, 'Модератор', 'az'),
+(4, 'Участник', 'z');
+
+CREATE TABLE `clans__joined` (
+  `id` int NOT NULL,
+  `cid` int NOT NULL,
+  `uid` int NOT NULL,
+  `rating` int NOT NULL DEFAULT '0',
+  `status` int NOT NULL DEFAULT '2',
+  `gid` int NOT NULL DEFAULT '4',
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `clans__likes` (
+  `id` int NOT NULL,
+  `uid` int NOT NULL,
+  `fid` int NOT NULL,
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `clans__shop` (
+  `id` int NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `image` varchar(64) NOT NULL DEFAULT 'none.jpg',
+  `price` int NOT NULL DEFAULT '10',
+  `date` varchar(64) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `clans__shop` (`id`, `name`, `image`, `price`, `date`) VALUES
+(1, 'Добавить 10 слотов', 'slots.jpg', 50, '2022-04-21 21:29:38');
+
+ALTER TABLE `clans` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans__configs` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans__groups` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans__joined` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans__likes` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans__shop` ADD PRIMARY KEY (`id`);
+ALTER TABLE `clans` MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `clans__configs` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `clans__groups` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `clans__joined` MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `clans__likes` MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `clans__shop` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+CREATE TABLE `users__visit` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_visit` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `users__visit`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users__visit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
